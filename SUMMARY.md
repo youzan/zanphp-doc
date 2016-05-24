@@ -1,6 +1,6 @@
 # Summary
 
 * [简介](README.md)
-* 安装
+* [安装](yz-swoole.md)
    * 有赞Swoole
 
