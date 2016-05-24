@@ -2,5 +2,5 @@
 
 * [简介](README.md)
 * [安装](install.md)
-   * 有赞Swoole
+   * [有赞Swoole](yz-swoole.md)
 
