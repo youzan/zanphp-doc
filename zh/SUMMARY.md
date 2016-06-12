@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [get started]
+* get started
     * [introduction] (README.md)
     * [A simple tutorial](tutorial.md)
 * [installation and configuration]
