@@ -18,7 +18,7 @@
     * [连接池](connection_pool.md)
         * [用法][use_connection_pool.md)
         * [内置连接池](build_in_pools.md)
-            * [mysql][mysql_connection_pool.md)
+            * [mysql](mysql_connection_pool.md)
             * [log](log_connection_pool.md)
             * [redis](redis_connection_pool.md)
     * [database operatrion]
