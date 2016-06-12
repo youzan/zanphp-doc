@@ -27,28 +27,28 @@
     * [Nosql](nosql.md)
         * [redis](redis.md)
         * [kv](kv.md)
-    * [SDKS]
-        * [MQ]
-        * [nosql]
-        * [SMS]
-        * [Mail]
-        * [Qrcode]
-        * [Barcode]
-        * [ShortUrl]
+    * [SDKs](sdks.md)
+        * [MQ](libs/sdks/mq.md)
+        * [nosql](libs/sdks/nosql.md)
+        * [SMS](libs/sdks/sms.md)
+        * [Mail](libs/sdks/mail.md)
+        * [Qrcode](libs/sdks/qrcode.md)
+        * [Barcode](libs/sdks/barcode.md)
+        * [ShortUrl](libs/sdks/shorturl.md)
     * [View]
     * [Testing]
-        * [unitTest]
-        * [FunctionalTest]
-        * [UiTest]
+        * [unitTest](libs/testing/unittest.md)
+        * [FunctionalTest](libs/testing/functional_test.md)
+        * [UiTest](libs/testing/uitest.md)
     * [Utilities]
     * [Exceptions]
-* [soa]
-    * [trace]
-    * [service discovery]
-    * [logging]
-    * [monitor]
-    * [load balance]
-* [Zan at the Core]
-* [tools]
-* [Appendices]
+* [soa](soa.md)
+    * [trace](soa/trace.md)
+    * [service discovery](soa/service_discovery.md)
+    * [logging](soa/logging.md)
+    * [monitor](soa/monitor.md)
+    * [load balance](soa/lb.md)
+* [Zan at the Core](zan_core.md)
+* [tools](tools.ms)
+* [Appendices](appendices.md)
 
