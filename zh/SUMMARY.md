@@ -1,11 +1,9 @@
-# Summary
+# Zan PHP
 
-* [Introduction](README.md)
-* get started
-    * [introduction](README.md)
-    * [A simple tutorial](tutorial.md)
-* [installation and configuration]
-* [Build Http Server]
+* [简介](README.md)
+* [installation](install.md)
+* Build Http Server
+    * [一分钟起步] 
     * [project structure](http_project_dir.md)
     * [configuration](http_config.md)
     * [request flow](http_request_flow.md)
