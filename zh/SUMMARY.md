@@ -2,15 +2,15 @@
 
 * [Introduction](README.md)
 * get started
-    * [introduction] (README.md)
+    * [introduction](README.md)
     * [A simple tutorial](tutorial.md)
 * [installation and configuration]
 * [Build Http Server]
     * [project structure](http_project_dir.md)
     * [configuration](http_config.md)
     * [request flow](http_request_flow.md)
-    * [view] (view.md)
-    * [Exception handle] (http_exception.md)
+    * [view](view.md)
+    * [Exception handle](http_exception.md)
 * [Build Tcp Server]
     * [project structure](tcp_project_dir.md)
     * [configuration](tcp_config.md)
