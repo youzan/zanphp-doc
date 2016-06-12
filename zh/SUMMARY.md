@@ -21,7 +21,7 @@
             * [mysql](mysql_connection_pool.md)
             * [log](log_connection_pool.md)
             * [redis](redis_connection_pool.md)
-    * [database operatrion]
+    * [数据库](db.md)
         * [SqlMap](sqlmap.md)
         * [Mysql](mysql.md)
     * [Nosql](nosql.md)
