@@ -16,7 +16,7 @@
     * [request flow](tcp_request_flow.md)
 * [libs](zan_libs.md)
     * [连接池](connection_pool.md)
-        * [How to][use_connection_pool.md)
+        * [用法][use_connection_pool.md)
         * [build in Pools]
             * [mysql][mysql_connection_pool.md)
             * [log](log_connection_pool.md)
