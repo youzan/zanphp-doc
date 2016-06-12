@@ -15,7 +15,7 @@
     * [protocal](thrift.md)
     * [request flow](tcp_request_flow.md)
 * [libs](zan_libs.md)
-    * [Connection Pool](connection_pool.md)
+    * [连接池](connection_pool.md)
         * [How to][use_connection_pool.md)
         * [build in Pools]
             * [mysql][mysql_connection_pool.md)
