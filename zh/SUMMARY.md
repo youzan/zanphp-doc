@@ -1,7 +1,7 @@
-# Zan PHP
+# ZanPHP
 
 * [简介](README.md)
-* [installation](install.md)
+* [安装](install.md)
 * Build Http Server
     * [一分钟起步] 
     * [project structure](http_project_dir.md)
