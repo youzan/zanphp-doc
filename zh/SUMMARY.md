@@ -41,8 +41,8 @@
         * [UnitTest](libs/testing/unittest.md)
         * [FunctionalTest](libs/testing/functional_test.md)
         * [UiTest](libs/testing/uitest.md)
-    * [Utilities]
-    * [Exceptions]
+    * [Utilities](lib/util.md)
+    * [Exceptions](libs/exception.md)
 * [soa](soa.md)
     * [Trace](soa/trace.md)
     * [Service discovery](soa/service_discovery.md)
