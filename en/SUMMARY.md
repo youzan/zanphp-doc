@@ -29,7 +29,7 @@
     * [Nosql](nosql.md)
         * [redis](redis.md)
         * [kv](kv.md)
-    * [SDKS]
+    * [SDKs]
         * [MQ]
         * [nosql]
         * [SMS]
