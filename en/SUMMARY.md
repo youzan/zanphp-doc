@@ -44,7 +44,7 @@
         * [UiTest](libs/testing/uitest.md)
     * [Utilities](lib/util.md)
     * [Exceptions](libs/exception.md)
-* [soa](soa.md)
+  * [SOA](soa.md)
     * [Trace](soa/trace.md)
     * [Service discovery](soa/service_discovery.md)
     * [Logging](soa/logging.md)
