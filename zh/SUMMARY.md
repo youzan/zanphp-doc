@@ -1,10 +1,10 @@
-# ZanPHP
+# Zan PHP
 
 * [简介](README.md)
 * [安装](install.md)
 * [创建web服务器](build_web_server.md)
     * [一分钟起步](web_in_one_minute.md)
-    * [project structure](http_project_dir.md)
+    * [项目目录结构](http_project_dir.md)
     * [configuration](http_config.md)
     * [request flow](http_request_flow.md)
     * [view](view.md)
@@ -35,9 +35,9 @@
         * [Qrcode](libs/sdks/qrcode.md)
         * [Barcode](libs/sdks/barcode.md)
         * [ShortUrl](libs/sdks/shorturl.md)
-    * [View]
-    * [Testing]
-        * [unitTest](libs/testing/unittest.md)
+    * [View](libs/view.md)
+    * [Testing](libs/testing.md)
+        * [UnitTest](libs/testing/unittest.md)
         * [FunctionalTest](libs/testing/functional_test.md)
         * [UiTest](libs/testing/uitest.md)
     * [Utilities]
