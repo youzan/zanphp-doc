@@ -10,7 +10,7 @@
     * [view](view.md)
     * [Exception handle](http_exception.md)
 * [创建tcp服务器](build_tcp_server.md)
-    * [project structure](tcp_project_dir.md)
+    * [项目目录结构](tcp_project_dir.md)
     * [configuration](tcp_config.md)
     * [protocal](thrift.md)
     * [request flow](tcp_request_flow.md)
