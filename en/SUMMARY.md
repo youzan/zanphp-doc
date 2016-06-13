@@ -23,27 +23,27 @@
             * [mysql](mysql_connection_pool.md)
             * [log](log_connection_pool.md)
             * [redis](redis_connection_pool.md)
-    * [database operatrion]
+    * [database operation](libs/db.md)
         * [SqlMap](sqlmap.md)
         * [Mysql](mysql.md)
     * [Nosql](nosql.md)
-        * [redis](redis.md)
-        * [kv](kv.md)
-    * [SDKs]
-        * [MQ]
-        * [nosql]
-        * [SMS]
-        * [Mail]
-        * [Qrcode]
-        * [Barcode]
-        * [ShortUrl]
-    * [View]
-    * [Testing]
-        * [unitTest]
-        * [FunctionalTest]
-        * [UiTest]
-    * [Utilities]
-    * [Exceptions]
+        * [Redis](redis.md)
+        * [Kv](kv.md)
+    * [SDKs](sdks.md)
+        * [MQ](libs/sdks/mq.md)
+        * [Nosql](libs/sdks/nosql.md)
+        * [SMS](libs/sdks/sms.md)
+        * [Mail](libs/sdks/mail.md)
+        * [Qrcode](libs/sdks/qrcode.md)
+        * [Barcode](libs/sdks/barcode.md)
+        * [ShortUrl](libs/sdks/shorturl.md)
+    * [View](libs/view.md)
+    * [Testing](libs/testing.md)
+        * [UnitTest](libs/testing/unittest.md)
+        * [FunctionalTest](libs/testing/functional_test.md)
+        * [UiTest](libs/testing/uitest.md)
+    * [Utilities](lib/util.md)
+    * [Exceptions](libs/exception.md)
 * [soa]
     * [trace]
     * [service discovery]
