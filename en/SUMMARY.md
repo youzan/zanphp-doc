@@ -44,13 +44,13 @@
         * [UiTest](libs/testing/uitest.md)
     * [Utilities](lib/util.md)
     * [Exceptions](libs/exception.md)
-* [soa]
-    * [trace]
-    * [service discovery]
-    * [logging]
-    * [monitor]
-    * [load balance]
-* [Zan at the Core]
-* [tools]
-* [Appendices]
+* [soa](soa.md)
+    * [Trace](soa/trace.md)
+    * [Service discovery](soa/service_discovery.md)
+    * [Logging](soa/logging.md)
+    * [Monitor](soa/monitor.md)
+    * [Load balance](soa/lb.md)
+* [Zan at the Core](zan_core.md)
+* [tools](tools.ms)
+* [Appendices](appendices.md)
 
