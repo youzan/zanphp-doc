@@ -52,5 +52,5 @@
     * [Load balance](soa/lb.md)
 * [Zan at the Core](zan_core.md)
 * [tools](tools.ms)
-* [Appendices](appendices.md)
+* [备注](appendices.md)
 
