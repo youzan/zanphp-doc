@@ -19,7 +19,7 @@
 * [libs]
     * [Connection Pool](connection_pool.md)
         * [How to](use_connection_pool.md)
-        * [build in Pools]
+        * [build in Pools](libs/pools/buildin.md)
             * [mysql](mysql_connection_pool.md)
             * [log](log_connection_pool.md)
             * [redis](redis_connection_pool.md)
