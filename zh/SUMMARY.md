@@ -1,4 +1,4 @@
-# Zan PHP 
+# Summary
 
 * [简介](README.md)
 * [安装](install.md)
@@ -41,7 +41,7 @@
         * [UnitTest](libs/testing/unittest.md)
         * [FunctionalTest](libs/testing/functional_test.md)
         * [UiTest](libs/testing/uitest.md)
-    * [Utilities](lib/util.md)
+    * [Utilities](libs/util.md)
     * [Exceptions](libs/exception.md)
 * [soa](soa.md)
     * [Trace](soa/trace.md)
