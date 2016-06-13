@@ -12,7 +12,7 @@
 * [创建tcp服务器](build_tcp_server.md)
     * [项目目录结构](tcp_project_dir.md)
     * [项目配置](tcp_config.md)
-    * [protocal](thrift.md)
+    * [协议](thrift.md)
     * [request flow](tcp_request_flow.md)
 * [libs](zan_libs.md)
     * [连接池](connection_pool.md)
