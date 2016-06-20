@@ -9,8 +9,8 @@
 # 如果你没有安装 Composer，你还得先安装它
 curl -sS https://getcomposer.org/installer | php
 ```
-
 Composer安装相关详见 [Composer Getting Started](https://getcomposer.org/doc/00-intro.md)
+
 
 接下来让我们来安装 zan-installer 吧！
 ```bash
