@@ -1,5 +1,5 @@
 # 一分钟起步
-如果你想在一分钟内上手Zan PHP框架，我们推荐你试试 zan-installer。
+如果你想在一分钟内上手Zan PHP框架，我们推荐你试试我们的脚手架工具：zan-installer。
 
 
 ## 安装
