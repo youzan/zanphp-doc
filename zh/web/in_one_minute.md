@@ -12,5 +12,9 @@ curl -sS https://getcomposer.org/installer | php
 
 Composer相关详见 [Composer Getting Started](https://getcomposer.org/doc/00-intro.md)
 
+```bash
+composer global require youzan/zan-installer
+```
+
 
 
