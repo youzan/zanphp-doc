@@ -10,7 +10,7 @@
 curl -sS https://getcomposer.org/installer | php
 ```
 
-Composer详见 [Composer Getting Started](https://getcomposer.org/doc/00-intro.md)
+Composer相关详见 [Composer Getting Started](https://getcomposer.org/doc/00-intro.md)
 
 
 
