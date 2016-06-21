@@ -20,13 +20,13 @@ return [
 ```
 以上面的debug配置为例：log://all/debug.log 解析之后：
 
-scheme为 log 代表日志类型；
+`scheme`为 log 代表日志类型；
 
-host 为 info 表示日志级别；
+`host` 为 info 表示日志级别；
 
-path 为 debug.log 表示 写入log的文件名（最终实际路径为项目的resource/log/debug.log）；
+`path` 为 debug.log 表示 写入log的文件名（最终实际路径为项目的resource/log/debug.log）；
 
-query 为 useBuffer=true&format=json 再次解析之后表示 启用buffer 和 格式化为json的形式存入log文件。
+`query` 为 useBuffer=true&format=json 再次解析之后表示 启用buffer 和 格式化为json的形式存入log文件。
 
 
 ## API
