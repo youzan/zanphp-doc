@@ -1,6 +1,6 @@
 #View
 ##约定
-- 目录结构
+###目录结构
 在src目录下，目前只支持module形式，并且视图文件必须位于module下的view中，如下所示：
 ``` php
 ├── Controller
@@ -13,7 +13,7 @@
         ├── Base.html
         └── Test.html
 ```
-- 大小写
+###大小写
 src下所有目录（包括文件）都采用大写字母开头，驼峰式的命名方式。
 ##涉及class及主要函数列表
 ###View.php
