@@ -42,7 +42,7 @@
        * [FunctionalTest](libs/testing/functional_test.md)
        * [UiTest](libs/testing/uitest.md)
    * [工具类](lib/util.md)
-       * Log
+       * [Log](lib/log.md)
    * [异常](libs/exception.md)
    * [DI](libs/di.md)
    * [SOA](soa.md)
