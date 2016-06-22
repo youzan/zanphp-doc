@@ -46,15 +46,32 @@ $css->load($index, $vendor = false)
 加载js文件，分为同步和异步
 ``` php
 $js = new Js(Event $event);
+//同步加载
 $js->syncLoad($index, $vendor = false, $crossorigin = false);
+//异步加载
 $js->asyncLoad($index, $vendor = false);
 ```
 ###JsVar.php
-负责后端跟前端通信，对数据进行了初步分组（详见注释）
+负责后端跟前端通信，对数据进行了初步分组（详见该类注释）
 ``` php
 $jsVar = new JsVar();
 $jsVar->setSession($key, $value);
 $jsVar->get();
+```
+###Layout.php
+布局类，将页面切分成各个block。
+``` php
+$layout = new Layout(Tpl $tpl, Event $event, $tplPath);
+//开始一个block
+$layout->block($blockName);
+//闭合一个block，必须配合block使用
+$layout->endBlock($blockName = null);
+//继承一个页面
+$layout->extend($tplPath);
+//调用父类block
+$layout->super($blockName = null);
+//设置一个占位的block，一般用在父类页面，使其能被子类block替换
+$layout->place($blockName);
 ```
 ##简单示例
 ###IndexController.php
