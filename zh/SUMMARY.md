@@ -7,7 +7,6 @@
    * [项目目录结构](web/project_dir.md)
    * [项目配置](web/config.md)
    * [请求处理流程](web/request_flow.md)
-   * [View](web/view.md)
    * [异常处理](web/exception.md)
 * [创建TCP服务器](build_tcp_server.md)
    * [项目目录结构](tcp/project_dir.md)
