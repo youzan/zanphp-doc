@@ -27,8 +27,7 @@ return [
 ];
 ```
 
-> Cache的配置文件位于 resource/cache下。Cache中 set和get方法的第一个参数表示文件路径，
-比如 Cache::set('aa.bb.cc', '',''),表示获取的是recource/cache/aa/bb文件下的cc。
+> Cache的配置文件位于 resource/cache下。Cache中 set和get方法的第一个参数表示文件路径，比如 Cache::set('aa.bb.cc', '',''),表示获取的是recource/cache/aa/bb文件下的cc。
 
 ``` php
 <?php
@@ -42,6 +41,7 @@ return [
     ],
 ];
 //connection 表示redis连接配置，cache存数据的真实$key值是将cc中的属性key的$s替换成用户使用时传入的key的字符串，
-exp是过期时间，单位是s
+//exp是过期时间，单位是s
 ```
+
 
