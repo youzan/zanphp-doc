@@ -1,5 +1,5 @@
 ## 连接池
-> 包含了数据库、reids、kvstore、syslog等模块链接的管理。
+> 管理项目中需要使用连接池的模块，提升服务性能。
 
 ###使用
 连接池在服务启动时进行初始化，初始化成功后，通过 ConnectionManager类获取链接。
@@ -26,5 +26,6 @@ return [
     ]
 ];
 ```
+目前已支持的engine类型有 mysqli、redis、syslog、novaClient、kVStore。
 
 
