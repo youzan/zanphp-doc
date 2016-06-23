@@ -2,8 +2,8 @@
 > 管理项目中需要使用连接池的模块，提升服务性能。
 
 ###使用
-连接池在服务启动时进行初始化，初始化成功后，通过 ConnectionManager类获取链接。
-####代码
+连接池在服务启动时进行初始化，初始化成功后，通过 ConnectionManager类获取连接。
+####获取连接
 ``` php
 $connection = (yield ConnectionManager::getInstance()->get($database));
 ```
