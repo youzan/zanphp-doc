@@ -145,6 +145,7 @@ $record = (yield Db::execute('dir_name.file_name.insert', $data));
 
 ```
 ### batch
+
 ``` php
 // SqlMap
 'batch_insert'=>[
@@ -155,30 +156,83 @@ $record = (yield Db::execute('dir_name.file_name.insert', $data));
 //调用
 $data = [
     'inserts' => [
-     [
-         'market_id' => 1111,
-         'goods_id' => 2222，
-    ],
- ];
- $record = (yield Db::execute('dir_name.file_name.insert', $data)); 
-
+        [
+            'market_id' => 1111,
+            'goods_id' => 2222，
+        ],
+        [
+            'market_id' => 222,
+            'goods_id' => 333，
+        ],
+    ]    
+];
+$record = (yield Db::execute('dir_name.file_name.inserts', $data)); 
 ```      
+
 ### update
+
 ``` php
+// SqlMap
 'update'=>[
     'require' => ['market_id','goods_id'],
     'limit'   => [],
     'sql'     => 'UPDATE market_goods SET #DATA# WHERE market_id = #{market_id} AND goods_id = #{goods_id} LIMIT 1'
-],
+]    
+//调用
+$data = [
+    'data' => [
+        'name' => 1111,
+        'time' => 2222，
+    ],
+    'var' => [
+        'market_id' => 222,
+        'goods_id' => 333，
+    ],    
+];
+$record = (yield Db::execute('dir_name.file_name.update', $data)); 
 ```
 ### delete
 ``` php
+// SqlMap
+'delete' => [
+    'require' => ['market_id','kdt_id','goods_id'],
+    'limit'   => [],
+    'sql'     => 'DELETE FROM market_goods WHERE market_id = #{market_id} AND kdt_id = #{kdt_id} AND goods_id = #{goods_id} LIMIT 1',
+]
+//调用
+$data = [
+    'var' => [
+        'market_id' => 222,
+        'goods_id' => 333，
+    ],    
+];
+$record = (yield Db::execute('dir_name.file_name.delete', $data)); 
 
 ```
+
 ### affected
-``` php
 
+``` php
+// SqlMap
+'affected_update'=>[
+    'require' => ['market_id','goods_id'],
+    'limit'   => [],
+    'sql'     => 'UPDATE market_goods SET #DATA# WHERE market_id = #{market_id} AND goods_id = #{goods_id} LIMIT 1'
+]    
+//调用
+$data = [
+    'data' => [
+        'name' => 1111,
+        'time' => 2222，
+    ],
+    'var' => [
+        'market_id' => 222,
+        'goods_id' => 333，
+    ],    
+];
+$record = (yield Db::execute('dir_name.file_name.affected_update', $data)); 
 ```
+
 ### row
 ``` php
 
