@@ -84,7 +84,7 @@ SqlMap 的key值前缀分隔符 _ 的首单词，定义了执行sql以后返回�
 如 row_by_market_id_goods_id 首个单词就是 row。
 
 目前支持以下几种：
-
+```php
 insert 单条插入 返回数据格式： int 值 last insert_id
 
 batch 多条插入 返回数据格式： bool
@@ -102,7 +102,7 @@ select 多行查询 返回数据格式： list 例子 [['id' => 1, 'name' => 'xx
 count 统计查询 返回数据格式： int
 
 raw 获取mysqli查询默认返回结果 返回数据格式： mixed
-
+```
 
 ## SqlMap 支持的标签
 
@@ -234,22 +234,81 @@ $record = (yield Db::execute('dir_name.file_name.affected_update', $data));
 ```
 
 ### row
+
 ``` php
+// SqlMap
+'row_by_market_id_goods_id' => [
+    'require' => ['market_id','goods_id'],
+    'limit'   => [],
+    'sql'     => 'SELECT * FROM market_goods WHERE market_id = #{market_id} AND goods_id = #{goods_id} LIMIT 1',
+]
+//调用
+$data = [
+    'var' => [
+        'market_id' => 222,
+        'goods_id' => 333，
+    ],
+    'limit' => '0, 10'
+];
+$record = (yield Db::execute('dir_name.file_name.row_by_market_id_goods_id', $data)); 
 
 ```
 
 ### select
 ``` php
+// SqlMap
+'select_by_market_id_goods_ids' => [
+    'require' => ['market_id','goods_id'],
+    'limit'   => [],
+    'sql'     => 'SELECT * FROM market_goods WHERE market_id = #{market_id} AND goods_id IN #{goods_id} #LIMIT#',
+]
+//调用
+$data = [
+    'var' => [
+        'market_id' => 222,
+        'goods_id' => [333,111,333,555]，
+    ],
+    'limit' => '0, 10'
+];
+$record = (yield Db::execute('dir_name.file_name.select_by_market_id_goods_ids', $data)); 
 
 ```
+
 ### count
 ``` php
-
+// SqlMap
+'count_by_market_id_audit_status'=>[
+    'require' => ['market_id','audit_status'],
+    'limit'   => [],
+    'sql'     => 'SELECT #COUNT# FROM market_goods WHERE market_id = #{market_id} AND audit_status = #{audit_status}',
+]
+//调用
+$data = [
+    'count' => '*',
+    'var' => [
+        'market_id' => 222,
+        'audit_status' => 1，
+    ],
+];
+$record = (yield Db::execute('dir_name.file_name.count_by_market_id_audit_status', $data)); 
 ```
 
 ### raw
 ``` php
+// SqlMap
+'raw_by_market_id_goods_ids' => [
+    'require' => ['market_id','goods_id'],
+    'limit'   => [],
+    'sql'     => 'SELECT * FROM market_goods WHERE market_id = #{market_id} AND goods_id IN #{goods_id} #LIMIT#',
+]
+//调用
+$data = [
+    'var' => [
+        'market_id' => 222,
+        'goods_id' => [333,111,333,555]，
+    ],
+    'limit' => '0, 10'
+];
+$record = (yield Db::execute('dir_name.file_name.raw_by_market_id_goods_ids', $data)); 
 
 ```
-
-
