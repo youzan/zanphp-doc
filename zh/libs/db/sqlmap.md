@@ -6,8 +6,8 @@
 
 
 ## 要求
-> 所有sql语句都要写在 SqlMap 里，非特殊情况，不允许使用#WHERE 标签。必须要明确的sql语句。
-> 例子：
+ 所有sql语句都要写在 SqlMap 里，非特殊情况，不允许使用#WHERE 标签。必须要明确的sql语句。
+ 例子：
 ``` php
    SELECT * FROM market_category WHERE market_id=#{market_id}  and parent_id= #{parent_id}  AND category_name= #{category_name}
 ```
@@ -15,6 +15,16 @@
 ``` php
    SELECT * FROM market_category WHERE #WHERE
 ```
+
+## 配置
+SqlMap 文件需要放在 resource/sql 目录下，sql内部结构不限。目录结构决定了调用是的key值。
+
+
+## 调用方式
+
+
+
+
 
 ## 用法
 
