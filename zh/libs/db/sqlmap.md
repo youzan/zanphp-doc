@@ -26,9 +26,21 @@ SqlMap 文件需要放在 resource/sql 目录下，sql内部结构不限。目�
    $record = (yield Db::execute('market.marketGoods.row_by_market_id_goods_id', $data)); 
 ```
 market.marketGoods.row_by_market_id_goods_id 
-market
 
+market 是目录名 resource/sql/market
 
+marketGoods 是文件名 resource/sql/market/marketGoods.php
+
+row_by_market_id_goods_id 是 marketGoods.php 这个SqlMap里面的 key 值
+``` php
+<?php
+return [
+    'row_by_market_id_goods_id'=>[
+        'require' => ['market_id','goods_id'],
+        'limit'   => [],
+        'sql'     => 'SELECT * FROM market_goods WHERE market_id = #{market_id} AND goods_id = #{goods_id} LIMIT 1',
+    ]
+```
 ## 用法
 
 ### insert
