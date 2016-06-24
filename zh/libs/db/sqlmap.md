@@ -8,8 +8,32 @@
 ## 要求
 > 所有sql语句都要写在 SqlMap 里，非特殊情况，不允许使用#WHERE 标签。必须要明确的sql语句。
 > 例子：
- ```
-   'SELECT * FROM market_category WHERE market_id=#{market_id}  and parent_id= #{parent_id}  AND category_name= #{category_name}',
+``` php
+   SELECT * FROM market_category WHERE market_id=#{market_id}  and parent_id= #{parent_id}  AND category_name= #{category_name}
+```
+禁止使用：
+``` php
+   SELECT * FROM market_category WHERE #WHERE
+```
+
+## 用法
+
+### insert
+
+### batch
+``` php
+      INSERT INTO market_goods #INSERTS#;
+```      
+### update
+
+### delete
+
+### select
+
+
+
+
+
 
 
 
