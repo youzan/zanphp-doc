@@ -32,6 +32,7 @@ market 是目录名 resource/sql/market
 marketGoods 是文件名 resource/sql/market/marketGoods.php
 
 row_by_market_id_goods_id 是 marketGoods.php 这个SqlMap里面的 key 值
+
 ``` php
 <?php
 return [
