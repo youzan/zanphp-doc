@@ -6,13 +6,8 @@
 
 流程：swoole_server在master进程启动后，获取api提供的services与method，发送post请求注册到注册中心。
 
- 
 ## 服务发现
 服务发现，是nova服务启动后，从服务中心拉取需要的服务列表，并建立nova链接；监听服务中心，拉取服务列表的变化，若服务下线，则将对应的nova链接下线，若新服务上线，则建立对应的nova链接，供业务使用。
-
-流程：swoole_server在worker启动后，判断是否有app_names需要服务发现，
-
-
 
 ## 配置
 依赖php apcu扩展，yz_swoole扩展版本要在1.0.4以上
