@@ -85,7 +85,7 @@ SqlMap 的key值前缀分隔符 _ 的首单词，定义了执行sql以后返回�
 
 目前支持以下几种：
 ```php
-insert 单条插入 返回数据格式： int 值 last insert_id
+insert 单条插入 返回数据格式： int|0 值 last insert_id
 
 batch 多条插入 返回数据格式： bool
 
@@ -93,13 +93,13 @@ update 更新 返回数据格式： bool
 
 delete 删除 返回数据格式： bool
 
-affected 获取影响行数 返回数据格式： int
+affected 获取影响行数 返回数据格式： int|0
 
-row 单行查询 返回数据格式： map 例： ['id' => 1, 'name' => 'xxxx']
+row 单行查询 返回数据格式： map|null 例： ['id' => 1, 'name' => 'xxxx']
 
-select 多行查询 返回数据格式： list 例子 [['id' => 1, 'name' => 'xxx'], ['id' => 2, 'name' => 'xxx']]
+select 多行查询 返回数据格式： list|[] 例子 [['id' => 1, 'name' => 'xxx'], ['id' => 2, 'name' => 'xxx']]
 
-count 统计查询 返回数据格式： int
+count 统计查询 返回数据格式： int|0
 
 raw 获取mysqli查询默认返回结果 返回数据格式： mixed
 ```
