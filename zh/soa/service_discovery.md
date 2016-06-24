@@ -18,24 +18,24 @@
 return [
     //拉取需要的服务列表，此处填写注册到注册中心的的app name，如果无需拉去任何服务，app_names为空array即可
     'app_names' => [
-        'pf-api','permission-api'
+        'xxx-api','xxx1-api'
     ],
     //拉取服务配置 固定配置，业务无需修改
     'discovery' => [
-        'host' => '192.168.66.237', //此处为开发环境IP，线上预发为另外IP
-        'port' => 2379,
+        'host' => '127.0.0.1', 
+        'port' => 9000,
         'timeout' => 30000,
-        'uri' => '/v2/keys',
+        'uri' => 'uri',
         'protocol' => 'nova',
         'namespace' => 'com.youzan.service', //固定配置与业务无关，下面配置同理
         'loop_time' => 1000,     //worker定时器任务执行时间（判断是否已拉取到服务）
     ],
     //监听服务配置 固定配置，业务无需修改
     'watch' => [
-        'host' => '192.168.66.237',//此处为开发环境IP，线上预发为另外IP
-        'port' => 2379,
+        'host' => '127.0.0.1',
+        'port' => 9000,
         'timeout' => 30000,
-        'uri' => '/v2/keys',
+        'uri' => 'uri',
         'protocol' => 'nova',
         'namespace' => 'com.youzan.service',
         'loop_time' => 5000,  //worker定时器任务执行时间（判断执行watch的worker是否live）
@@ -46,9 +46,9 @@ return [
     ],
     //服务注册配置 固定配置业务无需修改
     'register' => [
-        'host' => '192.168.66.237',//此处为开发环境IP，线上预发为另外IP
-        'port' => 8687,
-        'uri' => '/register',
+        'host' => '127.0.0.1',
+        'port' => 9000,
+        'uri' => 'uri',
         'timeout' => 30000,
         'protocol' => 'nova',
         'namespace' => 'com.youzan.service',
@@ -70,20 +70,20 @@ return [
 return [
     //不需要服务发现app_names
     'app_names' => [
-        'pf-api',
+        'xxx-api',
     ],
     //不需要服务发现app的novaApi配置
     'novaApi' => [
-        'pf-api' => [//注意此处key为不需要服务发现app_names
-            'path'  => 'vendor/nova-service/pf-api/gen-php',
-            'namespace' => 'Com\\Youzan\\Pf\\',
+        'xxx-api' => [//注意此处key为不需要服务发现app_names
+            'path'  => 'vendor/nova-service/xxx-api/gen-php',
+            'namespace' => 'Com\\Youzan\\Xx\\',
         ],
     ],
     //直连的app host port
     'connection' => [
-        'pf-api' => [//注意此处key为不需要服务发现app_names
+        'xxx-api' => [//注意此处key为不需要服务发现app_names
             'host' => '127.0.0.1',
-            'port' => '8050',
+            'port' => '9000',
         ],
     ],
 ];
