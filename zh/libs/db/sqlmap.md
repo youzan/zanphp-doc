@@ -136,21 +136,32 @@ raw 获取mysqli查询默认返回结果 返回数据格式： mixed
 
 //调用
 $data = [
-       'insert' => [
-           'market_id' => 1111,
-           'goods_id' => 2222，
-       ],
-   ];
-   $record = (yield Db::execute('dir_name.file_name.insert', $data)); 
+    'insert' => [
+        'market_id' => 1111,
+        'goods_id' => 2222，
+    ],
+];
+$record = (yield Db::execute('dir_name.file_name.insert', $data)); 
 
 ```
 ### batch
 ``` php
+// SqlMap
 'batch_insert'=>[
     'require' => [],
     'limit'   => [],
     'sql'     => 'INSERT INTO market_goods #INSERTS#',
-],
+]
+//调用
+$data = [
+    'inserts' => [
+     [
+         'market_id' => 1111,
+         'goods_id' => 2222，
+    ],
+ ];
+ $record = (yield Db::execute('dir_name.file_name.insert', $data)); 
+
 ```      
 ### update
 ``` php
