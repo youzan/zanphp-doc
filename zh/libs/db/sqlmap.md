@@ -102,15 +102,47 @@ select 多行查询 返回数据格式： list 例子 [['id' => 1, 'name' => 'xx
 count 统计查询 返回数据格式： int
 
 raw 获取mysqli查询默认返回结果 返回数据格式： mixed
+
+
+## SqlMap 支持的标签
+
+```php
+  #INSERT#   
+  #INSERTS#
+  #DATA#
+  #COLUMN#
+  某字段名称 例如 kdt_id #{kdt_id} 或者#KDT_ID#
+  #COUNT#
+  #ORDER#
+  #GROUP#
+  #LIMIT#
+
+  #WHERE 非必须不允许使用
+  #AND 非必须不允许使用
+  #OR 非必须不允许使用
+```
+除了字段的标签，其他都必须大写
+
 ## Sql语法
 
 ### insert
 ``` php
+// SqlMap
 'insert' => [
     'require' => [],
     'limit'   => [],
     'sql'     => 'INSERT INTO market_goods #INSERT#',
-],
+]
+
+//调用
+$data = [
+       'insert' => [
+           'market_id' => 1111,
+           'goods_id' => 2222，
+       ],
+   ];
+   $record = (yield Db::execute('dir_name.file_name.insert', $data)); 
+
 ```
 ### batch
 ``` php
