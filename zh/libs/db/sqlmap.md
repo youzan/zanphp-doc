@@ -42,24 +42,82 @@ return [
    SELECT * FROM market_category WHERE #WHERE
 ```
 
-## 用法
+## SqlMap key定义规则
+
+SqlMap 的key值前缀分隔符 _ 的首单词，定义了执行sql以后返回的数据格式。
+
+如 row_by_market_id_goods_id 首个单词就是 row。
+
+目前支持以下几种：
+
+insert 单条插入 返回数据格式： int 值 last insert_id
+
+batch 多条插入 返回数据格式： bool
+
+update 更新 返回数据格式： bool
+
+delete 删除 返回数据格式： bool
+
+affected 获取影响行数 返回数据格式： int
+
+row 单行查询 返回数据格式： map 例： ['id' => 1, 'name' => 'xxxx']
+
+select 多行查询 返回数据格式： list 例子 [['id' => 1, 'name' => 'xxx'], ['id' => 2, 'name' => 'xxx']]
+
+count 统计查询 返回数据格式： int
+
+raw 获取mysqli查询默认返回结果 返回数据格式： mixed
+## Sql语法
 
 ### insert
-
+``` php
+'insert' => [
+    'require' => [],
+    'limit'   => [],
+    'sql'     => 'INSERT INTO market_goods #INSERT#',
+],
+```
 ### batch
 ``` php
-      INSERT INTO market_goods #INSERTS#;
+'batch_insert'=>[
+    'require' => [],
+    'limit'   => [],
+    'sql'     => 'INSERT INTO market_goods #INSERTS#',
+],
 ```      
 ### update
-
+``` php
+'update'=>[
+    'require' => ['market_id','goods_id'],
+    'limit'   => [],
+    'sql'     => 'UPDATE market_goods SET #DATA# WHERE market_id = #{market_id} AND goods_id = #{goods_id} LIMIT 1'
+],
+```
 ### delete
+``` php
+
+```
+### affected
+``` php
+
+```
+### row
+``` php
+
+```
 
 ### select
+``` php
 
+```
+### count
+``` php
 
+```
 
+### raw
+``` php
 
-
-
+```
 
 
