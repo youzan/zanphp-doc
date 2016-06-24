@@ -21,7 +21,10 @@ SqlMap 文件需要放在 resource/sql 目录下，sql内部结构不限。目�
 
 
 ## 调用方式
-
+``` php
+ <?php
+   $record = (yield Db::execute('market.marketGoods.row_by_market_id_goods_id', $data)); 
+```
 
 
 
