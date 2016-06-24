@@ -5,12 +5,56 @@
 > 使用 SqlMap 主要目的是使我们的sql语句可运维，运维部门可以直接查看我们的 SqlMap 了解我们业务中使用的sql语句，对sql语句进行优化，索引优化，还可以对慢查询进行快速定位。当业务发布新的 SqlMap 可以通过运维预审核，避免出现线上慢查询。
 
 ## 配置
-SqlMap 文件需要放在 resource/sql 目录下，sql内部结构不限。目录结构决定了调用是的key值。
+需要添加2个配置
 
-## 调用方式
+1. SqlMap 配置 
+  
+  SqlMap 文件需要放在 resource/sql 目录下，sql内部结构不限。目录结构决定了调用是的key值。
+  
+2. table配置
+ 
+  table 需要在 resource/config/share/table/ 目录下建立项目数据库链接配置对应所有依赖的数据库表的map
 
 ``` php
+<?php
+return [
+    'mysql.default_write' => [
+        'book_lottery',
+        'book_lottery_edit_log',
+        'book_lottery_prize',
+        'book_lottery_user_join',
+        'book_lottery_user_take',
+        'buyer_notice',
+        'entity_certification',
+        'goods_collection_configure',
+        'goods_collection_data',
+        'goods_pf',
+        'labels',
+    ],    
+];        
+```
+此处 mysql.default_write 代表了 book_lottery、book_lottery_edit_log 等这些表的数据库配置是使用了 resource/config/{$KDT_RUN_MODE}/connection/mysql.php 里的 default_write 的配置
+
+## 调用方式
+SqlMap ：
+``` php
+<?php
+return [
+    'row_by_market_id_goods_id'=>[
+        'require' => ['market_id','goods_id'],
+        'limit'   => [],
+        'sql'     => 'SELECT * FROM market_goods WHERE market_id = #{market_id} AND goods_id = #{goods_id} LIMIT 1',
+    ]
+```
+php ：
+``` php
  <?php
+   $data = [
+       'var' => [
+           'market_id' => $marketId,
+           'goods_id' => $goodsIds
+       ],
+   ];
    $record = (yield Db::execute('market.marketGoods.row_by_market_id_goods_id', $data)); 
 ```
 market.marketGoods.row_by_market_id_goods_id 解析：
@@ -21,15 +65,6 @@ marketGoods 是文件名 resource/sql/market/marketGoods.php
 
 row_by_market_id_goods_id 是 marketGoods.php 这个SqlMap里面的 key 值
 
-``` php
-<?php
-return [
-    'row_by_market_id_goods_id'=>[
-        'require' => ['market_id','goods_id'],
-        'limit'   => [],
-        'sql'     => 'SELECT * FROM market_goods WHERE market_id = #{market_id} AND goods_id = #{goods_id} LIMIT 1',
-    ]
-```
 
 ## 要求
  所有sql语句都要写在 SqlMap 里，非特殊情况，不允许使用#WHERE 标签。必须要明确的sql语句。
