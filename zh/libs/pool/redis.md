@@ -5,8 +5,8 @@
 > 通过框架中的Cache类存取数据，方式如下。
 
 ``` php
-yield Cache::set('aa.bb.cc', $value, $key)
-yield Cache::get('aa.bb.cc', $key)
+yield Cache::set('aa.bb.cc', array|string $key, $value)
+yield Cache::get('aa.bb.cc', array|string $key )
 ```
 
 $key支持字符串和数据组。
@@ -27,7 +27,7 @@ return [
 ];
 ```
 
-> Cache的配置文件位于 resource/cache下。Cache中 set和get方法的第一个参数表示文件路径，比如 Cache::set('aa.bb.cc', '',''),表示获取的是recource/cache/aa/bb文件下的cc。
+> Cache的配置文件位于 resource/cache下。Cache中 set和get方法的第一个参数表示文件路径，比如 Cache::set('aa.bb.cc', ['key1', 'key2'], ''),表示获取的是recource/cache/aa/bb文件下的cc。
 
 ``` php
 <?php
