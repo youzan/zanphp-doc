@@ -7,6 +7,7 @@
 yield Cache::$method($configKey, array|string $keys, ...);
 ```
 
-$configKey说明见 ConfigKey说明
+$configKey: [ConfigKey说明](libs/pool/redis.md)
+$key:
 
 > Cache::method(
