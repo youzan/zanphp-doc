@@ -7,6 +7,6 @@
 yield Cache::$method($configKey, array|string $keys, ...);
 ```
 
-$configKey为
+$configKey说明见 ConfigKey说明
 
 > Cache::method(
