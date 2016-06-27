@@ -29,7 +29,6 @@
        * [Kv](libs/nosql/kv.md)
    * [SDKs](libs/sdks.md)
        * [MQ](libs/sdks/mq.md)
-       * [Nosql](libs/sdks/nosql.md)
        * [SMS](libs/sdks/sms.md)
        * [Mail](libs/sdks/mail.md)
        * [Qrcode](libs/sdks/qrcode.md)
