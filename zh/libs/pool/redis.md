@@ -32,7 +32,7 @@ return [
         'exp' => 10
     ],
 ];
-//connection 表示redis连接配置，cache存数据的真实$key值是将cc中的属性key的$s替换成用户使用时传入的key的字符串，
+//connection 表示redis连接配置，cache存数据的真实$key值是将cc中的属性key的%s替换成用户使用时传入的key的字符串，
 //exp是过期时间，单位是s
 ```
 
