@@ -2,18 +2,18 @@
 
 
 ## 目标
-> 使用 SqlMap 主要目的是使我们的sql语句可运维化，DBA可以直接查看我们的 SqlMap 了解我们业务中使用的sql语句，对sql语句进行优化，索引优化，还可以对慢查询进行快速定位。当业务发布新的 SqlMap 可以通过DBA预审核，避免出现线上慢查询。
+> 使用 SqlMap 主要目的是使我们的SQL语句可运维化，DBA可以直接查看我们的 SqlMap 了解我们业务中使用的SQL语句，对SQL语句进行优化，索引优化，还可以对慢查询进行快速定位。当业务发布新的 SqlMap 可以通过DBA预审核，避免出现线上慢查询。
 
 ## 配置
 需要添加2个配置
 
 1. SqlMap 配置 
   
-  SqlMap 文件需要放在 resource/sql 目录下，sql内部结构不限。目录结构决定了调用是的key值。
+  SqlMap 文件需要放在 resource/sql 目录下，sql目录内部结构不限。目录结构决定了调用时的key值。
   
 2. table配置
  
-  table 需要在 resource/config/share/table/ 目录下建立项目数据库链接配置对应所有依赖的数据库表的map
+  table 需要在 resource/config/share/table/ 目录下建立项目数据库连接配置对应所有依赖的数据库表的map
 
 ``` php
 <?php
@@ -67,7 +67,7 @@ row_by_market_id_goods_id 是 marketGoods.php 这个SqlMap里面的 key 值
 
 
 ## 要求
- 所有sql语句都要写在 SqlMap 里，非特殊情况，不允许使用#WHERE 标签。必须要明确的sql语句。
+ 所有SQL语句都要写在 SqlMap 里，非特殊情况，不允许使用#WHERE 标签。必须要明确的SQL语句。
  例子：
 ``` php
    SELECT * FROM market_category WHERE market_id=#{market_id}  and parent_id= #{parent_id}  AND category_name= #{category_name}
@@ -79,13 +79,13 @@ row_by_market_id_goods_id 是 marketGoods.php 这个SqlMap里面的 key 值
 
 ## SqlMap key定义规则
 
-SqlMap 的key值前缀分隔符 _ 的首单词，定义了执行sql以后返回的数据格式。
+SqlMap 的key值前缀分隔符 _ 的首单词，定义了执行SQL以后返回的数据格式。
 
 如 row_by_market_id_goods_id 首个单词就是 row。
 
 目前支持以下几种：
 ```php
-insert 单条插入 返回数据格式： int 值 last insert_id
+insert 单条插入 返回数据格式： int|0 值 last insert_id
 
 batch 多条插入 返回数据格式： bool
 
@@ -93,13 +93,13 @@ update 更新 返回数据格式： bool
 
 delete 删除 返回数据格式： bool
 
-affected 获取影响行数 返回数据格式： int
+affected 获取影响行数 返回数据格式： int|0
 
-row 单行查询 返回数据格式： map 例： ['id' => 1, 'name' => 'xxxx']
+row 单行查询 返回数据格式： map|null 例： ['id' => 1, 'name' => 'xxxx']
 
-select 多行查询 返回数据格式： list 例子 [['id' => 1, 'name' => 'xxx'], ['id' => 2, 'name' => 'xxx']]
+select 多行查询 返回数据格式： list|[] 例子 [['id' => 1, 'name' => 'xxx'], ['id' => 2, 'name' => 'xxx']]
 
-count 统计查询 返回数据格式： int
+count 统计查询 返回数据格式： int|0
 
 raw 获取mysqli查询默认返回结果 返回数据格式： mixed
 ```
@@ -123,7 +123,7 @@ raw 获取mysqli查询默认返回结果 返回数据格式： mixed
 ```
 除了字段的标签，其他都必须大写
 
-## Sql语法以及调用方式
+## SQL语法以及调用方式
 
 ### insert
 ``` php
