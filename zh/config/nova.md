@@ -1,1 +1,1 @@
-# Nova
+# nova.php
