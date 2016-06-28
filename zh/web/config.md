@@ -22,4 +22,4 @@ resource/
 ````
 
 ### 目录说明
-* cache: cache的配置目录，详情见 [Redis](libs/nosql/redis.md#redis_config)
+* cache: cache的配置目录，详情见 [Redis](libs/nosql/redis.md)
