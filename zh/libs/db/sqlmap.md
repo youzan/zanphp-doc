@@ -314,7 +314,7 @@ $record = (yield Db::execute('dir_name.file_name.raw_by_market_id_goods_ids', $d
 ```
 ## SqlMap 其他标签使用方法
 ``` php
-#ORDER
+#ORDER#
 // SqlMap
 'raw_by_market_id_goods_ids' => [
     'require' => ['market_id','goods_id'],
