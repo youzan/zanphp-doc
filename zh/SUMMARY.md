@@ -5,15 +5,14 @@
 * [创建WEB服务器](build_web_server.md)
    * [一分钟起步](web/in_one_minute.md)
    * [项目目录结构](web/project_dir.md)
-   * [项目配置](web/config.md)
-     * 
    * [请求处理流程](web/request_flow.md)
    * [异常处理](web/exception.md)
 * [创建TCP服务器](build_tcp_server.md)
    * [项目目录结构](tcp/project_dir.md)
-   * [项目配置](tcp/config.md)
    * [协议](tcp/thrift.md)
    * [请求处理流程](tcp/request_flow.md)
+* [项目配置](web/config.md)
+     * Server
 * [Libs](zan_libs.md)
    * [连接池](libs/connection_pool.md)
        * [用法](libs/pool/use_connection_pool.md)
