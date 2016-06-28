@@ -45,4 +45,3 @@
 * bin: 服务启动bin文件目录
 * init: 应用初始化相关
 * resource: 配置文件目录
-* resource/cache: cache配置目录用法见 
