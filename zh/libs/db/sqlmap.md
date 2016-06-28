@@ -33,7 +33,7 @@ return [
     ],    
 ];        
 ```
-此处 mysql.default_write 代表了 book_lottery、book_lottery_edit_log 等这些表的数据库配置是使用了 resource/config/{$KDT_RUN_MODE}/connection/mysql.php 里的 default_write 的配置
+此处 mysql.default_write 代表了 book_lottery、book_lottery_edit_log 等这些表的数据库配置是使用了 resource/config/{$ENV}/connection/mysql.php 里的 default_write 的配置
 
 ## 调用方式
 SqlMap ：
