@@ -1,4 +1,4 @@
-# Debug
+# debug.php
 
 ### 文件位置
 ```
