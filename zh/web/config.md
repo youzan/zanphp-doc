@@ -1,6 +1,6 @@
 # 项目配置
 
-正常配置文件都放在$ROOTPATH/resource文件加下，结构如下：
+正常配置文件都放在$ROOTPATH/resource/config/$EVN 文件加下，结构如下：
 
 ````
 resource/
