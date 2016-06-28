@@ -1,6 +1,6 @@
 # 项目配置
 
-正常配置文件都放在$ROOTPATH/resource/config/$EVN 文件加下，结构如下：
+正常配置文件都放在$ROOTPATH/resource/config/$ENV 文件加下，结构如下：
 
 ````
 resource/
@@ -22,4 +22,4 @@ resource/
 ````
 
 ### 目录说明
-* cache: cache的配置目录，详情见 [Redis](
+* cache: cache的配置目录，详情见 [Redis](libs/nosql/redis.md#redis_config)
