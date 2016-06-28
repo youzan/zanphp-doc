@@ -11,7 +11,7 @@
    * [项目目录结构](tcp/project_dir.md)
    * [协议](tcp/thrift.md)
    * [请求处理流程](tcp/request_flow.md)
-* [项目配置](web/config.md)
+* [项目配置](config.md)
      * Server
 * [Libs](zan_libs.md)
    * [连接池](libs/connection_pool.md)
