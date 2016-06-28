@@ -19,6 +19,5 @@ resource/
 │       └── monitor
 ├── kvstore
 └── sql
-    ├── common
-    └── market
 ````
+
