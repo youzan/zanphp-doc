@@ -312,3 +312,25 @@ $data = [
 $record = (yield Db::execute('dir_name.file_name.raw_by_market_id_goods_ids', $data)); 
 
 ```
+## SqlMap 其他标签使用方法
+### order by
+``` php
+//使用#ORDER#标签
+// SqlMap
+'raw_by_market_id_goods_ids' => [
+    'require' => ['market_id','goods_id'],
+    'limit'   => [],
+    'sql'     => 'SELECT * FROM market_goods WHERE market_id = #{market_id} AND goods_id IN #{goods_id} #ORDER# #LIMIT#',
+]
+//调用
+$data = [
+    'var' => [
+        'market_id' => 222,
+        'goods_id' => [333,111,333,555]，
+    ],
+    'order' => 'market_id DESC',
+    'limit' => '0, 10'
+];
+$record = (yield Db::execute('dir_name.file_name.raw_by_market_id_goods_ids', $data)); 
+
+```
