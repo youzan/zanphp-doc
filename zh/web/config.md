@@ -21,3 +21,5 @@ resource/
 └── sql
 ````
 
+### 目录说明
+* cache: cache的配置目录，详情见 [Redis](
