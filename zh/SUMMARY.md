@@ -12,7 +12,12 @@
    * [协议](tcp/thrift.md)
    * [请求处理流程](tcp/request_flow.md)
 * [项目配置](config.md)
-     * Server
+     * [server.php](config/server.md)
+     * [hawk.php](config/hawk.md)
+     * [haunt.php](config/haunt.md)
+     * [trace.php](config/trace.md)
+     * [debug.php](config/debug.md)
+     * [nova.php](config/nova.md)
 * [Libs](zan_libs.md)
    * [连接池](libs/connection_pool.md)
        * [用法](libs/pool/use_connection_pool.md)
