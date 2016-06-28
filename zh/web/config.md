@@ -1,25 +1,22 @@
 # 项目配置
 
-正常配置文件都放在$ROOTPATH/resource/config/$ENV 文件加下，结构如下：
+正常配置文件都放在$ROOTPATH/resource/config/$ENV 文件夹下，下面以test环境举例，结构如下：
 
 ````
-resource/
-├── cache
-├── config
-│   ├── online
-│   │   └── connection
-│   ├── qatest
-│   │   └── connection
-│   ├── share
-│   │   └── table
-│   └── test
-│       ├── connection
-│       ├── kvstore
-│       │   └── test
-│       └── monitor
-├── kvstore
-└── sql
+resource/config/test/
+├── connection
+│   ├── kvstore.php
+│   ├── mysql.php
+│   ├── nova.php
+│   └── tcp.php
+├── debug.php
+├── haunt.php
+├── hawk.php
+├── monitor
+│   └── trace.php
+├── nova.php
+└── server.php
 ````
 
 ### 目录说明
-* cache: cache的配置目录，详情见 [Redis](libs/nosql/redis.md)
+
