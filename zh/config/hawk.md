@@ -5,6 +5,10 @@
 resource/config/$ENV/hawk.php
 ```
 
+### 配置作用
+
+上报hawk数据的配置
+
 ### 配置文件内容
 
 ````php
