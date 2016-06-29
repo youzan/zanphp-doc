@@ -17,10 +17,10 @@ resource/config/$ENV/hawk.php
 return [
     //是否运行, pre不需要运行
     'run' => false,
-    'host' => '192.168.66.240',
-    'port' => 8188,
+    'host' => '1.1.1.1',
+    'port' => 1234,
     'uri' => '/monitor/push',
-    //上报时间，单位毫秒
+    //多久上报一次，单位毫秒
     'time' => 60000,
 ];
 ````
