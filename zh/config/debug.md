@@ -2,7 +2,7 @@
 
 ### 文件位置
 ```
-resource/config/$EVN/debug.php
+resource/config/$ENV/debug.php
 ```
 
 ### 配置文件内容
