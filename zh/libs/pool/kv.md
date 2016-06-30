@@ -4,7 +4,7 @@
 
 
 ###配置
-KV连接配置在项目 resource/config/connection下。
+KV连接配置在项目 resource/config/$ENV/connection下。
 ``` php
 <?php
 return [
