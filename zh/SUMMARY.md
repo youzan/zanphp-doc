@@ -29,7 +29,7 @@
    * [数据库](libs/db.md)
        * [SqlMap](libs/db/sqlmap.md)
        * [Mysql](libs/db/mysql.md)
-   * [Nosql](libs/nosql.md)
+   * [Nosql](libs/nosqlmd.md)
        * [Redis](libs/nosql/redis.md)
        * [Kv](libs/nosql/kv.md)
    * [SDKs](libs/sdks.md)
