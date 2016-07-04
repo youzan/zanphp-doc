@@ -2,6 +2,10 @@
 
 目前支持的日志类型有：`file`（绝对路径）、`log`（项目相对路径，会写到项目的resource/log目录下）、`syslog`（flume log系统，内部系统，暂无开源计划，如需使用需自行开发）、`blackhole`（黑洞）。
 file、log、syslog类型都支持buffer，可以在 log.php 配置 useBuffer=true 启用。
+bufferSize默认值为 4096。
+
+**useBuffer 对于性能有较大提升，如果业务允许，请尽量启用。**
+
 
 ## 配置
 要在你的项目中使用前，你需要进行一些配置：
@@ -26,7 +30,9 @@ return [
 
 `path` 为 debug.log 表示 写入log的文件名（最终实际路径为项目的resource/log/debug.log）；
 
-`query` 为 useBuffer=true&format=json 再次解析之后表示 启用buffer 和 格式化为json的形式存入log文件。
+`query` 为 useBuffer=true&format=json 再次解析之后表示 “启用buffer” 和 “格式化为json的形式存入log文件”。
+
+如果你要使用syslog，还需要在 resource/config/test/connection/syslog.php 里配置 syslog 的连接信息。详见 [Log连接池](libs/pool/log.md)。
 
 
 ## API
