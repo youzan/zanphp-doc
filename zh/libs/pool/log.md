@@ -1,6 +1,6 @@
 # Log连接池
 
-Log连接池仅供 [Log](lib/log.md) 的syslog类型使用，长连接连的是我们内部的flume日志系统（未开源）。运维同事在每台生产机器上部署了 flume 的 client端，所以长连接连接本地就可以了。
+Log连接池仅供 [Log](../lib/log.md) 的syslog类型使用，长连接连的是我们内部的flume日志系统（未开源）。运维同事在每台生产机器上部署了 flume 的 client端，所以长连接连接本地就可以了。
 
 
 ## 配置示例
