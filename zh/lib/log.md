@@ -32,7 +32,7 @@ return [
 
 `query` 为 useBuffer=true&format=json 再次解析之后表示 “启用buffer” 和 “格式化为json的形式存入log文件”。
 
-如果你要使用syslog，还需要在 resource/config/test/connection/syslog.php 里配置 syslog 的连接信息。详见 [Log连接池](libs/pool/log.md)。
+如果你要使用syslog，还需要在 resource/config/test/connection/syslog.php 里配置 syslog 的连接信息。详见 [Log连接池](../libs/pool/log.md)。
 
 
 ## API
