@@ -4,6 +4,8 @@ Log连接池仅供 [Log](../../lib/log.md) 的syslog类型使用，长连接连�
 
 
 ## 配置示例
+配置文件路径：resource/config/${ENV}/connection/syslog.php
+
 ```PHP
 <?php
  
