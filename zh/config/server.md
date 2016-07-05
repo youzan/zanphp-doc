@@ -47,7 +47,9 @@ return [
         //cpu占用多少之后重启
         'cpu_limit'     => 70,
         //是否开启monitor debug模式
-        'debug'         => false
+        'debug'         => false,
+        //最大并发数(流控)
+        'max_concurrency' => 2000,
     ],
     //请求超时时间, 单位ms
     'request_timeout' => 30000,
