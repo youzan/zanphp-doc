@@ -33,7 +33,15 @@ return [
     ],    
 ];        
 ```
+
 此处 mysql.default_write 代表了 book_lottery、book_lottery_edit_log 等这些表的数据库配置是使用了 resource/config/{$ENV}/connection/mysql.php 里的 default_write 的配置
+
+为什么table要单独配置？
+
+
+table独立配置后，sqlmap无需关心具体内部sql对应的table具体所在的某个库或者多个库，后期table出现变动，如分库分表时，只需改动table配置，对sqlmap不会产生影响。
+
+
 
 ## 调用方式
 SqlMap ：
