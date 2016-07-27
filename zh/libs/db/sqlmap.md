@@ -38,10 +38,8 @@ return [
 
 为什么table要单独配置？
 
-
-table独立配置后，sqlmap无需关心具体内部sql对应的table具体所在的某个库或者多个库，后期table出现变动，如分库分表时，只需改动table配置，对sqlmap不会产生影响。
-
-
+1. 数据建模
+2. sharding
 
 ## 调用方式
 SqlMap ：
