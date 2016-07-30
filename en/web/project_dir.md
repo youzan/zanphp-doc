@@ -41,7 +41,7 @@ Project folder structure:
     └── ...
 ````
 
-### 目录说明
+### folder information
 * bin: start service files
 * init: init application files
 * resource: config files folder, more information: [project config](web/config.md)

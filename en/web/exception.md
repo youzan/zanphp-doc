@@ -1,7 +1,6 @@
 # Exception Handle
 
-
-> if biz code no catch the exception ，Zan Framework get to handle the exception.
+if biz code no catch the exception ，Zan Framework get to handle the exception.
 
 ### ZanHttp Exception Handle Process
 
@@ -11,7 +10,7 @@
 4. if exception code defined in biz code，response JSON Data or Error HTML by request type.
 5. if all above no matched,redirect 500 HTML or 404 HTML.
 
-> Exception Handle match order by num 1-5. if matched one ,the other passed.
+Exception Handle match order by num 1-5. if matched one ,the other passed.
 
 ### Debug Mode
 
