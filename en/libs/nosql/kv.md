@@ -1,17 +1,23 @@
 # KV
 
-### 使用
-> 通过框架中的KV类存取数据，方式如下。
+### Using
+get KV data by KV Class, using:
 
 ``` php
  $res = (yield KV::set(string $configKey, array|string $key, $value));
 ```
 
-* $configKey: 见 [KV](../../libs/pool/kv.md)。
-* $key: $key可以为字符串或者数组，当$key为字符串时，kv最终执行的key为传入的$key, 当$key为array时，可按照array顺序替换kvstore config中的key占位符，生成最终的key。 见 [KV](../../libs/pool/kv.md)。
+* $configKey: see [KV](../../libs/pool/kv.md)。
+* $key: $key be string or array.<br>
+when $key is string , kv key equals $key.
+when $key is array,array replaces kvstore config's key placeholder,generate final key.
+see [KV](../../libs/pool/kv.md).
 
-### KV配置
-> KV的配置文件位于 resource/kvstore下。KV中所有方法的第一个参数表示文件路径，比如 ````yield KV::set('aa.bb.cc', ['foo', 'bar'], $value)````,表示获取的是recource/kvstore/aa/bb文件下的cc。
+### KV Config
+config file in: resource/kvstore
+the first param in all methods of KV is File Path.For example:
+````yield KV::set('aa.bb.cc', ['foo', 'bar'], $value)````
+meaning get cc file of folder: recource/kvstore/aa/bb.
 
 ``` php
 <?php

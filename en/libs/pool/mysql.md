@@ -1,9 +1,9 @@
 # Mysql
-获取Mysql连接可以采用连接池，服务启动时初始化连接。
+Get Mysql connection by Connection Pool. inited when service started.
 
 
-###配置
-Mysql连接配置在项目 resource/config/$ENV/connection下。
+### Config
+Mysql connection Config in: resource/config/$ENV/connection.
 ``` php
 <?php
 return [

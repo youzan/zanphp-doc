@@ -1,19 +1,21 @@
 # SqlMap
 
 
-## 目标
-> 使用 SqlMap 主要目的是使我们的SQL语句可运维化，DBA可以直接查看我们的 SqlMap 了解我们业务中使用的SQL语句，对SQL语句进行优化，索引优化，还可以对慢查询进行快速定位。当业务发布新的 SqlMap 可以通过DBA预审核，避免出现线上慢查询。
+## Target
+target is make SQL transparence. <br>
+DBA can look over SQL in biz,then make SQL statement optimization, index optimization, and quickly locate the slow queries.
+<br>
+When new SqlMap version online, its can be pre-audit by DBA,to avoid slow queries online.
 
-## 配置
-需要添加2个配置
+## Config
 
-1. SqlMap 配置 
+1. SqlMap Config
   
-  SqlMap 文件需要放在 resource/sql 目录下，sql目录内部结构不限。目录结构决定了调用时的key值。
+  SqlMap file is in directory: resource/sql. the key value when called is depend on directory structure.
   
-2. table配置
+2. Table Config
  
-  table 需要在 resource/config/share/table/ 目录下建立项目数据库连接配置对应所有依赖的数据库表的map
+  table file is in directory: resource/config/share/table/. the map file is from tables of setting database.
 
 ``` php
 <?php
@@ -33,15 +35,13 @@ return [
     ],    
 ];        
 ```
+'mysql.default_write' : book_lottery、book_lottery_edit_log ... tables use config of 'default_write' in: resource/config/{$ENV}/connection/mysql.php.
 
-此处 mysql.default_write 代表了 book_lottery、book_lottery_edit_log 等这些表的数据库配置是使用了 resource/config/{$ENV}/connection/mysql.php 里的 default_write 的配置
+why tables config alone?
+1. Data Modeling
+2. Sharding
 
-为什么table要单独配置？
-
-1. 数据建模
-2. sharding
-
-## 调用方式
+## Using
 SqlMap ：
 ``` php
 <?php
@@ -63,33 +63,34 @@ php ：
    ];
    $record = (yield Db::execute('market.marketGoods.row_by_market_id_goods_id', $data)); 
 ```
-market.marketGoods.row_by_market_id_goods_id 解析：
+market.marketGoods.row_by_market_id_goods_id ：
 
-market 是目录名 resource/sql/market
+````
+market : resource/sql/market
 
-marketGoods 是文件名 resource/sql/market/marketGoods.php
+marketGoods : resource/sql/market/marketGoods.php
 
-row_by_market_id_goods_id 是 marketGoods.php 这个SqlMap里面的 key 值
+row_by_market_id_goods_id : the SqlMap key value of marketGoods.php
+````
 
-
-## 要求
- 所有SQL语句都要写在 SqlMap 里，非特殊情况，不允许使用#WHERE 标签。必须要明确的SQL语句。
- 例子：
+## Require
+All SQL write in SqlMap, tag #WHERE is not allowed.
+Example：
 ``` php
    SELECT * FROM market_category WHERE market_id=#{market_id}  and parent_id= #{parent_id}  AND category_name= #{category_name}
 ```
-禁止使用：
+Not allowed：
 ``` php
    SELECT * FROM market_category WHERE #WHERE
 ```
 
-## SqlMap key定义规则
+## SqlMap key Define Rules
 
-SqlMap 的key值前缀分隔符 _ 的首单词，定义了执行SQL以后返回的数据格式。
+SqlMap' key value word has '_' prefix separator,that define the data model of SQL return vales.
 
-如 row_by_market_id_goods_id 首个单词就是 row。
+Example:the first word of 'row_by_market_id_goods_id' is 'row'。
 
-目前支持以下几种：
+supports the following：
 ```php
 insert 单条插入 返回数据格式： int|0 值 last insert_id
 
@@ -110,7 +111,7 @@ count 统计查询 返回数据格式： int|0
 raw 获取mysqli查询默认返回结果 返回数据格式： mixed
 ```
 
-## SqlMap 支持的标签
+## SqlMap Label Supported
 
 ```php
   #INSERT#   
@@ -127,9 +128,9 @@ raw 获取mysqli查询默认返回结果 返回数据格式： mixed
   #AND 非必须不允许使用
   #OR 非必须不允许使用
 ```
-除了字段的标签，其他都必须大写
+uppercase except label field.
 
-## SQL语法以及调用方式
+## SQL grammar and Using
 
 ### insert
 ``` php
@@ -318,7 +319,7 @@ $data = [
 $record = (yield Db::execute('dir_name.file_name.raw_by_market_id_goods_ids', $data)); 
 
 ```
-## SqlMap 其他标签使用方法
+## SqlMap Other Labels Using
 ### order by
 ``` php
 //使用#ORDER#标签

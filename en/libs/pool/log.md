@@ -1,10 +1,10 @@
-# Log连接池
+# Log Connection Pool
+Log connection pool used by [Log](../../lib/log.md)'s syslog type,long connection connected flume log system(Not Open Source Yet).<br>
+Operation and Maintenance Engineer install flume client,and make local long connection.<br>
+In Develop environment,install flume client in a public dev machine.
 
-Log连接池仅供 [Log](../../lib/log.md) 的syslog类型使用，长连接连的是我们内部的flume日志系统（未开源）。运维同事在每台生产机器上部署了 flume 的 client端，所以长连接连接本地就可以了。开发环境的话可以考虑部署到一台公用的开发机器上。
-
-
-## 配置示例
-配置文件路径：resource/config/${ENV}/connection/syslog.php
+## Config Example
+config files directory: resource/config/${ENV}/connection/syslog.php
 
 ```PHP
 <?php

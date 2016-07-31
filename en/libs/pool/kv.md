@@ -1,10 +1,9 @@
 # KV
+Get KV connection by Connection Pool. inited when service started.
 
-获取KV连接可以采用连接池，服务启动时初始化好KV连接。
 
-
-###配置
-KV连接配置在项目 resource/config/$ENV/connection下。
+### Config
+KV connection config is in resource/config/$ENV/connection.
 ``` php
 <?php
 return [

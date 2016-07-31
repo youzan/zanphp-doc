@@ -1,14 +1,16 @@
-## 连接池
-> 管理项目中需要使用连接池的模块，提升服务性能。
+## Connection Pool
+> management requires the use of connection pooling module, improve service performance.
 
-###使用
-连接池在服务启动时进行初始化，初始化成功后，通过 ConnectionManager类获取连接。
-####获取连接
+### Using
+init in service starting,connect by ConnectionManager.
+
+#### Get Connection
 ``` php
 $connection = (yield ConnectionManager::getInstance()->get($database));
 ```
-###配置
-配置文件放在项目resource/config/connection 目录下，mysql为例，格式如下:
+
+### Config
+config files are in resource/config/connection. For example, MySQL config:
 ``` php
 <?php
 return [
@@ -26,6 +28,6 @@ return [
     ]
 ];
 ```
-目前已支持的engine类型有 mysqli、redis、syslog、novaClient、kVStore。
+Supported Engine: mysqli、redis、syslog、novaClient、kVStore.
 
 

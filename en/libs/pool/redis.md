@@ -1,9 +1,9 @@
 ## Redis
-获取redis连接可以采用连接池，服务启动时初始化好redis连接。
+Get reids connection by Connection Pool. inited when service started.
 
 
-###配置
-redis连接配置在项目 resource/config/$ENV/connection下。
+### Config
+redis connection config in: resource/config/$ENV/connection下。
 ``` php
 <?php
 return [

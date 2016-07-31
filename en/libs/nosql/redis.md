@@ -1,19 +1,24 @@
 # Redis
 
-### 使用
-> 通过框架中的Cache类存取数据，方式如下。
-
+### Using
+the way to get or save data to Redis:
 ``` php
 //可变参数
 yield Cache::$method($configKey, array|string $keys, ...);
 ```
 
 * $configKey: 见 [Redis](../../libs/pool/redis.md)。
-* $key: $key可以为字符串或者数组，当$key为字符串时，redis最终执行的key为传入的$key, 当$key为array时，可按照array顺序替换cache config中的key占位符，生成最终的key。 见 [Redis](../../libs/pool/redis.md)。
-* 前面2个参数对所有Cache调用固定(必须传入)，后面传入的参数需根据不同method所需参数的顺序传入，````...````意味这参数数量可变。method和后面可变参数顺序需按照redis官方文档顺序传入，见 [Redis官方文档](http://redis.io/commands)。
+* $key: $key be string or array.<br>
+        when $key is string , kv key equals $key.
+        when $key is array,array replaces kvstore config's key placeholder,generate final key.see [KV](../../libs/pool/kv.md).
+* The 2 previous parameters adapt all Cache Call(must be passed in),other parameters passed by different methods in order,````...````meaning dynamic parameters。
+parameters belong to Redis Official Documents，see [Redis Official Documents](http://redis.io/commands)。
 
-### Redis配置
-> Cache的配置文件位于 resource/cache下。Cache中 set和get方法的第一个参数表示文件路径，比如 Cache::set('aa.bb.cc', ['key1', 'key2'], ''),表示获取的是recource/cache/aa/bb文件下的cc。
+### Redis Config
+config file in: resource/cache
+the first param in all methods of KV is File Path.For example:
+````yield KV::set('aa.bb.cc', ['foo', 'bar'], $value)````
+meaning get cc file of folder: recource/kvstore/aa/bb.
 
 ``` php
 <?php
