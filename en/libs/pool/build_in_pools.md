@@ -1,4 +1,4 @@
-# 内置连接池
+# Connection Pools
 
 * [Mysql](libs/pool/mysql.md)
 * [Log](libs/pool/log.md)
