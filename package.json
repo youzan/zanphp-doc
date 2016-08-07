@@ -1,0 +1,24 @@
+{
+  "name": "zan-doc",
+  "version": "1.0.0",
+  "description": "Doc for Zan PHP Framework",
+  "main": "index.js",
+  "scripts": {
+    "build": "gitbook build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:youzan/zan-doc.git"
+  },
+  "keywords": [
+    "zan",
+    "php",
+    "doc"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/youzan/zan-doc/issues"
+  },
+  "homepage": "https://github.com/youzan/zan-doc#readme"
+}
