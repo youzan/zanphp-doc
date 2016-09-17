@@ -1,8 +1,9 @@
 # Youzan Zan PHP Framework
+<img src="https://github.com/youzan/zanphp.io/blob/master/src/img/zan-logo-small@2x.png?raw=true" alt="zanphp logo" srcset="https://github.com/youzan/zanphp.io/blob/master/src/img/zan-logo-small.png?raw=true 1x, https://github.com/youzan/zanphp.io/blob/master/src/img/zan-logo-small@2x.png?raw=true 2x, https://github.com/youzan/zanphp.io/blob/master/src/img/zan-logo-small.png?raw=true" width="210" height="210">
+
 A high-performance service framework based on Swoole and PHP.
-<br>
-<br>
-Features:
+
+## Features:
 - Routing
 - Filter
 - SQL Map
@@ -13,14 +14,14 @@ Features:
 - ...
 
 ## Official Document
-Zan PHP Framework document is in [GitBook/zan-doc](https://agalwood.gitbooks.io/zan-doc/content/en/)。
+View Zan PHP Framework document online: [http://doc.zanphp.io/ ✈](http://doc.zanphp.io/).
 
 ## Common Links
 
 - [zan-doc](https://github.com/youzan/zan-doc) - Zan PHP develop guide document
 - [zan-installer](https://github.com/youzan/zan-installer) - Zan PHP installer tool
-- zanhttp - Zan PHP HTTP demo
-- zan-hign-performance-mysql - Zan PHP's high-performance MySQL practice
+- [zanhttp](https://github.com/youzan/zanhttp) - Zan PHP HTTP demo
+- [zan-hign-performance-mysql](https://github.com/youzan/zan_high_performance_mysql) - Zan PHP's high-performance MySQL practice
 
 ## Chatting Group
 
@@ -29,4 +30,4 @@ QQ Group：115728122
 
 ## License
 
-[YouZan](https://youzan.com/)'s [Zan PHP Framework](https://github.com/youzan/zan) open source based on [Apache-2.0 license](https://opensource.org/licenses/Apache-2.0)。
+[Youzan](https://youzan.com/)'s [Zan PHP Framework](https://github.com/youzan/zan) open source based on [MIT license](https://opensource.org/licenses/MIT).
