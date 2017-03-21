@@ -1,6 +1,7 @@
 # hawk.php
 
 ### 文件位置
+
 ```
 resource/config/$ENV/hawk.php
 ```
@@ -11,7 +12,7 @@ resource/config/$ENV/hawk.php
 
 ### 配置文件内容
 
-````php
+```php
 <?php
 
 return [
@@ -23,4 +24,7 @@ return [
     //多久上报一次，单位毫秒
     'time' => 60000,
 ];
-````
+```
+
+
+
