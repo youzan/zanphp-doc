@@ -17,6 +17,10 @@ Composer安装相关详见 [Composer Getting Started](https://getcomposer.org/do
 composer global require youzan/zan-installer
 ```
 
+如果安装很慢，可以换成国内的镜像源，再安装
+```bash
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
+```
 
 ## 更新
 你可以通过如下命令更新 zan-installer：
@@ -27,6 +31,12 @@ composer global update
 
 
 ## 使用
+先确认一下PATH里是否包含了~/.composer/vendor/bin。
+如果没有，先将这个路径加入到PATH里，修改.bashrc或者.zshrc
+```bash
+export PATH="$PATH:~/.composer/vendor/bin"
+```
+
 zan-installer安装完成之后，你就可以在命令行中，输入 `zan` 使用它了！
 
 ```bash
