@@ -1,14 +1,14 @@
 # Libs
 
-* [中间件](/zh/config/middleware.md)
-* [连接池](/zh/libs/connection_pool.md)
-* [数据库](/zh/libs/db.md)
-* [Nosql](/zh/libs/nosql.md)
-* [Network](/zh/libs/network.md)
-* [SDKs](/zh/libs/sdks.md)
-* [SOA](/zh/libs/soa.md)
-* [测试](/zh/libs/testing.md)
-* [View](/zh/libs/view.md)
+* [中间件](config/middleware.md)
+* [连接池](libs/connection_pool.md)
+* [数据库](libs/db.md)
+* [Nosql](libs/nosql.md)
+* [Network](config/network.md)
+* [SDKs](libs/sdks.md)
+* [SOA](config/soa.md)
+* [测试](libs/testing.md)
+* [View](libs/view.md)
 
 
 
