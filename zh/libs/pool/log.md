@@ -24,7 +24,7 @@ return [
     //zan框架内置配置，无需设置，直接使用
     'zan_framework' => [
         'engine'=> 'syslog',
-        'host' => '127.0.0.1',//线上和预发为127.0.0.1，其他环境为10.9.65.239
+        'host' => '127.0.0.1',
         'port' => '5140',
         'timeout' => 5000,
         'persistent' => true,

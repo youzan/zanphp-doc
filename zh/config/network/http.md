@@ -19,12 +19,9 @@ HttpClient的构造方式主要有以下三种：
 
 参数ssl表示是否为https连接，访问https的url时，传入ssl为true。
 
-第一种方式与第二种等价，第三种通过proxy建立http连接，proxy各环境的地址为（端口号80）：
+第一种方式与第二种等价，第三种通过proxy建立http连接，proxy各环境的地址为（端口号80）见
 
-```
-online: 'proxy-static.s.qima-inc.com'
-dev: '10.9.29.87'
-```
+[http://doc.qima-inc.com/pages/viewpage.action?pageId=4851473](http://doc.qima-inc.com/pages/viewpage.action?pageId=4851473)
 
 http client目前支持get、post和postJson方法。
 
