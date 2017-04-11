@@ -1,6 +1,7 @@
 # server.php
 
 ### 文件位置
+
 ```
 resource/config/$ENV/server.php
 ```
@@ -11,7 +12,7 @@ Server相关配置
 
 ### 配置文件内容
 
-````php
+```php
 <?php
 
 return [
@@ -20,11 +21,9 @@ return [
     //监听ip
     'port'          => '8020',
     'config' => [
-        //是否后台运行, 推荐设置0
-        'daemonize' => 0,
         //worker数量，推荐设置和cpu核数相等
         'worker_num' => 2,
-        //reactor数量，推荐2
+        //reactor数量，推荐设置和cpu核数相等
         'reactor_num' => 2,
         //以下配置直接复制，无需改动
         'open_length_check' => 1,
@@ -34,7 +33,7 @@ return [
         'open_nova_protocol' => 1,
         'package_max_length' => 2000000,
     ],
-    //进程监控重启参数
+    //worker进程监控重启参数
     'monitor' =>[
         //进程请求多少次后重启
         'max_request'   => 100000,          //
@@ -48,10 +47,18 @@ return [
         'cpu_limit'     => 70,
         //是否开启monitor debug模式
         'debug'         => false,
-        //最大并发数(流控)
+        //单个worker进程最大并发数(流控)
         'max_concurrency' => 2000,
     ],
     //请求超时时间, 单位ms
     'request_timeout' => 30000,
+    //监控上报参数
+    'hawk_collection' => [
+        'enable_hawk' => 0, //是否开启监控采集 1开启，0不开启
+        'hawk_url' => 'http://api.hawk.qima-inc.com/report',
+    ],
 ];
-````
+```
+
+
+

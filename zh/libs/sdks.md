@@ -1,9 +1,11 @@
 # SDKs
 
-* [MQ](libs/sdks/mq.md)
-* [SMS](libs/sdks/sms.md)
-* [Mail](libs/sdks/mail.md)
-* [Qrcode](libs/sdks/qrcode.md)
-* [Barcode](libs/sdks/barcode.md)
-* [ShortUrl](libs/sdks/shorturl.md)
+* [MQ](sdks/mq.md)
+* [SMS](sdks/sms.md)
+* [Qrcode](sdks/qrcode.md)
+* [Barcode](sdks/barcode.md)
+* [ShortUrl](sdks/shorturl.md)
+* [UUID](sdks/uuid.md)
+
+
 

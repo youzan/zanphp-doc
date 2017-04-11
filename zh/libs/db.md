@@ -1,5 +1,5 @@
 # 数据库
 
-* [SqlMap](libs/db/sqlmap.md)
-* [Mysql](libs/db/mysql.md)
+* [SqlMap](db/sqlmap.md)
+* [使用示例](db/shi-yong-shi-li.md)
 
