@@ -94,7 +94,7 @@ protocol、domain和appName为Nova服务发布时的配置项，具体见应用�
 
 protocol默认值为nova，domain默认值为com.youzan.service，如
 
-curl "[http://xx.xx.xx.xx:xx/v2/keys/nova:com.youzan.service/scrm-customer-base](http://10.10.138.48:2379/v2/keys/nova:com.youzan.service/scrm-customer-base)"
+curl "http://xx.xx.xx.xx:xx/v2/keys/nova:com.youzan.service/scrm-customer-base"
 
 #### Http
 
