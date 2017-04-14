@@ -89,7 +89,23 @@ class LoadUrlConfig implements Bootable
 
 应用可根据需要实现Zan\Framework\Contract\Network\Bootable接口，然后将类名注册到.config.php文件的返回数组即可。
 
-### 三、配置获取
+### 三、配置获取与变更
+
+zan框架为应用程序提供了配置获取和变更的统一接口：
+
+```php
+namespace Zan\Framework\Foundation\Core;
+class Config {
+    //动态设置配置数据
+    public static function set($key, $value)；
+    //获取配置数据，无法获取时返回$default
+    public static function get($key, $default = null)；
+}
+```
+
+set和get方法中的key与目录结构对应，根目录为$ROOTPATH/resource/config/$ENV 文件夹，如需要获取上述haunt.php文件中的配置数组，可以使用Config::get\(’haunt‘\)返回数组。如需获取haunt.php配置数组中的某一项item的值，可以使用Config::get\(’haunt.item‘\)返回。
+
+
 
 
 
