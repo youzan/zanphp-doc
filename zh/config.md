@@ -89,3 +89,7 @@ class LoadUrlConfig implements Bootable
 
 应用可根据需要实现Zan\Framework\Contract\Network\Bootable接口，然后将类名注册到.config.php文件的返回数组即可。
 
+### 三、配置获取
+
+
+
