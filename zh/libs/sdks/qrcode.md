@@ -31,12 +31,27 @@ class Qrcode {
 * base64: 是否进行base64编码
 * styles：其他参数设定，具体参考[http://doc.qima-inc.com/pages/viewpage.action?pageId=4326255](http://doc.qima-inc.com/pages/viewpage.action?pageId=4326255)。
 
+返回值：
+
+生成的二维码字符串数据，前端可以直接使用。
+
 ### 使用示例
 
 ```php
-$text = "youzan";
-$size = '270x270';
-$qrCode = (yield Qrcode::create($text, $size, true));
+use Zan\Framework\Foundation\Domain\HttpController as Controller;
+
+class IndexController extends Controller {
+    $text = "youzan";
+    $size = '270x270';
+    $qrCode = (yield Qrcode::create($text, $size, true));
+    if($isbase) {
+        $response =  $this->output("<img src='{$qrcode}' />");
+    }else{
+        $response =  $this->output($qrCode);
+        $response->withHeaders(['Content-Type' => 'image/jpg']);
+    }
+    yield $response;
+}
 ```
 
 
