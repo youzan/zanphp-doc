@@ -16,6 +16,8 @@ return [
 ];
 ```
 
+二维码生成的server端各环境host和ip参考[http://doc.qima-inc.com/pages/viewpage.action?pageId=4326255](http://doc.qima-inc.com/pages/viewpage.action?pageId=4326255)。
+
 ### 接口
 
 ```php
