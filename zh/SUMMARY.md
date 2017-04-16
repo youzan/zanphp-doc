@@ -56,7 +56,10 @@
   * [测试](libs/testing.md)
     * [目录结构](libs/testing/mu-lu-jie-gou.md)
     * [TaskTest](libs/testing/tasktest.md)
-  * [MVC](libs/view.md)
-    * [目录结构](libs/view/mu-lu-jie-gou.md)
-    * [使用示例](libs/view/shi-yong-shi-li.md)
+* [MVC](libs/view.md)
+  * [目录结构](libs/view/mu-lu-jie-gou.md)
+  * [使用示例](libs/view/shi-yong-shi-li.md)
+  * [路由规则](libs/view/lu-you-gui-ze.md)
+
+
 
