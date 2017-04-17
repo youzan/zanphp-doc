@@ -1,4 +1,4 @@
-# 请求与响应
+# 请求处理
 
 ## Request
 
@@ -36,6 +36,16 @@ public function header($key = null, $default = null)
 public function json($key = null, $default = null)
 ```
 
+## Context
+
+context包含了请求的上下文信息，如request、session、cookie等，使用方式为
+
+```php
+ $request = (yield getContext('request'));
+ $request = (yield getContext('session'));
+ $request = (yield getContext('cookie'));
+```
+
 ## Response
 
 zan框架的Controller中返回的都是Zan\Framework\Network\Http\Response\Response对象，对象中方法包括
@@ -49,6 +59,4 @@ public function setContent($content)
 ```
 
 withHeader和withHeaders设置响应中的头部信息，withCookie和withCookies设置响应中的cookie信息，setContent设置响应包内容。
-
-
 
