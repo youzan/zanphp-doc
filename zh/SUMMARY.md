@@ -58,8 +58,6 @@
     * [TaskTest](libs/testing/tasktest.md)
 * [MVC](libs/view.md)
   * [目录结构](libs/view/mu-lu-jie-gou.md)
+  * [路由](libs/view/lu-you-gui-ze.md)
   * [使用示例](libs/view/shi-yong-shi-li.md)
-  * [路由规则](libs/view/lu-you-gui-ze.md)
-
-
 
