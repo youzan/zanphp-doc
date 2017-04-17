@@ -12,7 +12,7 @@ url组成中的path由route/controller/action组成，controller如需要访问s
 scheme://host:port/index/index/index?query
 ```
 
-此外，zan框架设置了提供了设置默认路由的配置文件，路径为resource/config/share/route.php。配置示例为：
+此外，zan框架设置了提供了设置默认路由的配置文件，路径为resource/config/share/route.php，各环境公用此配置文件。配置示例为：
 
 ```php
 <?php
@@ -25,7 +25,7 @@ return [
 ];
 ```
 
-default\__format指定返回页面的content-type字段，default_\_format与content-type之间的映射关系为：
+default\_format指定返回页面的content-type字段，default\_format与content-type之间的映射关系为：
 
 ```php
 'html' => 'text/html',
