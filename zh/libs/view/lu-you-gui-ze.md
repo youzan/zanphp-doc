@@ -25,5 +25,20 @@ return [
 ];
 ```
 
-default\_route、defaulcontroller
+default\__format指定返回页面的content-type字段，default_\_format与content-type之间的映射关系为：
+
+```php
+'html' => 'text/html',
+'txt' => 'text/plain',
+'js' => 'application/javascript',
+'css' => 'text/css',
+'json' => 'application/json',
+'xml' => 'text/xml',
+'rdf' => 'application/rdf+xml',
+'atom' => 'application/atom+xml',
+'rss' => 'application/rss+xml',
+'form' => 'application/x-www-form-urlencoded'
+```
+
+
 
