@@ -46,6 +46,12 @@ context包含了请求的上下文信息，如request、session、cookie等，�
  $request = (yield getContext('cookie'));
 ```
 
+## Session
+
+
+
+## Cookie
+
 ## Response
 
 zan框架的Controller中返回的都是Zan\Framework\Network\Http\Response\Response对象，对象中方法包括
