@@ -25,7 +25,7 @@ public function getDecodedPath()
 }*/
 public function getSegments()
 
-//下列方法对应php中的全局变量_GET、_POST、_COOKIE、_SERVER数组
+//下列方法对应php中的全局变量_GET、_POST、_COOKIE、_SERVER数组，$key为null时直接返回数组，否则返回对应key的值
 public function get($key = null, $default = null)
 public function post($key = null, $default = null)
 public function cookie($key = null, $default = null)
@@ -37,6 +37,16 @@ public function json($key = null, $default = null)
 ```
 
 ## Response
+
+zan框架的Controller中返回的都是Zan\Framework\Network\Http\Response\Response对象，对象中方法包括
+
+```php
+public function withHeader($key, $value, $replace = true)
+public function withHeaders(array $headers)
+public function withCookie($cookie)
+public function withCookies(array $cookies)
+
+```
 
 
 
