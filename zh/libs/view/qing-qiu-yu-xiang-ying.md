@@ -45,8 +45,10 @@ public function withHeader($key, $value, $replace = true)
 public function withHeaders(array $headers)
 public function withCookie($cookie)
 public function withCookies(array $cookies)
-
+public function setContent($content)
 ```
+
+withHeader和withHeaders设置响应中的头部信息，withCookie和withCookies设置响应中的cookie信息，setContent设置响应包内容。
 
 
 
