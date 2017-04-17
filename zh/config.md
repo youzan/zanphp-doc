@@ -5,19 +5,29 @@
 #### 目录结构
 
 ```
-resource
 ├── cache
+│   └── pf
 ├── config
+│   ├── qatest
+│   ├── share
+│   └── test
+├── config.php
+├── kvstore
+│   └── test.php
 ├── middleware
+│   └── middleware.php
 ├── routing
+│   ├── route1.php
+│   └── route2.php
 └── sql
+    └── demo.php
 ```
 
 zan框架的配置文件位于$ROOTPATH/resource文件夹下，各子目录存放内容为：
 
 cache：redis中的key模板配置
 
-config：各环境关于连接池、服务发现等配置的文件夹
+config：各环境关于连接池、服务发现等配置的文件夹，share子目录存放各环境公共的配置。加载时会将特定环境下的配置和share配置进行合并，特定环境下的配置优先级高于share中的配置。
 
 middleware：请求过滤和异常处理中间件的匹配规则
 
