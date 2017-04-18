@@ -48,8 +48,19 @@ context包含了请求的上下文信息，如request、session、cookie等，�
 
 ## Session
 
-```
+从context获取session之后，session的操作方法包括
 
+```php
+class Session {
+    //session中设置key-value
+    public function set($key, $value);
+    //获取session中key的值
+    public function get($key);
+    //删除session，使之失效
+    public function destory();
+    //删除session中某个key的值
+    public function delete($key);
+}
 ```
 
 ## Cookie
