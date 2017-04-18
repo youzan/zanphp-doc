@@ -38,12 +38,11 @@ public function json($key = null, $default = null)
 
 ## Context
 
-context包含了请求的上下文信息，如request、session、cookie等，使用方式为
+context包含了请求的上下文信息，如request、session等，使用方式为
 
 ```php
  $request = (yield getContext('request'));
  $request = (yield getContext('session'));
- $request = (yield getContext('cookie'));
 ```
 
 ## Session
@@ -61,12 +60,6 @@ class Session {
     //删除session中某个key的值
     public function delete($key);
 }
-```
-
-## Cookie
-
-```
-
 ```
 
 ## Response
