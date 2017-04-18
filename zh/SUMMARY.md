@@ -32,6 +32,7 @@
     * [Nova](libs/pool/nova.md)
     * [Tcp](libs/pool/tcp.md)
   * [数据库](libs/db.md)
+    * [原生Sql](libs/db/yuan-sheng-sql.md)
     * [SqlMap](libs/db/sqlmap.md)
     * [使用示例](libs/db/shi-yong-shi-li.md)
   * [Nosql](libs/nosql.md)
