@@ -29,6 +29,7 @@ public function getSegments()
 public function get($key = null, $default = null)
 public function post($key = null, $default = null)
 public function cookie($key = null, $default = null)
+//请求相关的server信息，如调用者ip和port等信息
 public function server($key = null, $default = null)
 //HTTP包中的头信息数组
 public function header($key = null, $default = null)

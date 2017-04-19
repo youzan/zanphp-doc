@@ -19,6 +19,8 @@
         └── GetAllDemoData.php
 ```
 
+
+
 ### IndexController.php
 
 ```php
@@ -102,7 +104,6 @@ class ExceptionController extends Controller
         throw new RedirectException('https://youzan.com', 'Test Redirect');
     }
 }
-
 ```
 
 ### HttpCall.php
@@ -137,7 +138,7 @@ class HttpCall {
 
 ```php
 <?php
-    echo "Hello World $str";
+    echo "Hello World $str"; //$str在调用时使用assgin方法赋值
 ?>
 ```
 

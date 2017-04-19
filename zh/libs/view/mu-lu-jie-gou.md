@@ -6,14 +6,11 @@
 ├── Controller
 │   ├── Index
 │   │   └── IndexController.php
-│   ├── Order
-│   │   └── HomePageController.php
 │   └── Test
 │       └── ExceptionController.php
 ├── Demo
 │   ├── Service
-│   │   ├── Order.php
-│   │   └── TestJob.php
+│   │   └── HttpCall.php
 │   └── View
 │       └── test
 │           └── test.html
@@ -27,6 +24,4 @@
 src下所有目录（包括文件）都采用大写字母开头，驼峰式的命名方式。
 
 Controller子目录下文件名必须以Controller.php结尾。
-
-
 
