@@ -54,7 +54,7 @@ return [
     ]
 ```
 
-SqlMap主要定义sql生成的规则和约束，返回数组的键名标识一条sql生成规则。sql语句模板中的变量名以\#{var}的形式表示
+SqlMap主要定义sql生成的规则和约束，返回数组的键名标识一条sql生成规则，sql语句模板中的变量名以\#{var}的形式表示。
 
 php ：
 
@@ -120,7 +120,7 @@ $data数组解析：
 
 ## SqlMap key定义规则
 
-SqlMap 的key值前缀分隔符 \_ 的首单词，定义了执行SQL以后返回的数据格式。
+**SqlMap 的key值前缀分隔符 \_ 的首单词，定义了执行SQL以后返回的数据格式。**
 
 如 row\_by\_market\_id\_goods\_id 首个单词就是 row。
 
