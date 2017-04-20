@@ -18,7 +18,7 @@ Server相关配置
 return [
     //监听host, 默认0.0.0.0即可
     'host'          => '0.0.0.0',
-    //监听ip
+    //监听port
     'port'          => '8020',
     'config' => [
         //worker数量，推荐设置和cpu核数相等
