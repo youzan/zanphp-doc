@@ -5,19 +5,29 @@
 #### 目录结构
 
 ```
-resource
 ├── cache
+│   └── pf
 ├── config
+│   ├── qatest
+│   ├── share
+│   └── test
+├── config.php
+├── kvstore
+│   └── test.php
 ├── middleware
+│   └── middleware.php
 ├── routing
+│   ├── route1.php
+│   └── route2.php
 └── sql
+    └── demo.php
 ```
 
 zan框架的配置文件位于$ROOTPATH/resource文件夹下，各子目录存放内容为：
 
 cache：redis中的key模板配置
 
-config：各环境关于连接池、服务发现等配置的文件夹
+config：各环境关于连接池、服务发现等配置的文件夹，share子目录存放各环境公共的配置。加载时会将特定环境下的配置和share配置进行合并，特定环境下的配置优先级高于share中的配置。
 
 middleware：请求过滤和异常处理中间件的匹配规则
 
@@ -88,4 +98,20 @@ class LoadUrlConfig implements Bootable
 ```
 
 应用可根据需要实现Zan\Framework\Contract\Network\Bootable接口，然后将类名注册到.config.php文件的返回数组即可。
+
+### 三、配置获取与变更
+
+zan框架为应用程序提供了配置获取和变更的统一接口：
+
+```php
+namespace Zan\Framework\Foundation\Core;
+class Config {
+    //动态设置配置数据
+    public static function set($key, $value)；
+    //获取配置数据，无法获取对应项内容时返回$default
+    public static function get($key, $default = null)；
+}
+```
+
+set和get方法中的key与目录结构对应，根目录为$ROOTPATH/resource/config/$ENV 文件夹，如需要获取上述haunt.php文件中的配置数组，可以使用Config::get\(’haunt‘\)返回数组。如需获取haunt.php配置数组中的某一项item的值，可以使用Config::get\(’haunt.item‘\)返回。
 

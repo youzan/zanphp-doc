@@ -11,6 +11,8 @@ return [
     'engine'=> 'novaClient',
     //连接超时时间
     'connect_timeout' => 15000,
+    //发送超时时间
+    'send_timeout'    => 3000,
     //心跳时间
     'heartbeat-time' => 15000,
     //负载均衡策略,目前只支持polling
