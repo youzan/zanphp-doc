@@ -40,11 +40,11 @@
     └── ...
 ```
 
-### 目录说明
+### 目录说明zh
 
 * bin: 服务启动bin文件目录
 * init: 应用初始化相关
-* resource: 配置文件目录，具体配置见 [项目配置](web/config.md)
+* resource: 配置文件目录，具体配置见 [项目配置](../../zh/config.md)
 * src: 逻辑代码目录
 * tests: 单元测试目录
 * vendor: composer引入包目录
