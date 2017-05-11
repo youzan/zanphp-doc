@@ -77,3 +77,13 @@ public function setContent($content)
 
 withHeader和withHeaders设置响应中的头部信息，withCookie和withCookies设置响应中的cookie信息，setContent设置响应包内容。
 
+## 辅助方法
+
+#### 获取客户端ip
+
+```php
+$request->getClientIp()
+```
+
+在通过反向代理（如nginx）访问server时，此方法需要在resource/config/$ENV/server.php中配置trust proxy ip，
+
