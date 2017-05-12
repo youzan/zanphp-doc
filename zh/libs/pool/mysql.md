@@ -32,7 +32,7 @@ return [
 ];
 ```
 
-注：init-connection和minimum-connection-count两者中的较大者。
+注：连接池初始连接数目为init-connection和minimum-connection-count两者中的较大者。
 
 
 
