@@ -1,0 +1,169 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Zan PHP Framework &#8212; zanphp-doc 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="zan-php-framework">
+<h1>Zan PHP Framework<a class="headerlink" href="#zan-php-framework" title="Permalink to this headline">¶</a></h1>
+<p>Zan是基于PHP协程的网络服务框架，提供最简单的方式开发面向C10K+的高并发HTTP服务或SOA服务。</p>
+<div class="section" id="id1">
+<h2>核心特性<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>基于 <code class="docutils literal"><span class="pre">yield</span></code> 实现了独立堆栈的协程</li>
+<li>类似于 Golang 的并发编程模型实现</li>
+<li>基于 swoole 提供非阻塞I/O服务</li>
+<li>连接池支持（内置MySQL、Redis、syslog等多种组件）</li>
+<li>类似 Golang 的defer机制解决由于异常导致的资源未释放、锁未释放的问题</li>
+<li>可继承的View布局及组件化支持，方便完成bigPipe/bigRender/首屏加载优化等不同的渲染方式</li>
+<li>基于模型驱动的SQLMap，实现了SQL的快速定位及方便的sharding、cache支持</li>
+<li>提供类似于 <a class="reference external" href="https://github.com/laravel/laravel">Laravel</a>
+的middleware(Filters &amp; Terminators)机制</li>
+<li>Di及单元测试的良好支持</li>
+<li>良好的服务化对接支持</li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>框架定位<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Zan 的定位是高并发 Web 服务或业务中间件。</p>
+<p>Zan 参考了很多 Golang 特性，不过目的绝不是为了替换掉 Golang。</p>
+<p>PHP 在业务系统开发上的优势明显，而 Golang 相信会是将来系统编程的霸主。</p>
+<p>Zan 和 Golang 的边界是：Zan做业务系统；Golang
+做系统（中间件或基础服务组件）。</p>
+<div class="line-block">
+<div class="line">而 Zan 和 Golang 编程模型的驱近，是希望能给PHP程序员一个更好的桥梁到
+Golang。</div>
+<div class="line">理想的技术栈是：Zan + Go + 少量的C/C++。</div>
+</div>
+<p>当然对于致力于终身coding的码农来说：Java依然很难跨过去的坎。</p>
+</div>
+<div class="section" id="id3">
+<h2>官方文档<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Zan
+PHP的文档仓库地址：<a class="reference external" href="https://github.com/youzan/zan-doc/blob/master/zh/SUMMARY.md">zan-doc</a>。目前只有中文的文档，欢迎英语大牛翻译成英文的。</p>
+<p>你也可以在GitBook上查看Zan PHP 的文档
+<a class="reference external" href="https://agalwood.gitbooks.io/zan-doc/content/zh/">GitBook/zan-doc</a>。</p>
+</div>
+<div class="section" id="id4">
+<h2>常用链接<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/youzan/zan-doc">zan-doc</a> - Zan PHP 开发者文档</li>
+<li><a class="reference external" href="https://github.com/youzan/zan-installer">zan-installer</a> - Zan PHP
+脚手架工具</li>
+<li><a class="reference external" href="https://github.com/youzan/zanhttp">zanhttp</a> - Zan PHP HTTP demo</li>
+<li><a class="reference external" href="https://github.com/youzan/zan_high_performance_mysql">zan-hign-performance-mysql</a>
+- Zan PHP 高性能MySQL实践</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>开发交流<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>QQ群：115728122</p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>我们<a class="reference external" href="https://youzan.com/">有赞</a>的 <a class="reference external" href="https://github.com/youzan/zan">Zan
+PHP框架</a>基于 <a class="reference external" href="https://opensource.org/licenses/MIT">MIT
+license</a> 进行开源。</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Zan PHP Framework</a><ul>
+<li><a class="reference internal" href="#id1">核心特性</a></li>
+<li><a class="reference internal" href="#id2">框架定位</a></li>
+<li><a class="reference internal" href="#id3">官方文档</a></li>
+<li><a class="reference internal" href="#id4">常用链接</a></li>
+<li><a class="reference internal" href="#id5">开发交流</a></li>
+<li><a class="reference internal" href="#license">License</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/zh/README.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, youzan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/zh/README.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

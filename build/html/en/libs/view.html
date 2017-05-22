@@ -1,0 +1,278 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>View &#8212; zanphp-doc 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="view">
+<h1>View<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="conventions">
+<h2>Conventions<a class="headerlink" href="#conventions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="directory-structure">
+<h3>Directory Structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h3>
+<p>only supported module model,and view files must be in the view folder:</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>├── Controller
+│   └── Index
+│       └── IndexController.php
+└── DemoModule
+    ├── Service
+    │   └── System.php
+    └── View
+        ├── Base.html
+        └── Test.html
+</pre></div>
+</div>
+</div>
+<div class="section" id="uppercase-and-lowercase">
+<h3>Uppercase and Lowercase<a class="headerlink" href="#uppercase-and-lowercase" title="Permalink to this headline">¶</a></h3>
+<p>the files of src directory, named by uppercase as beginning and Camel
+naming</p>
+</div>
+</div>
+<div class="section" id="relate-class-and-main-function-list">
+<h2>relate class and main function list<a class="headerlink" href="#relate-class-and-main-function-list" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="httpcontroller-php">
+<h3>HttpController.php<a class="headerlink" href="#httpcontroller-php" title="Permalink to this headline">¶</a></h3>
+<p>web controller base class</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$httpController = new HttpController(Request $request, Context $context);
+//网模板中写入业务数据
+$httpController-&gt;assign($key, $value);
+//渲染模板
+$httpController-&gt;display($tpl);
+</pre></div>
+</div>
+</div>
+<div class="section" id="view-php">
+<h3>View.php<a class="headerlink" href="#view-php" title="Permalink to this headline">¶</a></h3>
+<p>static method of display template file</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>View::display($tplPath, array $data = []);
+</pre></div>
+</div>
+</div>
+<div class="section" id="tpl-php">
+<h3>Tpl.php<a class="headerlink" href="#tpl-php" title="Permalink to this headline">¶</a></h3>
+<p>load template,write variables that template needed in symbol table</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$tpl = new Tpl(Event $event);
+$tpl-&gt;load($tpl, array $data = [])
+</pre></div>
+</div>
+</div>
+<div class="section" id="css-php">
+<h3>Css.php<a class="headerlink" href="#css-php" title="Permalink to this headline">¶</a></h3>
+<p>load css files</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$css = new Css(Event $event);
+$css-&gt;load($index, $vendor = false)
+</pre></div>
+</div>
+</div>
+<div class="section" id="js-php">
+<h3>Js.php<a class="headerlink" href="#js-php" title="Permalink to this headline">¶</a></h3>
+<p>load js files synchronously or asynchronously</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$js = new Js(Event $event);
+//同步加载
+$js-&gt;syncLoad($index, $vendor = false, $crossorigin = false);
+//异步加载
+$js-&gt;asyncLoad($index, $vendor = false);
+</pre></div>
+</div>
+</div>
+<div class="section" id="jsvar-php">
+<h3>JsVar.php<a class="headerlink" href="#jsvar-php" title="Permalink to this headline">¶</a></h3>
+<p>connection between front-end and backend,initially group data.</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$jsVar = new JsVar();
+$jsVar-&gt;setSession($key, $value);
+$jsVar-&gt;get();
+</pre></div>
+</div>
+</div>
+<div class="section" id="layout-php">
+<h3>Layout.php<a class="headerlink" href="#layout-php" title="Permalink to this headline">¶</a></h3>
+<p>Layout Class,Cut page to blocks</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$layout = new Layout(Tpl $tpl, Event $event, $tplPath);
+//开始一个block
+$layout-&gt;block($blockName);
+//闭合一个block，必须配合block使用
+$layout-&gt;endBlock($blockName = null);
+//继承一个页面
+$layout-&gt;extend($tplPath);
+//调用父类block
+$layout-&gt;super($blockName = null);
+//设置一个占位的block，一般用在父类页面，使其能被子类block替换
+$layout-&gt;place($blockName);
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="sample-example">
+<h2>Sample Example<a class="headerlink" href="#sample-example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="indexcontroller-php">
+<h3>IndexController.php<a class="headerlink" href="#indexcontroller-php" title="Permalink to this headline">¶</a></h3>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>namespace Com\Youzan\ZanHttpDemo\Controller\Index;
+
+use Com\Youzan\ZanHttpDemo\DemoModule\Service\System;
+use Zan\Framework\Foundation\Domain\HttpController as Controller;
+
+class IndexController extends Controller {
+    public function index()
+    {
+        $systemService = new System();
+        yield $systemService-&gt;sleep(20);
+        $this-&gt;assign(&#39;testResult&#39;, &#39;hello, zanphp!&#39;);
+        yield $this-&gt;display(&#39;DemoModule/Test&#39;);
+    }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="base-html">
+<h3>Base.html<a class="headerlink" href="#base-html" title="Permalink to this headline">¶</a></h3>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;
+    &lt;?php $layout-&gt;place(&#39;title&#39;); ?&gt;
+    &lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;?php $layout-&gt;place(&#39;body&#39;); ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="test-html">
+<h3>Test.html<a class="headerlink" href="#test-html" title="Permalink to this headline">¶</a></h3>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php $layout-&gt;extend(&#39;DemoModule/Base&#39;); ?&gt;
+
+&lt;?php $layout-&gt;block(&#39;title&#39;); ?&gt;
+Zanphp Demo
+&lt;?php $layout-&gt;endBlock();?&gt;
+
+
+&lt;?php $layout-&gt;block(&#39;body&#39;); ?&gt;
+&lt;div class=&quot;test&quot;&gt;
+    &lt;?php echo &quot;Test Result: &quot; . $testResult ?&gt;
+&lt;/div&gt;
+&lt;?php $layout-&gt;endBlock();?&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">View</a><ul>
+<li><a class="reference internal" href="#conventions">Conventions</a><ul>
+<li><a class="reference internal" href="#directory-structure">Directory Structure</a></li>
+<li><a class="reference internal" href="#uppercase-and-lowercase">Uppercase and Lowercase</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#relate-class-and-main-function-list">relate class and main function list</a><ul>
+<li><a class="reference internal" href="#httpcontroller-php">HttpController.php</a></li>
+<li><a class="reference internal" href="#view-php">View.php</a></li>
+<li><a class="reference internal" href="#tpl-php">Tpl.php</a></li>
+<li><a class="reference internal" href="#css-php">Css.php</a></li>
+<li><a class="reference internal" href="#js-php">Js.php</a></li>
+<li><a class="reference internal" href="#jsvar-php">JsVar.php</a></li>
+<li><a class="reference internal" href="#layout-php">Layout.php</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sample-example">Sample Example</a><ul>
+<li><a class="reference internal" href="#indexcontroller-php">IndexController.php</a></li>
+<li><a class="reference internal" href="#base-html">Base.html</a></li>
+<li><a class="reference internal" href="#test-html">Test.html</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/libs/view.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, youzan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../../_sources/en/libs/view.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

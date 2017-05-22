@@ -1,0 +1,211 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>项目配置 &#8212; zanphp-doc 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>项目配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="zan">
+<h2>一、zan框架配置<a class="headerlink" href="#zan" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>目录结构<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span>├── cache
+│   └── pf
+├── config
+│   ├── qatest
+│   ├── share
+│   └── test
+├── config.php
+├── kvstore
+│   └── test.php
+├── middleware
+│   └── middleware.php
+├── routing
+│   ├── route1.php
+│   └── route2.php
+└── sql
+    └── demo.php
+</pre></div>
+</div>
+<p>zan框架的配置文件位于$ROOTPATH/resource文件夹下，各子目录存放内容为：</p>
+<p>cache：redis中的key模板配置</p>
+<p>config：各环境关于连接池、服务发现等配置的文件夹，share子目录存放各环境公共的配置。加载时会将特定环境下的配置和share配置进行合并，特定环境下的配置优先级高于share中的配置。</p>
+<p>middleware：请求过滤和异常处理中间件的匹配规则</p>
+<p>sql：sql语句模板配置，使用时传入data即可组成sql语句</p>
+<p>各环境配置文件都放在ENV
+文件夹下，下面以test环境举例，结构如下：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>resource/config/test/
+├── connection
+│   ├── kvstore.php
+│   ├── mysql.php
+│   └── tcp.php
+├── debug.php
+├── haunt.php
+├── hawk.php
+├── monitor
+│   └── trace.php
+└── server.php
+</pre></div>
+</div>
+<p>$ROOTPATH/resource/config/share文件夹为所有环境共享配置，可用于存放业务相关，环境无关的配置。</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>二、应用初始化配置<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span>├── app.php
+├── ServerStart
+│   ├── .config.php
+│   └── LoadUrlConfig.php
+└── WorkerStart
+    ├── .config.php
+    └── LoadUrlConfig.php
+</pre></div>
+</div>
+<p>除了自身的配置之外，zan框架另外提供了应用自定义初始化配置的钩子，配置文件位于init文件夹下，名称为.config.php</p>
+<p>ServerStart和WorkerStart文件夹分别用于存放server进程和worker进程启动时的初始化操作，文件示例为</p>
+<p>.config.php</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+
+return [
+    \Scrm\Open\Init\WorkerStart\LoadUrlConfig::class,
+];
+</pre></div>
+</div>
+<p>LoadUrlConfig.php</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+namespace Scrm\Open\Init\WorkerStart;
+
+use Zan\Framework\Contract\Network\Bootable;
+use Zan\Framework\Foundation\Core\Config;
+use Zan\Framework\Utilities\Types\URL;
+
+class LoadUrlConfig implements Bootable
+{
+    public function bootstrap($server)
+    {
+        $config = Config::get(&#39;url&#39;);
+        URL::setConfig($config);
+    }
+}
+</pre></div>
+</div>
+<p>应用可根据需要实现Zan:raw-latex:<cite>Framework</cite><a href="#id4"><span class="problematic" id="id5">:raw-latex:`\Contract`</span></a><a href="#id6"><span class="problematic" id="id7">:raw-latex:`\Network`</span></a><a href="#id8"><span class="problematic" id="id9">:raw-latex:`\Bootable接口`</span></a>，然后将类名注册到.config.php文件的返回数组即可。</p>
+</div>
+<div class="section" id="id10">
+<h2>三、配置获取与变更<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>zan框架为应用程序提供了配置获取和变更的统一接口：</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>namespace Zan\Framework\Foundation\Core;
+class Config {
+    //动态设置配置数据
+    public static function set($key, $value)；
+    //获取配置数据，无法获取对应项内容时返回$default
+    public static function get($key, $default = null)；
+}
+</pre></div>
+</div>
+<p>set和get方法中的key与目录结构对应，根目录为ENV
+文件夹，如需要获取上述haunt.php文件中的配置数组，可以使用Config::get(’haunt‘)返回数组。如需获取haunt.php配置数组中的某一项item的值，可以使用Config::get(’haunt.item‘)返回。</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">项目配置</a><ul>
+<li><a class="reference internal" href="#zan">一、zan框架配置</a><ul>
+<li><a class="reference internal" href="#id2">目录结构</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">二、应用初始化配置</a></li>
+<li><a class="reference internal" href="#id10">三、配置获取与变更</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/zh/config.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, youzan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/zh/config.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

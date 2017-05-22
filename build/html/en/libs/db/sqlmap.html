@@ -1,0 +1,474 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SqlMap &#8212; zanphp-doc 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="sqlmap">
+<h1>SqlMap<a class="headerlink" href="#sqlmap" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="target">
+<h2>Target<a class="headerlink" href="#target" title="Permalink to this headline">¶</a></h2>
+<p>target is make SQL transparence. DBA can look over SQL in biz,then make
+SQL statement optimization, index optimization, and quickly locate the
+slow queries. When new SqlMap version online, its can be pre-audit by
+DBA,to avoid slow queries online.</p>
+</div>
+<div class="section" id="config">
+<h2>Config<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>SqlMap Config</li>
+</ol>
+<p>SqlMap file is in directory: resource/sql. the key value when called is
+depend on directory structure.</p>
+<ol class="arabic simple" start="2">
+<li>Table Config</li>
+</ol>
+<p>table file is in directory: resource/config/share/table/. the map file
+is from tables of setting database.</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+return [
+    &#39;mysql.default_write&#39; =&gt; [
+        &#39;book_lottery&#39;,
+        &#39;book_lottery_edit_log&#39;,
+        &#39;book_lottery_prize&#39;,
+        &#39;book_lottery_user_join&#39;,
+        &#39;book_lottery_user_take&#39;,
+        &#39;buyer_notice&#39;,
+        &#39;entity_certification&#39;,
+        &#39;goods_collection_configure&#39;,
+        &#39;goods_collection_data&#39;,
+        &#39;goods_pf&#39;,
+        &#39;labels&#39;,
+    ],
+];
+</pre></div>
+</div>
+<p>‘mysql.default_write’ : book_lottery、book_lottery_edit_log …
+tables use config of ‘default_write’ in:
+resource/config/{$ENV}/connection/mysql.php.</p>
+<p>why tables config alone? 1. Data Modeling 2. Sharding</p>
+</div>
+<div class="section" id="using">
+<h2>Using<a class="headerlink" href="#using" title="Permalink to this headline">¶</a></h2>
+<p>SqlMap ：</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+return [
+    &#39;row_by_market_id_goods_id&#39;=&gt;[
+        &#39;require&#39; =&gt; [&#39;market_id&#39;,&#39;goods_id&#39;],
+        &#39;limit&#39;   =&gt; [],
+        &#39;sql&#39;     =&gt; &#39;SELECT * FROM market_goods WHERE market_id = #{market_id} AND goods_id = #{goods_id} LIMIT 1&#39;,
+    ]
+</pre></div>
+</div>
+<p>php ：</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+  $data = [
+      &#39;var&#39; =&gt; [
+          &#39;market_id&#39; =&gt; $marketId,
+          &#39;goods_id&#39; =&gt; $goodsIds
+      ],
+  ];
+  $record = (yield Db::execute(&#39;market.marketGoods.row_by_market_id_goods_id&#39;, $data));
+</pre></div>
+</div>
+<p>market.marketGoods.row_by_market_id_goods_id ：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">market</span> <span class="p">:</span> <span class="n">resource</span><span class="o">/</span><span class="n">sql</span><span class="o">/</span><span class="n">market</span>
+
+<span class="n">marketGoods</span> <span class="p">:</span> <span class="n">resource</span><span class="o">/</span><span class="n">sql</span><span class="o">/</span><span class="n">market</span><span class="o">/</span><span class="n">marketGoods</span><span class="o">.</span><span class="n">php</span>
+
+<span class="n">row_by_market_id_goods_id</span> <span class="p">:</span> <span class="n">the</span> <span class="n">SqlMap</span> <span class="n">key</span> <span class="n">value</span> <span class="n">of</span> <span class="n">marketGoods</span><span class="o">.</span><span class="n">php</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="require">
+<h2>Require<a class="headerlink" href="#require" title="Permalink to this headline">¶</a></h2>
+<p>All SQL write in SqlMap, tag #WHERE is not allowed. Example：</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">market_category</span> <span class="n">WHERE</span> <span class="n">market_id</span><span class="o">=</span><span class="c1">#{market_id}  and parent_id= #{parent_id}  AND category_name= #{category_name}</span>
+</pre></div>
+</div>
+<p>Not allowed：</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">market_category</span> <span class="n">WHERE</span> <span class="c1">#WHERE</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sqlmap-key-define-rules">
+<h2>SqlMap key Define Rules<a class="headerlink" href="#sqlmap-key-define-rules" title="Permalink to this headline">¶</a></h2>
+<p>SqlMap’ key value word has ‘_’ prefix separator,that define the data
+model of SQL return vales.</p>
+<p>Example:the first word of ‘row_by_market_id_goods_id’ is ‘row’。</p>
+<p>supports the following：</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>insert 单条插入 返回数据格式： int|0 值 last insert_id
+
+batch 多条插入 返回数据格式： bool
+
+update 更新 返回数据格式： bool
+
+delete 删除 返回数据格式： bool
+
+affected 获取影响行数 返回数据格式： int|0
+
+row 单行查询 返回数据格式： map|null 例： [&#39;id&#39; =&gt; 1, &#39;name&#39; =&gt; &#39;xxxx&#39;]
+
+select 多行查询 返回数据格式： list|[] 例子 [[&#39;id&#39; =&gt; 1, &#39;name&#39; =&gt; &#39;xxx&#39;], [&#39;id&#39; =&gt; 2, &#39;name&#39; =&gt; &#39;xxx&#39;]]
+
+count 统计查询 返回数据格式： int|0
+
+raw 获取mysqli查询默认返回结果 返回数据格式： mixed
+</pre></div>
+</div>
+</div>
+<div class="section" id="sqlmap-label-supported">
+<h2>SqlMap Label Supported<a class="headerlink" href="#sqlmap-label-supported" title="Permalink to this headline">¶</a></h2>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span><span class="c1">#INSERT#</span>
+<span class="c1">#INSERTS#</span>
+<span class="c1">#DATA#</span>
+<span class="c1">#COLUMN#</span>
+<span class="n">某字段名称</span> <span class="n">例如</span> <span class="n">kdt_id</span> <span class="c1">#{kdt_id} 或者#KDT_ID#</span>
+<span class="c1">#COUNT#</span>
+<span class="c1">#ORDER#</span>
+<span class="c1">#GROUP#</span>
+<span class="c1">#LIMIT#</span>
+
+<span class="c1">#WHERE 非必须不允许使用</span>
+<span class="c1">#AND 非必须不允许使用</span>
+<span class="c1">#OR 非必须不允许使用</span>
+</pre></div>
+</div>
+<p>uppercase except label field.</p>
+</div>
+<div class="section" id="sql-grammar-and-using">
+<h2>SQL grammar and Using<a class="headerlink" href="#sql-grammar-and-using" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="insert">
+<h3>insert<a class="headerlink" href="#insert" title="Permalink to this headline">¶</a></h3>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>// SqlMap
+&#39;insert&#39; =&gt; [
+    &#39;require&#39; =&gt; [],
+    &#39;limit&#39;   =&gt; [],
+    &#39;sql&#39;     =&gt; &#39;INSERT INTO market_goods #INSERT#&#39;,
+]
+
+//调用
+$data = [
+    &#39;insert&#39; =&gt; [
+        &#39;market_id&#39; =&gt; 1111,
+        &#39;goods_id&#39; =&gt; 2222，
+    ],
+];
+$record = (yield Db::execute(&#39;dir_name.file_name.insert&#39;, $data));
+</pre></div>
+</div>
+</div>
+<div class="section" id="batch">
+<h3>batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h3>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>// SqlMap
+&#39;batch_insert&#39;=&gt;[
+    &#39;require&#39; =&gt; [],
+    &#39;limit&#39;   =&gt; [],
+    &#39;sql&#39;     =&gt; &#39;INSERT INTO market_goods #INSERTS#&#39;,
+]
+//调用
+$data = [
+    &#39;inserts&#39; =&gt; [
+        [
+            &#39;market_id&#39; =&gt; 1111,
+            &#39;goods_id&#39; =&gt; 2222，
+        ],
+        [
+            &#39;market_id&#39; =&gt; 222,
+            &#39;goods_id&#39; =&gt; 333，
+        ],
+    ]
+];
+$record = (yield Db::execute(&#39;dir_name.file_name.inserts&#39;, $data));
+</pre></div>
+</div>
+</div>
+<div class="section" id="update">
+<h3>update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h3>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>// SqlMap
+&#39;update&#39;=&gt;[
+    &#39;require&#39; =&gt; [&#39;market_id&#39;,&#39;goods_id&#39;],
+    &#39;limit&#39;   =&gt; [],
+    &#39;sql&#39;     =&gt; &#39;UPDATE market_goods SET #DATA# WHERE market_id = #{market_id} AND goods_id = #{goods_id} LIMIT 1&#39;
+]
+//调用
+$data = [
+    &#39;data&#39; =&gt; [
+        &#39;name&#39; =&gt; 1111,
+        &#39;time&#39; =&gt; 2222，
+    ],
+    &#39;var&#39; =&gt; [
+        &#39;market_id&#39; =&gt; 222,
+        &#39;goods_id&#39; =&gt; 333，
+    ],
+];
+$record = (yield Db::execute(&#39;dir_name.file_name.update&#39;, $data));
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete">
+<h3>delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h3>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>// SqlMap
+&#39;delete&#39; =&gt; [
+    &#39;require&#39; =&gt; [&#39;market_id&#39;,&#39;kdt_id&#39;,&#39;goods_id&#39;],
+    &#39;limit&#39;   =&gt; [],
+    &#39;sql&#39;     =&gt; &#39;DELETE FROM market_goods WHERE market_id = #{market_id} AND kdt_id = #{kdt_id} AND goods_id = #{goods_id} LIMIT 1&#39;,
+]
+//调用
+$data = [
+    &#39;var&#39; =&gt; [
+        &#39;market_id&#39; =&gt; 222,
+        &#39;goods_id&#39; =&gt; 333，
+    ],
+];
+$record = (yield Db::execute(&#39;dir_name.file_name.delete&#39;, $data));
+</pre></div>
+</div>
+</div>
+<div class="section" id="affected">
+<h3>affected<a class="headerlink" href="#affected" title="Permalink to this headline">¶</a></h3>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>// SqlMap
+&#39;affected_update&#39;=&gt;[
+    &#39;require&#39; =&gt; [&#39;market_id&#39;,&#39;goods_id&#39;],
+    &#39;limit&#39;   =&gt; [],
+    &#39;sql&#39;     =&gt; &#39;UPDATE market_goods SET #DATA# WHERE market_id = #{market_id} AND goods_id = #{goods_id} LIMIT 1&#39;
+]
+//调用
+$data = [
+    &#39;data&#39; =&gt; [
+        &#39;name&#39; =&gt; 1111,
+        &#39;time&#39; =&gt; 2222，
+    ],
+    &#39;var&#39; =&gt; [
+        &#39;market_id&#39; =&gt; 222,
+        &#39;goods_id&#39; =&gt; 333，
+    ],
+];
+$record = (yield Db::execute(&#39;dir_name.file_name.affected_update&#39;, $data));
+</pre></div>
+</div>
+</div>
+<div class="section" id="row">
+<h3>row<a class="headerlink" href="#row" title="Permalink to this headline">¶</a></h3>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>// SqlMap
+&#39;row_by_market_id_goods_id&#39; =&gt; [
+    &#39;require&#39; =&gt; [&#39;market_id&#39;,&#39;goods_id&#39;],
+    &#39;limit&#39;   =&gt; [],
+    &#39;sql&#39;     =&gt; &#39;SELECT * FROM market_goods WHERE market_id = #{market_id} AND goods_id = #{goods_id} LIMIT 1&#39;,
+]
+//调用
+$data = [
+    &#39;var&#39; =&gt; [
+        &#39;market_id&#39; =&gt; 222,
+        &#39;goods_id&#39; =&gt; 333，
+    ],
+    &#39;limit&#39; =&gt; &#39;0, 10&#39;
+];
+$record = (yield Db::execute(&#39;dir_name.file_name.row_by_market_id_goods_id&#39;, $data));
+</pre></div>
+</div>
+</div>
+<div class="section" id="select">
+<h3>select<a class="headerlink" href="#select" title="Permalink to this headline">¶</a></h3>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>// SqlMap
+&#39;select_by_market_id_goods_ids&#39; =&gt; [
+    &#39;require&#39; =&gt; [&#39;market_id&#39;,&#39;goods_id&#39;],
+    &#39;limit&#39;   =&gt; [],
+    &#39;sql&#39;     =&gt; &#39;SELECT * FROM market_goods WHERE market_id = #{market_id} AND goods_id IN #{goods_id} #LIMIT#&#39;,
+]
+//调用
+$data = [
+    &#39;var&#39; =&gt; [
+        &#39;market_id&#39; =&gt; 222,
+        &#39;goods_id&#39; =&gt; [333,111,333,555]，
+    ],
+    &#39;limit&#39; =&gt; &#39;0, 10&#39;
+];
+$record = (yield Db::execute(&#39;dir_name.file_name.select_by_market_id_goods_ids&#39;, $data));
+</pre></div>
+</div>
+</div>
+<div class="section" id="count">
+<h3>count<a class="headerlink" href="#count" title="Permalink to this headline">¶</a></h3>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>// SqlMap
+&#39;count_by_market_id_audit_status&#39;=&gt;[
+    &#39;require&#39; =&gt; [&#39;market_id&#39;,&#39;audit_status&#39;],
+    &#39;limit&#39;   =&gt; [],
+    &#39;sql&#39;     =&gt; &#39;SELECT #COUNT# FROM market_goods WHERE market_id = #{market_id} AND audit_status = #{audit_status}&#39;,
+]
+//调用
+$data = [
+    &#39;count&#39; =&gt; &#39;*&#39;,
+    &#39;var&#39; =&gt; [
+        &#39;market_id&#39; =&gt; 222,
+        &#39;audit_status&#39; =&gt; 1，
+    ],
+];
+$record = (yield Db::execute(&#39;dir_name.file_name.count_by_market_id_audit_status&#39;, $data));
+</pre></div>
+</div>
+</div>
+<div class="section" id="raw">
+<h3>raw<a class="headerlink" href="#raw" title="Permalink to this headline">¶</a></h3>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>// SqlMap
+&#39;raw_by_market_id_goods_ids&#39; =&gt; [
+    &#39;require&#39; =&gt; [&#39;market_id&#39;,&#39;goods_id&#39;],
+    &#39;limit&#39;   =&gt; [],
+    &#39;sql&#39;     =&gt; &#39;SELECT * FROM market_goods WHERE market_id = #{market_id} AND goods_id IN #{goods_id} #LIMIT#&#39;,
+]
+//调用
+$data = [
+    &#39;var&#39; =&gt; [
+        &#39;market_id&#39; =&gt; 222,
+        &#39;goods_id&#39; =&gt; [333,111,333,555]，
+    ],
+    &#39;limit&#39; =&gt; &#39;0, 10&#39;
+];
+$record = (yield Db::execute(&#39;dir_name.file_name.raw_by_market_id_goods_ids&#39;, $data));
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="sqlmap-other-labels-using">
+<h2>SqlMap Other Labels Using<a class="headerlink" href="#sqlmap-other-labels-using" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="order-by">
+<h3>order by<a class="headerlink" href="#order-by" title="Permalink to this headline">¶</a></h3>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>//使用#ORDER#标签
+// SqlMap
+&#39;raw_by_market_id_goods_ids&#39; =&gt; [
+    &#39;require&#39; =&gt; [&#39;market_id&#39;,&#39;goods_id&#39;],
+    &#39;limit&#39;   =&gt; [],
+    &#39;sql&#39;     =&gt; &#39;SELECT * FROM market_goods WHERE market_id = #{market_id} AND goods_id IN #{goods_id} #ORDER# #LIMIT#&#39;,
+]
+//调用
+$data = [
+    &#39;var&#39; =&gt; [
+        &#39;market_id&#39; =&gt; 222,
+        &#39;goods_id&#39; =&gt; [333,111,333,555]，
+    ],
+    &#39;order&#39; =&gt; &#39;market_id DESC&#39;,
+    &#39;limit&#39; =&gt; &#39;0, 10&#39;
+];
+$record = (yield Db::execute(&#39;dir_name.file_name.raw_by_market_id_goods_ids&#39;, $data));
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">SqlMap</a><ul>
+<li><a class="reference internal" href="#target">Target</a></li>
+<li><a class="reference internal" href="#config">Config</a></li>
+<li><a class="reference internal" href="#using">Using</a></li>
+<li><a class="reference internal" href="#require">Require</a></li>
+<li><a class="reference internal" href="#sqlmap-key-define-rules">SqlMap key Define Rules</a></li>
+<li><a class="reference internal" href="#sqlmap-label-supported">SqlMap Label Supported</a></li>
+<li><a class="reference internal" href="#sql-grammar-and-using">SQL grammar and Using</a><ul>
+<li><a class="reference internal" href="#insert">insert</a></li>
+<li><a class="reference internal" href="#batch">batch</a></li>
+<li><a class="reference internal" href="#update">update</a></li>
+<li><a class="reference internal" href="#delete">delete</a></li>
+<li><a class="reference internal" href="#affected">affected</a></li>
+<li><a class="reference internal" href="#row">row</a></li>
+<li><a class="reference internal" href="#select">select</a></li>
+<li><a class="reference internal" href="#count">count</a></li>
+<li><a class="reference internal" href="#raw">raw</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sqlmap-other-labels-using">SqlMap Other Labels Using</a><ul>
+<li><a class="reference internal" href="#order-by">order by</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/en/libs/db/sqlmap.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, youzan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../../../_sources/en/libs/db/sqlmap.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,133 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Nova &#8212; zanphp-doc 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="nova">
+<h1>Nova<a class="headerlink" href="#nova" title="Permalink to this headline">¶</a></h1>
+<p>Zan框架在进行服务发现，与其他服务采用Nova协议通信时，会从连接池中取出一条连接进行数据传输。</p>
+<div class="section" id="id1">
+<h2>配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Nova连接配置在项目 resource/config/$ENV/connection下。</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>return [
+    &#39;engine&#39;=&gt; &#39;novaClient&#39;,
+    //连接超时时间
+    &#39;connect_timeout&#39; =&gt; 15000,
+    //发送超时时间
+    &#39;send_timeout&#39;    =&gt; 3000,
+    //心跳时间
+    &#39;heartbeat-time&#39; =&gt; 15000,
+    //负载均衡策略,目前只支持polling
+    &#39;load_balancing_strategy&#39; =&gt; &#39;polling&#39;,
+    &#39;config&#39;    =&gt; [
+        //swoole包头格式设置
+        &#39;open_length_check&#39; =&gt; 1,
+        &#39;package_length_type&#39; =&gt; &#39;N&#39;,
+        &#39;package_length_offset&#39; =&gt; 0,
+        &#39;package_body_offset&#39; =&gt; 0,
+        //是否开启nova协议，1:开启，0:关闭
+        &#39;open_nova_protocol&#39; =&gt; 1
+    ],
+];
+</pre></div>
+</div>
+<p>不同于其他连接池，Nova连接池的连接数目、连接目的地址无法配置。主要原因是Nova连接池的目标地址为服务提供方的地址，服务提供方的信息来源于注册中心。另外，每一个外部服务在zan框架中对应一个Nova连接池，Nova连接池中的连接数目等于提供外部服务的server数目。</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Nova</a><ul>
+<li><a class="reference internal" href="#id1">配置</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/zh/libs/pool/nova.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, youzan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../../../_sources/zh/libs/pool/nova.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

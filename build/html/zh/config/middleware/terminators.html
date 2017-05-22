@@ -1,0 +1,155 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Terminators &#8212; zanphp-doc 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="terminators">
+<h1>Terminators<a class="headerlink" href="#terminators" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>功能<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>请求结束时的中间件，主要包括资源的回收和调用链信息上报等功能。</p>
+</div>
+<div class="section" id="id2">
+<h2>接口<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>interface RequestTerminator {
+    /**
+     * @param Request $request    请求实例
+     * @param Response $response  响应实例
+     * @param Context $context    请求上下文
+     * @return void
+     */
+    public function terminate(Request $request, Response $response, Context $context);
+}
+</pre></div>
+</div>
+<ul class="simple">
+<li>terminate方法的实现可以为协程或者纯函数。</li>
+</ul>
+<p>目前Terminator的自定义实现可以通过在InitializeMiddleware类中的$zanTerminators成员添加。Http和Tcp的InitializeMiddleware类文件位置分别为src/Network/Http/ServerStart/InitializeMiddleware.php和src/Network/Tcp/ServerStart/InitializeMiddleware.php。</p>
+</div>
+<div class="section" id="id3">
+<h2>示例<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>class TraceTerminator implements RequestTerminator
+{
+    public function terminate(Request $request, Response $response, Context $context)
+    {
+        $trace = $context-&gt;get(&#39;trace&#39;);
+        if (method_exists($response, &#39;getException&#39;)) {
+            $exception = $response-&gt;getException();
+            if ($exception) {
+                $trace-&gt;commit($exception);
+            } else {
+                $trace-&gt;commit(Constant::SUCCESS);
+            }
+        } else {
+            $trace-&gt;commit(Constant::SUCCESS);
+        }
+
+        //send数据
+        yield $trace-&gt;send();
+    }
+}
+</pre></div>
+</div>
+<p>以TraceTerminator为例，其通过context获取trace实例之后，将监控信息进行上报。</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Terminators</a><ul>
+<li><a class="reference internal" href="#id1">功能</a></li>
+<li><a class="reference internal" href="#id2">接口</a></li>
+<li><a class="reference internal" href="#id3">示例</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/zh/config/middleware/terminators.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, youzan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../../../_sources/zh/config/middleware/terminators.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,10 +1,20 @@
-usage = "\
-Usage:                make <option> \n\n\
-authors               更新贡献者"
+# Minimal makefile for Sphinx documentation
+#
 
-default:
-	@echo $(usage)
+# You can set these variables from the command line.
+SPHINXOPTS    =
+SPHINXBUILD   = python -msphinx
+SPHINXPROJ    = zanphp-doc
+SOURCEDIR     = source
+BUILDDIR      = build
 
-# Update Authors
-authors:
-	git log --format='%aN <%aE>' | sort -u > AUTHORS
+# Put it first so that "make" without argument is like "make help".
+help:
+	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+.PHONY: help Makefile
+
+# Catch-all target: route all unknown targets to Sphinx using the new
+# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+%: Makefile
+	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

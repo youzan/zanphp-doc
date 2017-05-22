@@ -1,0 +1,170 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>一分钟起步 &#8212; zanphp-doc 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>一分钟起步<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>如果你想在一分钟内上手Zan
+PHP框架，我们推荐你试试我们的脚手架工具：zan-installer。</p>
+<div class="section" id="id2">
+<h2>安装<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>首先在使用zan-installer之前你需要安装它，推荐的安装方式是通过
+<a class="reference external" href="http://getcomposer.org">Composer</a> 进行安装。zan-installer托管在
+<a class="reference external" href="packagist.org">Composer官方源</a> 的地址是：
+<a class="reference external" href="https://packagist.org/packages/youzan/zan-installer">youzan/zan-installer</a>
+。</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1"># 如果你没有安装 Composer，你还得先安装它</span>
+<span class="n">curl</span> <span class="o">-</span><span class="n">sS</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">getcomposer</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">installer</span> <span class="o">|</span> <span class="n">php</span>
+</pre></div>
+</div>
+<p>Composer安装相关详见 <a class="reference external" href="https://getcomposer.org/doc/00-intro.md">Composer Getting
+Started</a></p>
+<p>接下来让我们用 Composer 来安装 zan-installer 吧！</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">composer</span> <span class="k">global</span> <span class="n">require</span> <span class="n">youzan</span><span class="o">/</span><span class="n">zan</span><span class="o">-</span><span class="n">installer</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>更新<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>你可以通过如下命令更新 zan-installer：</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">composer</span> <span class="k">global</span> <span class="n">update</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>使用<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>zan-installer安装完成之后，你就可以在命令行中，输入 <code class="docutils literal"><span class="pre">zan</span></code> 使用它了！</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>~/Sites zan↵
+   __    __
+  /\ \  /\ \
+  \ `\`\\/&#39;/ ___   __  __  ____      __      ___
+   `\ `\ /&#39; / __`\/\ \/\ \/\_ ,`\  /&#39;__`\  /&#39; _ `\
+     `\ \ \/\ \L\ \ \ \_\ \/_/  /_/\ \L\.\_/\ \/\ \
+       \ \_\ \____/\ \____/ /\____\ \__/.\_\ \_\ \_\
+        \/_/\/___/  \/___/  \/____/\/__/\/_/\/_/\/_/
+Create a new ZanPhp application.
+Which type application would you create? (use &lt;space&gt; to select)
+❯ ● HTTP
+  ○ TCP
+Your application name: (ex: zanphp-demo) demo
+Your application namespace: (ex: zanphp/zanhttp) youzan/demo
+Please input a output directory:
+~/Sites
+Downloading the source code archive ...
+Extracting archive ...
+Congratulations, your application has been generated to the
+following directory.
+~/Sites/demo/
+See ~/Sites/demo/README.md for information on how to run.
+Composer installing...
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+  - Installing zanphp/zan (dev-master o1o0x2x4)
+    Cloning b6d8d443a7a3545a3d1796b39e54fcbc2d276a10
+
+Writing lock file
+Generating autoload files
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">一分钟起步</a><ul>
+<li><a class="reference internal" href="#id2">安装</a></li>
+<li><a class="reference internal" href="#id3">更新</a></li>
+<li><a class="reference internal" href="#id4">使用</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/zh/web/in_one_minute.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, youzan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../../_sources/zh/web/in_one_minute.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

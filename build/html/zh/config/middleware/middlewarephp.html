@@ -1,0 +1,219 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Filters &#8212; zanphp-doc 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="filters">
+<h1>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>文件位置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">resource</span><span class="o">/</span><span class="n">middleware</span><span class="o">/</span><span class="n">middleware</span><span class="o">.</span><span class="n">php</span>
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h3>功能<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>自定义请求的过滤处理函数</p>
+</div>
+<div class="section" id="id3">
+<h3>配置示例<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="tcp">
+<h2>tcp<a class="headerlink" href="#tcp" title="Permalink to this headline">¶</a></h2>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+return [
+    &#39;match&#39; =&gt; [
+        // 可以单独针对 所有泛化调用 设置过滤器
+        [
+            &quot;/com/youzan/nova/framework/generic/service/GenericService/invoke&quot;, &quot;genericServiceFilterGroup&quot;,
+        ],
+        // 也可以直接 针对特定服务配置, 在过滤器内检测是否是泛化调用
+        [
+            &quot;/Com/Youzan/Nova/Framework/Generic/Php/Service/GenericTestService/ThrowException&quot;, &quot;genericServiceFilterGroup&quot;,
+        ],
+        [
+            &quot;.*&quot;, &quot;all&quot;
+        ]
+    ],
+    &#39;group&#39; =&gt; [
+        &quot;genericServiceFilterGroup&quot; =&gt; [
+            genericServiceFilter::class
+        ],
+        &quot;all&quot; =&gt; [
+            genericServiceFilter::class
+        ],
+    ]
+];
+</pre></div>
+</div>
+<ul class="simple">
+<li>match用于服务分组，服务名称支持正则表达式匹配。</li>
+<li>group设置分组名和对应的请求过滤器，请求过滤器需要实现接口Zan:raw-latex:<cite>Framework</cite><a href="#id4"><span class="problematic" id="id5">:raw-latex:`\Contract`</span></a><a href="#id6"><span class="problematic" id="id7">:raw-latex:`\Network`</span></a><a href="#id8"><span class="problematic" id="id9">:raw-latex:`\RequestFilter`</span></a>，一个分组名可以设置多个处理器。</li>
+</ul>
+<p>请求过滤器的实现示例为：</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+use Zan\Framework\Contract\Network\RequestFilter;
+
+class genericServiceFilter implements RequestFilter
+{
+    /**
+     * @param \Zan\Framework\Contract\Network\Request $request
+     * @param \Zan\Framework\Utilities\DesignPattern\Context $context
+     * @return \Zan\Framework\Contract\Network\Response
+     */
+    public function doFilter(\Zan\Framework\Contract\Network\Request $request, \Zan\Framework\Utilities\DesignPattern\Context $context)
+    {
+        if ($request instanceof \Zan\Framework\Network\Tcp\Request) {
+            //判断是否为泛化调用的请求，公司内部表示卡门传递过来的请求
+            if ($request-&gt;isGenericInvoke()) {
+                $route = $request-&gt;getRoute();
+                $rpcCtx = $request-&gt;getRpcContext();
+
+                // 两种方式获取 卡门透传参数
+                $kdtId = $context-&gt;get(&quot;kdt_id&quot;, -1);
+
+                $kdtId = $rpcCtx-&gt;get($kdtId, 0);
+                if ($kdtId === 42) {
+                    // 抛出异常, 或者错误信息
+                    throw new \RuntimeException(&quot;invalid kdtid&quot;, 500);
+                    //yield &quot;invalid kdtId&quot;;
+                    return;
+                }
+            }
+        }
+        yield null;
+    }
+
+}
+</pre></div>
+</div>
+<p><strong>doFilter对请求进行拦截处理，需要过滤掉的请求可以抛出异常信息或者yield返回响应消息，需要继续处理的请求yield
+null，或者直接return即可。</strong></p>
+</div>
+<div class="section" id="http">
+<h2>http<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h2>
+<p>http配置内容与tcp类似，不同点在于tcp以服务名和方法名为key，http以url的path为key（path未指明默认为index/index/index）来匹配分组，http示例为：</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+use Zan\Framework\Network\Server\Middleware\TraceFilter;
+
+return [
+    &#39;group&#39;     =&gt; [
+        &#39;all&#39; =&gt; [
+            TraceFilter::class
+        ]
+    ],
+    &#39;match&#39;     =&gt; [
+        [&#39;market\/.*/&#39;, &#39;acl&#39;],
+        [&#39;goods\/.*/&#39;, &#39;acl&#39;],
+        [&#39;shop\/.*/&#39;, &#39;acl&#39;],
+        [&#39;.*&#39;, &#39;all&#39;]
+    ],
+];
+</pre></div>
+</div>
+<p>TraceFilter位于src/Network/Server/Middleware/TraceFilter.php文件。</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Filters</a><ul>
+<li><a class="reference internal" href="#id1">文件位置</a><ul>
+<li><a class="reference internal" href="#id2">功能</a></li>
+<li><a class="reference internal" href="#id3">配置示例</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tcp">tcp</a></li>
+<li><a class="reference internal" href="#http">http</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/zh/config/middleware/middlewarephp.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, youzan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../../../_sources/zh/config/middleware/middlewarephp.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

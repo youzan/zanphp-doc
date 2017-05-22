@@ -1,0 +1,165 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>UUID &#8212; zanphp-doc 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="uuid">
+<h1>UUID<a class="headerlink" href="#uuid" title="Permalink to this headline">¶</a></h1>
+<p>zan框架封装了redis uuid生成器的调用接口，业务可以直接调用。</p>
+<div class="section" id="id1">
+<h2>配置文件<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>配置文件即redis配置路径：resource/config/$ENV/redis.php，增加uuid的connection即可。</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+
+return [
+    &#39;uuid&#39; =&gt; [
+        &#39;engine&#39;=&gt; &#39;redis&#39;,
+        //uuid生成器server地址
+        &#39;host&#39; =&gt; &#39;idgen-qa.s.qima-inc.com&#39;,
+        &#39;port&#39; =&gt; 6000,
+        &#39;pool&#39;  =&gt; [
+            &#39;maximum-connection-count&#39; =&gt; &#39;50&#39;,
+            &#39;minimum-connection-count&#39; =&gt; &#39;10&#39;,
+            &#39;keeping-sleep-time&#39; =&gt; &#39;10&#39;,
+            &#39;init-connection&#39;=&gt; &#39;2&#39;,
+        ],
+    ],
+];
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>接口<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>class RedisUuid {
+    public function get($tableName);
+    public function getSerialId();
+    public function getSnowflake();
+    public function getObjectId();
+}
+</pre></div>
+</div>
+<p>提供的uuid生成器方法分别为：</p>
+<ul class="simple">
+<li>自增整数序列(64位整数):获取的id是一递增的序列,灵感来自与mysql的自增id,每秒生成的id数取决于redis-server本身的性能,
+目前的物理机,单机单进程可达13w，瓶颈在于io，因为是通过redis的aof
+always来做数据的持久化</li>
+<li>serialid(64位整数,人类可读):实现的id算法,
+4位无用位+40位秒级时间戳+2位数据中心id+2位进程id+15位自增序列,每秒可以生成2^15
+(32768)个id</li>
+<li>snowflake(64位整数)：由twitter提出的snowflake算法,1位无用位+41位毫秒级时间戳+10位机器id+12位自增序列,
+每毫秒可以生成2^12(4096)个id</li>
+<li>objectid(24字节字符串):mongodb实现的id算法,
+4字节的时间戳+3字节的数据中心id+2字节的进程id+3字节的自增序列,
+每秒可以生成2^24(16777216)个id</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>使用示例<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$tableName = &#39;unit_test_uuid_table&#39;;
+$id = (yield RedisUuid::getInstance()-&gt;get($tableName));
+$serialId = (yield RedisUuid::getInstance()-&gt;getSerialId());
+$snowflake = (yield RedisUuid::getInstance()-&gt;getSnowflake());
+$objId = (yield RedisUuid::getInstance()-&gt;getObjectId());
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">UUID</a><ul>
+<li><a class="reference internal" href="#id1">配置文件</a></li>
+<li><a class="reference internal" href="#id2">接口</a></li>
+<li><a class="reference internal" href="#id3">使用示例</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/zh/libs/sdks/uuid.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, youzan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../../../_sources/zh/libs/sdks/uuid.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
