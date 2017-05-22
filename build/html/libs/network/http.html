@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.5.1. Http &mdash; zanphp-doc 1.0 documentation</title>
+  <title>3.1. Http &mdash; zanphp-doc 1.0 documentation</title>
   
 
   
@@ -35,10 +35,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="zanphp-doc 1.0 documentation" href="../../index.html"/>
-        <link rel="up" title="6.5. Network" href="index.html"/>
-        <link rel="next" title="6.5.2. Tcp" href="tcp.html"/>
-        <link rel="prev" title="6.5. Network" href="index.html"/> 
+    <link rel="top" title="zanphp-doc 1.0 documentation" href="../../index.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -91,32 +88,12 @@
               
             
             
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../README.html">1. Zan PHP Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">2. Zan PHP 依赖以下包</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../web/index.html">3. 创建Web服务器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tcp/index.html">4. 创建TCP服务器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../config/index.html">5. 创建Web服务器</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. Libs</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../middleware/index.html">6.1. 中间件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pool/index.html">6.2. 连接池</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../db/index.html">6.3. 数据库</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../nosql/index.html">6.4. Nosql</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">6.5. Network</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">6.5.1. Http</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#httpclient">原生HttpClient</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#client-call">Client::call</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="tcp.html">6.5.2. Tcp</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../sdks/index.html">6.6. SDKs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../soa/index.html">6.7. SOA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../testing/index.html">6.8. 测试</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../MVC/index.html">7. View</a></li>
 </ul>
 
             
@@ -161,11 +138,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../index.html">6. Libs</a> &raquo;</li>
-        
-          <li><a href="index.html">6.5. Network</a> &raquo;</li>
-        
-      <li>6.5.1. Http</li>
+      <li>3.1. Http</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -185,15 +158,15 @@
            <div itemprop="articleBody">
             
   <div class="section" id="http">
-<h1>6.5.1. Http<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h1>
+<h1>3.1. Http<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h1>
 <p>Http Client目前支持两种使用方式：</p>
 <ul class="simple">
 <li>原生HttpClient</li>
-<li>Zan:raw-latex:<cite>Framework</cite><a href="#id1"><span class="problematic" id="id2">:raw-latex:`\Network`</span></a><a href="#id3"><span class="problematic" id="id4">:raw-latex:`\Common`</span></a><a href="#id5"><span class="problematic" id="id6">:raw-latex:`\Client`</span></a>::call</li>
+<li>ZanFrameworkNetworkCommonClient::call</li>
 </ul>
 <div class="section" id="httpclient">
-<h2>原生HttpClient<a class="headerlink" href="#httpclient" title="Permalink to this headline">¶</a></h2>
-<p>HttpClient的使用示例如下，创建HttpClient实例之后，yield调用get方法即可异步返回结果。返回结果为Zan:raw-latex:<cite>Framework</cite><a href="#id7"><span class="problematic" id="id8">:raw-latex:`\Network`</span></a><a href="#id9"><span class="problematic" id="id10">:raw-latex:`\Common`</span></a><a href="#id11"><span class="problematic" id="id12">:raw-latex:`\Response对象`</span></a>，可以通过getBody、getHeaders和getStatusCode获取响应的包内容、头部和状态码。</p>
+<h2>3.1.1. 原生HttpClient<a class="headerlink" href="#httpclient" title="Permalink to this headline">¶</a></h2>
+<p>HttpClient的使用示例如下，创建HttpClient实例之后，yield调用get方法即可异步返回结果。返回结果为ZanFrameworkNetworkCommonResponse对象，可以通过getBody、getHeaders和getStatusCode获取响应的包内容、头部和状态码。</p>
 <p>HttpClient的构造方式主要有以下三种：</p>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>1.$httpClient = new HttpClient($host, $port);
 2.$httpClient = HttpClient::newInstance($host, $port = 80, $ssl = false);
@@ -213,12 +186,12 @@ $result = $response-&gt;getBody();
 </div>
 </div>
 <div class="section" id="client-call">
-<h2>Client::call<a class="headerlink" href="#client-call" title="Permalink to this headline">¶</a></h2>
+<h2>3.1.2. Client::call<a class="headerlink" href="#client-call" title="Permalink to this headline">¶</a></h2>
 <p>client::call对HttpClient进行了封装，通过将所有访问目的地址信息聚集到统一配置文件中，业务方使用时就只需要指定配置目录的层级关系即可代替url，接口API为：</p>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>client::call($api, $params = [],$callback = null, $method = &#39;POST&#39;,$format=&#39;form&#39;)
 </pre></div>
 </div>
-<p>params为请求的参数，$callback保留，目前未使用。</p>
+<p>api为目的url在ApiConfig.php中的层级位置，params为请求的参数，$callback保留，目前未使用。</p>
 <p>$method取值’POST’或’GET’，表示请求的方法</p>
 <p>$format定义POST的body格式，取值’format’或’json’，分别表示content-type为’application/x-www-form-urlencoded’和’application/json’</p>
 </div>
@@ -231,15 +204,6 @@ $result = $response-&gt;getBody();
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="tcp.html" class="btn btn-neutral float-right" title="6.5.2. Tcp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="index.html" class="btn btn-neutral" title="6.5. Network" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

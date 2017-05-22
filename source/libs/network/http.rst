@@ -4,12 +4,12 @@ Http
 Http Client目前支持两种使用方式：
 
 -  原生HttpClient
--  Zan:raw-latex:`\Framework`:raw-latex:`\Network`:raw-latex:`\Common`:raw-latex:`\Client`::call
+-  Zan\Framework\Network\Common\Client::call
 
 原生HttpClient
 ~~~~~~~~~~~~~~
 
-HttpClient的使用示例如下，创建HttpClient实例之后，yield调用get方法即可异步返回结果。返回结果为Zan:raw-latex:`\Framework`:raw-latex:`\Network`:raw-latex:`\Common`:raw-latex:`\Response对象`，可以通过getBody、getHeaders和getStatusCode获取响应的包内容、头部和状态码。
+HttpClient的使用示例如下，创建HttpClient实例之后，yield调用get方法即可异步返回结果。返回结果为Zan\Framework\Network\Common\Response对象，可以通过getBody、getHeaders和getStatusCode获取响应的包内容、头部和状态码。
 
 HttpClient的构造方式主要有以下三种：
 
@@ -44,7 +44,7 @@ client::call对HttpClient进行了封装，通过将所有访问目的地址信�
 
     client::call($api, $params = [],$callback = null, $method = 'POST',$format='form')
 
-:math:`api为目的url在ApiConfig.php中的层级位置，`\ params为请求的参数，$callback保留，目前未使用。
+api为目的url在ApiConfig.php中的层级位置，params为请求的参数，$callback保留，目前未使用。
 
 $method取值'POST'或'GET'，表示请求的方法
 
