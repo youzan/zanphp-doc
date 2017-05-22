@@ -1,5 +1,7 @@
-Zan PHP 依赖以下包
+安装
 ==================
+
+Zan PHP 依赖以下包
 
 `yz-swoole <https://github.com/youzan/yz_swoole>`__
 

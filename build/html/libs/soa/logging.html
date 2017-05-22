@@ -92,8 +92,8 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../README.html">1. Zan PHP Framework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../install.html">2. Zan PHP 依赖以下包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">2. 安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../web/index.html">3. 创建Web服务器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tcp/index.html">4. 创建TCP服务器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../config/index.html">5. 创建Web服务器</a></li>
@@ -110,7 +110,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">6.7.3. Logging</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id1">配置</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#api">API</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id6">使用示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">使用示例</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="lb.html">6.7.4. Load balance</a></li>
@@ -120,7 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../testing/index.html">6.8. 测试</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../MVC/index.html">7. View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../MVC/index.html">7. MVC</a></li>
 </ul>
 
             
@@ -206,7 +206,7 @@ log系统，内部系统，暂无开源计划，如需使用需自行开发）�
 <h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Log是一个工厂类，获取到的日志实例类实现了</dt>
-<dd>Psr:raw-latex:<cite>Log</cite>:raw-latex:<a href="#id2"><span class="problematic" id="id3">`</span></a>LoggerInterface <a href="#id4"><span class="problematic" id="id5">`</span></a>接口，有以下方法：emergency,
+<dd>PsrLogLoggerInterface接口，有以下方法：emergency,
 alert, critical, error, warning, notice, info, debug, log。</dd>
 </dl>
 <p>其中log方法是通过传入level的形式调用error, warning, notice等方法。</p>
@@ -303,8 +303,8 @@ public function log($level, $message, array $context = array());
 </pre></div>
 </div>
 </div>
-<div class="section" id="id6">
-<h2>使用示例<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>使用示例<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">普通日志参数</span>
 <span class="k">yield</span> \<span class="n">Log</span><span class="p">::</span><span class="n">make</span><span class="p">(</span><span class="s1">&#39;debug&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Hello Log!&#39;</span><span class="p">);</span>
 
