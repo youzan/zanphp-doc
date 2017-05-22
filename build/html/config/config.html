@@ -103,7 +103,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">5.1.2. 二、应用初始化配置</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id10">5.1.3. 三、配置获取与变更</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">5.1.3. 三、配置获取与变更</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="phpini.html">5.2. php.ini配置</a></li>
@@ -212,7 +212,7 @@
 <p>config：各环境关于连接池、服务发现等配置的文件夹，share子目录存放各环境公共的配置。加载时会将特定环境下的配置和share配置进行合并，特定环境下的配置优先级高于share中的配置。</p>
 <p>middleware：请求过滤和异常处理中间件的匹配规则</p>
 <p>sql：sql语句模板配置，使用时传入data即可组成sql语句</p>
-<p>各环境配置文件都放在ENV
+<p>各环境配置文件都放在ROOTPATH/resource/config/ENV
 文件夹下，下面以test环境举例，结构如下：</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>resource/config/test/
 ├── connection
@@ -269,10 +269,10 @@ class LoadUrlConfig implements Bootable
 }
 </pre></div>
 </div>
-<p>应用可根据需要实现Zan:raw-latex:<cite>Framework</cite><a href="#id4"><span class="problematic" id="id5">:raw-latex:`\Contract`</span></a><a href="#id6"><span class="problematic" id="id7">:raw-latex:`\Network`</span></a><a href="#id8"><span class="problematic" id="id9">:raw-latex:`\Bootable接口`</span></a>，然后将类名注册到.config.php文件的返回数组即可。</p>
+<p>应用可根据需要实现ZanFrameworkContractNetworkBootable接口，然后将类名注册到.config.php文件的返回数组即可。</p>
 </div>
-<div class="section" id="id10">
-<h2>5.1.3. 三、配置获取与变更<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>5.1.3. 三、配置获取与变更<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>zan框架为应用程序提供了配置获取和变更的统一接口：</p>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>namespace Zan\Framework\Foundation\Core;
 class Config {
@@ -283,7 +283,7 @@ class Config {
 }
 </pre></div>
 </div>
-<p>set和get方法中的key与目录结构对应，根目录为ENV
+<p>set和get方法中的key与目录结构对应，根目录为ROOTPATH/resource/config/ENV
 文件夹，如需要获取上述haunt.php文件中的配置数组，可以使用Config::get(’haunt‘)返回数组。如需获取haunt.php配置数组中的某一项item的值，可以使用Config::get(’haunt.item‘)返回。</p>
 </div>
 </div>

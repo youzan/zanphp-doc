@@ -36,7 +36,7 @@ middleware：请求过滤和异常处理中间件的匹配规则
 
 sql：sql语句模板配置，使用时传入data即可组成sql语句
 
-各环境配置文件都放在\ :math:`ROOTPATH/resource/config/`\ ENV
+各环境配置文件都放在ROOTPATH/resource/config/ENV
 文件夹下，下面以test环境举例，结构如下：
 
 ::
@@ -102,7 +102,7 @@ LoadUrlConfig.php
         }
     }
 
-应用可根据需要实现Zan:raw-latex:`\Framework`:raw-latex:`\Contract`:raw-latex:`\Network`:raw-latex:`\Bootable接口`，然后将类名注册到.config.php文件的返回数组即可。
+应用可根据需要实现Zan\Framework\Contract\Network\Bootable接口，然后将类名注册到.config.php文件的返回数组即可。
 
 三、配置获取与变更
 ~~~~~~~~~~~~~~~~~~
@@ -119,5 +119,5 @@ zan框架为应用程序提供了配置获取和变更的统一接口：
         public static function get($key, $default = null)；
     }
 
-set和get方法中的key与目录结构对应，根目录为\ :math:`ROOTPATH/resource/config/`\ ENV
+set和get方法中的key与目录结构对应，根目录为ROOTPATH/resource/config/ENV
 文件夹，如需要获取上述haunt.php文件中的配置数组，可以使用Config::get(’haunt‘)返回数组。如需获取haunt.php配置数组中的某一项item的值，可以使用Config::get(’haunt.item‘)返回。

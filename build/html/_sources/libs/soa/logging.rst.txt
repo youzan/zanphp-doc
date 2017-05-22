@@ -17,10 +17,10 @@ Logging
 API
 ---
 
-| Log是一个工厂类，获取到的日志实例类实现了
+Log是一个工厂类，获取到的日志实例类实现了
   Psr:raw-latex:`\Log`:raw-latex:`\LoggerInterface `接口，有以下方法：emergency,
   alert, critical, error, warning, notice, info, debug, log。
-| 其中log方法是通过传入level的形式调用error, warning, notice等方法。
+其中log方法是通过传入level的形式调用error, warning, notice等方法。
 
 .. code:: php
 

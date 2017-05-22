@@ -232,7 +232,7 @@ return [
 </div>
 <ul class="simple">
 <li>match用于服务分组，服务名称支持正则表达式匹配。</li>
-<li>group设置分组名和对应的请求过滤器，请求过滤器需要实现接口Zan:raw-latex:<cite>Framework</cite><a href="#id4"><span class="problematic" id="id5">:raw-latex:`\Contract`</span></a><a href="#id6"><span class="problematic" id="id7">:raw-latex:`\Network`</span></a><a href="#id8"><span class="problematic" id="id9">:raw-latex:`\RequestFilter`</span></a>，一个分组名可以设置多个处理器。</li>
+<li>group设置分组名和对应的请求过滤器，请求过滤器需要实现接口ZanFrameworkContractNetworkRequestFilter，一个分组名可以设置多个处理器。</li>
 </ul>
 <p>请求过滤器的实现示例为：</p>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php

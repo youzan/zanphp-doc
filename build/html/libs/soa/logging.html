@@ -204,12 +204,12 @@ log系统，内部系统，暂无开源计划，如需使用需自行开发）�
 </div>
 <div class="section" id="api">
 <h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
-<div class="line-block">
-<div class="line">Log是一个工厂类，获取到的日志实例类实现了
-Psr:raw-latex:<cite>Log</cite>:raw-latex:<a href="#id2"><span class="problematic" id="id3">`</span></a>LoggerInterface <a href="#id4"><span class="problematic" id="id5">`</span></a>接口，有以下方法：emergency,
-alert, critical, error, warning, notice, info, debug, log。</div>
-<div class="line">其中log方法是通过传入level的形式调用error, warning, notice等方法。</div>
-</div>
+<dl class="docutils">
+<dt>Log是一个工厂类，获取到的日志实例类实现了</dt>
+<dd>Psr:raw-latex:<cite>Log</cite>:raw-latex:<a href="#id2"><span class="problematic" id="id3">`</span></a>LoggerInterface <a href="#id4"><span class="problematic" id="id5">`</span></a>接口，有以下方法：emergency,
+alert, critical, error, warning, notice, info, debug, log。</dd>
+</dl>
+<p>其中log方法是通过传入level的形式调用error, warning, notice等方法。</p>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>/**
  * 系统不可用，彻底扑街了
  *
