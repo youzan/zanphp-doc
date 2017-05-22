@@ -39,8 +39,7 @@ Zan 和 Golang 的边界是：Zan做业务系统；Golang
 官方文档
 --------
 
-Zan
-PHP的文档仓库地址：\ `zan-doc <https://github.com/youzan/zan-doc/blob/master/zh/SUMMARY.md>`__\ 。目前只有中文的文档，欢迎英语大牛翻译成英文的。
+ZanPHP的文档仓库地址：\ `zan-doc <https://github.com/youzan/zan-doc/blob/master/zh/SUMMARY.md>`__\ 。目前只有中文的文档，欢迎英语大牛翻译成英文的。
 
 你也可以在GitBook上查看Zan PHP 的文档
 `GitBook/zan-doc <https://agalwood.gitbooks.io/zan-doc/content/zh/>`__\ 。

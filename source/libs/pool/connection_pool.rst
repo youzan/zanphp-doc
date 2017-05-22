@@ -22,7 +22,7 @@ ConnectionManager类获取连接。
 
     $connection = (yield ConnectionManager::getInstance()->get($database));
 
-:math:`database名称由文件名+属性名组成，如resource/config/connection/mysql.php包括两种连接池属性。`\ database分别是mysql.default\_write和mysql.default\_read。
+`database名称由文件名+属性名组成，如resource/config/connection/mysql.php包括两种连接池属性。`\ database分别是mysql.default\_write和mysql.default\_read。
 
 .. code:: php
 

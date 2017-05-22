@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5. Nova &mdash; zanphp-doc 1.0 documentation</title>
+  <title>6.2.5. Nova &mdash; zanphp-doc 1.0 documentation</title>
   
 
   
@@ -35,7 +35,10 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="zanphp-doc 1.0 documentation" href="../../index.html"/> 
+    <link rel="top" title="zanphp-doc 1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="6.2. 连接池" href="index.html"/>
+        <link rel="next" title="6.2.6. Tcp" href="tcp.html"/>
+        <link rel="prev" title="6.2.4. Log" href="log.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -88,12 +91,35 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../README.html">1. Zan PHP Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">2. Zan PHP 依赖以下包</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../web/index.html">3. 创建Web服务器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tcp/index.html">4. 创建TCP服务器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../config/index.html">5. 创建Web服务器</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. Libs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../middleware/index.html">6.1. 中间件</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">6.2. 连接池</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="connection_pool.html">6.2.1. 连接池</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql.html">6.2.2. Mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="redis.html">6.2.3. Redis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log.html">6.2.4. Log</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">6.2.5. Nova</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tcp.html">6.2.6. Tcp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../db/index.html">6.3. 数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nosql/index.html">6.4. Nosql</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">6.5. Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdks/index.html">6.6. SDKs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../soa/index.html">6.7. SOA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/index.html">6.8. 测试</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../MVC/index.html">7. View</a></li>
 </ul>
 
             
@@ -138,7 +164,11 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>5. Nova</li>
+          <li><a href="../index.html">6. Libs</a> &raquo;</li>
+        
+          <li><a href="index.html">6.2. 连接池</a> &raquo;</li>
+        
+      <li>6.2.5. Nova</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -158,10 +188,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="nova">
-<h1>5. Nova<a class="headerlink" href="#nova" title="Permalink to this headline">¶</a></h1>
+<h1>6.2.5. Nova<a class="headerlink" href="#nova" title="Permalink to this headline">¶</a></h1>
 <p>Zan框架在进行服务发现，与其他服务采用Nova协议通信时，会从连接池中取出一条连接进行数据传输。</p>
 <div class="section" id="id1">
-<h2>5.1. 配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Nova连接配置在项目 resource/config/$ENV/connection下。</p>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>return [
     &#39;engine&#39;=&gt; &#39;novaClient&#39;,
@@ -196,6 +226,15 @@
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tcp.html" class="btn btn-neutral float-right" title="6.2.6. Tcp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="log.html" class="btn btn-neutral" title="6.2.4. Log" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. 请求处理 &mdash; zanphp-doc 1.0 documentation</title>
+  <title>7.4. 请求处理 &mdash; zanphp-doc 1.0 documentation</title>
   
 
   
@@ -35,7 +35,10 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="zanphp-doc 1.0 documentation" href="../index.html"/> 
+    <link rel="top" title="zanphp-doc 1.0 documentation" href="../index.html"/>
+        <link rel="up" title="7. View" href="index.html"/>
+        <link rel="next" title="7.5. 使用示例" href="use_case.html"/>
+        <link rel="prev" title="7.3. 路由" href="route.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -88,12 +91,31 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../README.html">1. Zan PHP Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">2. Zan PHP 依赖以下包</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web/index.html">3. 创建Web服务器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tcp/index.html">4. 创建TCP服务器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../config/index.html">5. 创建Web服务器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libs/index.html">6. Libs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">7. View</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="directory.html">7.1. 目录结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="directory.html#id2">7.2. 命名规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route.html">7.3. 路由</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7.4. 请求处理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#request">7.4.1. Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#context">7.4.2. Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#session">7.4.3. Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#response">7.4.4. Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">7.4.5. 辅助方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ip">获取客户端ip</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="use_case.html">7.5. 使用示例</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -138,7 +160,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>4. 请求处理</li>
+          <li><a href="index.html">7. View</a> &raquo;</li>
+        
+      <li>7.4. 请求处理</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -158,9 +182,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>4. 请求处理<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>7.4. 请求处理<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="request">
-<h2>4.1. Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h2>
+<h2>7.4.1. Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h2>
 <p>zan框架提供操作request的类和方法，文件位于src/Network/Http/Request/Request.php。类中方法包括</p>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>//访问的url为http://127.0.0.1:8030/index/index/getUrl?a=1&amp;b=2
 //下列接口对应的返回值
@@ -196,7 +220,7 @@ public function json($key = null, $default = null)
 </div>
 </div>
 <div class="section" id="context">
-<h2>4.2. Context<a class="headerlink" href="#context" title="Permalink to this headline">¶</a></h2>
+<h2>7.4.2. Context<a class="headerlink" href="#context" title="Permalink to this headline">¶</a></h2>
 <p>context包含了请求的上下文信息，如request、session等，使用方式为</p>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>$request = (yield getContext(&#39;request&#39;));
 $request = (yield getContext(&#39;session&#39;));
@@ -204,7 +228,7 @@ $request = (yield getContext(&#39;session&#39;));
 </div>
 </div>
 <div class="section" id="session">
-<h2>4.3. Session<a class="headerlink" href="#session" title="Permalink to this headline">¶</a></h2>
+<h2>7.4.3. Session<a class="headerlink" href="#session" title="Permalink to this headline">¶</a></h2>
 <p>从context获取session之后，session的操作方法包括</p>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>class Session {
     //session中设置key-value
@@ -220,7 +244,7 @@ $request = (yield getContext(&#39;session&#39;));
 </div>
 </div>
 <div class="section" id="response">
-<h2>4.4. Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
+<h2>7.4.4. Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
 <p>zan框架的Controller中返回的都是ZanFrameworkNetworkHttpResponseResponse对象，对象中方法包括</p>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>public function withHeader($key, $value, $replace = true)
 public function withHeaders(array $headers)
@@ -232,9 +256,9 @@ public function setContent($content)
 <p>withHeader和withHeaders设置响应中的头部信息，withCookie和withCookies设置响应中的cookie信息，setContent设置响应包内容。</p>
 </div>
 <div class="section" id="id2">
-<h2>4.5. 辅助方法<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>7.4.5. 辅助方法<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="ip">
-<h3>4.5.1. 获取客户端ip<a class="headerlink" href="#ip" title="Permalink to this headline">¶</a></h3>
+<h3>获取客户端ip<a class="headerlink" href="#ip" title="Permalink to this headline">¶</a></h3>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>$request-&gt;getClientIp()
 </pre></div>
 </div>
@@ -251,6 +275,15 @@ proxy ip，</p>
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="use_case.html" class="btn btn-neutral float-right" title="7.5. 使用示例" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="route.html" class="btn btn-neutral" title="7.3. 路由" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
