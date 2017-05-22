@@ -1,0 +1,195 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>请求处理 &#8212; zanphp-doc 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>请求处理<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="request">
+<h2>Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h2>
+<p>zan框架提供操作request的类和方法，文件位于src/Network/Http/Request/Request.php。类中方法包括</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>//访问的url为http://127.0.0.1:8030/index/index/getUrl?a=1&amp;b=2
+//下列接口对应的返回值
+//http://127.0.0.1:8030/index/index/getUrl
+public function getUrl()
+//http://127.0.0.1:8030/index/index/getUrl?a=1&amp;b=2
+public function getFullUrl()
+//index/index/getUrl
+public function getPath()
+//index/index/getUrl
+public function getDecodedPath()
+/*array(3) {
+  [0] =&gt;
+  string(5) &quot;index&quot;
+  [1] =&gt;
+  string(5) &quot;index&quot;
+  [2] =&gt;
+  string(6) &quot;getUrl&quot;
+}*/
+public function getSegments()
+
+//下列方法对应php中的全局变量_GET、_POST、_COOKIE、_SERVER数组，$key为null时直接返回数组，否则返回对应key的值
+public function get($key = null, $default = null)
+public function post($key = null, $default = null)
+public function cookie($key = null, $default = null)
+//请求相关的server信息，如调用者ip和port等信息
+public function server($key = null, $default = null)
+//HTTP包中的头信息数组
+public function header($key = null, $default = null)
+//HTTP POST的json字符串
+public function json($key = null, $default = null)
+</pre></div>
+</div>
+</div>
+<div class="section" id="context">
+<h2>Context<a class="headerlink" href="#context" title="Permalink to this headline">¶</a></h2>
+<p>context包含了请求的上下文信息，如request、session等，使用方式为</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$request = (yield getContext(&#39;request&#39;));
+$request = (yield getContext(&#39;session&#39;));
+</pre></div>
+</div>
+</div>
+<div class="section" id="session">
+<h2>Session<a class="headerlink" href="#session" title="Permalink to this headline">¶</a></h2>
+<p>从context获取session之后，session的操作方法包括</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>class Session {
+    //session中设置key-value
+    public function set($key, $value);
+    //获取session中key的值
+    public function get($key);
+    //删除session，使之失效
+    public function destory();
+    //删除session中某个key的值
+    public function delete($key);
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="response">
+<h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
+<p>zan框架的Controller中返回的都是Zan:raw-latex:<cite>Framework</cite><a href="#id2"><span class="problematic" id="id3">:raw-latex:`\Network`</span></a><a href="#id4"><span class="problematic" id="id5">:raw-latex:`\Http`</span></a><a href="#id6"><span class="problematic" id="id7">:raw-latex:`\Response`</span></a><a href="#id8"><span class="problematic" id="id9">:raw-latex:`\Response对象`</span></a>，对象中方法包括</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>public function withHeader($key, $value, $replace = true)
+public function withHeaders(array $headers)
+public function withCookie($cookie)
+public function withCookies(array $cookies)
+public function setContent($content)
+</pre></div>
+</div>
+<p>withHeader和withHeaders设置响应中的头部信息，withCookie和withCookies设置响应中的cookie信息，setContent设置响应包内容。</p>
+</div>
+<div class="section" id="id10">
+<h2>辅助方法<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ip">
+<h3>获取客户端ip<a class="headerlink" href="#ip" title="Permalink to this headline">¶</a></h3>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$request-&gt;getClientIp()
+</pre></div>
+</div>
+<p>在通过反向代理（如nginx）访问server时，此方法需要在resource/config/$ENV/server.php中配置trust
+proxy ip，</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">请求处理</a><ul>
+<li><a class="reference internal" href="#request">Request</a></li>
+<li><a class="reference internal" href="#context">Context</a></li>
+<li><a class="reference internal" href="#session">Session</a></li>
+<li><a class="reference internal" href="#response">Response</a></li>
+<li><a class="reference internal" href="#id10">辅助方法</a><ul>
+<li><a class="reference internal" href="#ip">获取客户端ip</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/libs/view/qing-qiu-yu-xiang-ying.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, youzan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../../_sources/libs/view/qing-qiu-yu-xiang-ying.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

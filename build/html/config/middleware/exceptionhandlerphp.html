@@ -1,0 +1,245 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ExceptionHandler &#8212; zanphp-doc 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="exceptionhandler">
+<h1>ExceptionHandler<a class="headerlink" href="#exceptionhandler" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>文件位置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">resource</span><span class="o">/</span><span class="n">middleware</span><span class="o">/</span><span class="n">exceptionHandler</span><span class="o">.</span><span class="n">php</span>
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h3>功能<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>自定义请求异常处理函数，当请求处理过程中抛出异常时，异常可以经过中间件处理后透传给调用方。</p>
+</div>
+<div class="section" id="id3">
+<h3>配置示例<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="tcp">
+<h2>tcp<a class="headerlink" href="#tcp" title="Permalink to this headline">¶</a></h2>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+use Zan\Framework\Network\Tcp\Exception\Handler\GenericExceptionHandler;
+
+return [
+    &#39;match&#39; =&gt; [
+        [
+            &quot;/com/youzan/nova/framework/generic/service/GenericService/invoke&quot;, &quot;genericExceptionHandlerGroup&quot;,
+        ],
+        [
+            &quot;/Com/Youzan/Nova/Framework/Generic/Php/Service/GenericTestService/ThrowException&quot;, &quot;genericExceptionHandlerGroup&quot;,
+        ],
+        [
+            &quot;.*&quot;, &quot;all&quot;
+        ]
+    ],
+    &#39;group&#39; =&gt; [
+        &quot;genericExceptionHandlerGroup&quot; =&gt; [
+            GenericExceptionHandler::class
+        ],
+        &quot;all&quot; =&gt; [
+            GenericExceptionHandler::class
+        ],
+    ],
+];
+</pre></div>
+</div>
+<ul class="simple">
+<li>match用于服务分组，服务名称支持正则表达式匹配。</li>
+<li>group设置分组名和对应的异常处理器，异常处理器需要实现接口Zan:raw-latex:<cite>Framework</cite><a href="#id4"><span class="problematic" id="id5">:raw-latex:`\Contract`</span></a><a href="#id6"><span class="problematic" id="id7">:raw-latex:`\Network`</span></a><a href="#id8"><span class="problematic" id="id9">:raw-latex:`\RequestFilter`</span></a>，一个分组名可以设置多个处理器。</li>
+</ul>
+<p>异常处理器的实现示例为：</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+use Zan\Framework\Contract\Foundation\ExceptionHandler;
+
+class GenericExceptionHandler implements ExceptionHandler
+{
+    public function handle(\Exception $e)
+    {
+        sys_error(&quot;GenericExceptionHandler handle: &quot;.$e-&gt;getMessage());
+        throw new \Exception(&quot;网络错误&quot;, 0);
+    }
+}
+</pre></div>
+</div>
+<p>handle对异常进行处理，加工处理后需要透传给调用方的异常再次抛出或返回即可，返回异常采用函数或生成器均可。</p>
+</div>
+<div class="section" id="http">
+<h2>http<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h2>
+<p>http配置内容与tcp类似，不同点在于tcp以服务名和方法名为key，http以url的path为key（path未指明默认为/index/index/index）来匹配分组，http示例为：</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+return [
+     &#39;match&#39; =&gt; [
+         [
+            &quot;index/index/index&quot;,  &quot;all&quot;,
+         ],
+         [
+            &quot;.*&quot;, &quot;all&quot;
+         ]
+     ],
+     &#39;group&#39; =&gt; [
+         &quot;all&quot; =&gt; [
+             TestExceptionHandler::class,
+         ],
+     ],
+];
+</pre></div>
+</div>
+<p>异常处理器的实现示例为：</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+use Zan\Framework\Contract\Foundation\ExceptionHandler;
+
+class TestExceptionHandler implements ExceptionHandler
+{
+    public function handle(\Exception $e)
+    {
+        // 针对异常自行判断决定是否
+        return new Response(&quot;网络错误&quot;);
+        // or
+        return null; // 不做处理
+    }
+}
+</pre></div>
+</div>
+<p>handle对异常进行处理，加工处理后需要透传给调用方的异常需要返回，返回异常采用函数或生成器均可。</p>
+<p>针对常用的http
+exception，zan框架内置了通用的异常处理逻辑，包括Redirect、PageNotFound等，业务只需要在逻辑代码中抛出对应类型的异常即可触发对应的处理逻辑。</p>
+<ul class="simple">
+<li>url重定向：</li>
+</ul>
+<p>抛出RedirectException异常，异常实例中redirectUrl字段指定重定向跳转url</p>
+<ul class="simple">
+<li>Page Not Found</li>
+</ul>
+<p>抛出PageNotFoundException异常，页面重定向到resource/config/$ENV/error.php中配置404的url地址，error.php示例为：</p>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+return [
+    &#39;404&#39; =&gt; url
+]
+</pre></div>
+</div>
+<ul class="simple">
+<li>Forbidden</li>
+</ul>
+<p>抛出TokenException异常，当http请求头部Accept字段指定application/json时，返回异常的json串，便于调试，否则返回zan/src/Foundation/View/Pages/Error.php页面</p>
+<ul class="simple">
+<li>InvalidRoute</li>
+</ul>
+<p>路由不合法，抛出InvalidRouteException异常，页面重定向到resource/config/$ENV/error.php中配置404的url地址</p>
+<ul class="simple">
+<li>业务异常</li>
+</ul>
+<p>抛出:raw-latex:<cite>Exception基类异常</cite>，异常码范围是10000-60000，根据http请求头部Accept字段返回响应，与Forbidden的处理方式相同</p>
+<ul class="simple">
+<li>Server Unavailable</li>
+</ul>
+<p>服务不可用，抛出:raw-latex:<cite>Exception基类异常</cite>，异常码为503，根据http请求头部Accept字段返回响应，与Forbidden的处理方式相同</p>
+<p></p>
+<p></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ExceptionHandler</a><ul>
+<li><a class="reference internal" href="#id1">文件位置</a><ul>
+<li><a class="reference internal" href="#id2">功能</a></li>
+<li><a class="reference internal" href="#id3">配置示例</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tcp">tcp</a></li>
+<li><a class="reference internal" href="#http">http</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/config/middleware/exceptionhandlerphp.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, youzan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../../_sources/config/middleware/exceptionhandlerphp.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
