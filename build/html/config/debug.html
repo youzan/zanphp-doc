@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>debug.php &mdash; zanphp-doc 1.0 documentation</title>
+  <title>5.6. debug.php &mdash; zanphp-doc 1.0 documentation</title>
   
 
   
@@ -35,7 +35,10 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="zanphp-doc 1.0 documentation" href="../index.html"/> 
+    <link rel="top" title="zanphp-doc 1.0 documentation" href="../index.html"/>
+        <link rel="up" title="5. 创建Web服务器" href="index.html"/>
+        <link rel="next" title="5.7. nova.php" href="nova.html"/>
+        <link rel="prev" title="5.5. trace.php" href="trace.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -88,9 +91,29 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../web/index.html">1. 创建Web服务器</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tcp/index.html">2. 创建TCP服务器</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">1. Zan PHP Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">2. Zan PHP 依赖以下包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">3. 创建Web服务器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tcp/index.html">4. 创建TCP服务器</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">5. 创建Web服务器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="config.html">5.1. 项目配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="phpini.html">5.2. php.ini配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="haunt.html">5.3. haunt配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hawk.html">5.4. hawk.php</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trace.html">5.5. trace.php</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.6. debug.php</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">5.6.1. 文件位置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">5.6.2. 配置文件内容</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nova.html">5.7. nova.php</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server.html">5.8. server.php</a></li>
+<li class="toctree-l2"><a class="reference internal" href="log.html">5.9. log.php</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libs/index.html">6. Libs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MVC/index.html">7. View</a></li>
 </ul>
 
             
@@ -135,7 +158,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>debug.php</li>
+          <li><a href="index.html">5. 创建Web服务器</a> &raquo;</li>
+        
+      <li>5.6. debug.php</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -155,15 +180,15 @@
            <div itemprop="articleBody">
             
   <div class="section" id="debug-php">
-<h1>debug.php<a class="headerlink" href="#debug-php" title="Permalink to this headline">¶</a></h1>
+<h1>5.6. debug.php<a class="headerlink" href="#debug-php" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>文件位置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>5.6.1. 文件位置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default"><div class="highlight"><pre><span></span>resource/config/$ENV/debug.php
 </pre></div>
 </div>
 </div>
 <div class="section" id="id2">
-<h2>配置文件内容<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>5.6.2. 配置文件内容<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
 
 return [
@@ -182,6 +207,15 @@ return [
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nova.html" class="btn btn-neutral float-right" title="5.7. nova.php" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="trace.html" class="btn btn-neutral" title="5.5. trace.php" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

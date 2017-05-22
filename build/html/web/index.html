@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. 创建Web服务器 &mdash; zanphp-doc 1.0 documentation</title>
+  <title>3. 创建Web服务器 &mdash; zanphp-doc 1.0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="zanphp-doc 1.0 documentation" href="../index.html"/>
-        <link rel="next" title="1.1. 一分钟起步" href="in_one_minute.html"/>
-        <link rel="prev" title="Welcome to zanphp-doc’s documentation!" href="../index.html"/> 
+        <link rel="next" title="3.1. 一分钟起步" href="in_one_minute.html"/>
+        <link rel="prev" title="2. Zan PHP 依赖以下包" href="../install.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -91,14 +91,19 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. 创建Web服务器</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="in_one_minute.html">1.1. 一分钟起步</a></li>
-<li class="toctree-l2"><a class="reference internal" href="project_dir.html">1.2. 项目目录结构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="request_flow.html">1.3. 请求处理流程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html">1.4. 异常处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">1. Zan PHP Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">2. Zan PHP 依赖以下包</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. 创建Web服务器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="in_one_minute.html">3.1. 一分钟起步</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_dir.html">3.2. 项目目录结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request_flow.html">3.3. 请求处理流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html">3.4. 异常处理</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tcp/index.html">2. 创建TCP服务器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tcp/index.html">4. 创建TCP服务器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">5. 创建Web服务器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libs/index.html">6. Libs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MVC/index.html">7. View</a></li>
 </ul>
 
             
@@ -143,7 +148,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>1. 创建Web服务器</li>
+      <li>3. 创建Web服务器</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -163,23 +168,23 @@
            <div itemprop="articleBody">
             
   <div class="section" id="web">
-<h1>1. 创建Web服务器<a class="headerlink" href="#web" title="Permalink to this headline">¶</a></h1>
+<h1>3. 创建Web服务器<a class="headerlink" href="#web" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="in_one_minute.html">1.1. 一分钟起步</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="in_one_minute.html#id2">1.1.1. 安装</a></li>
-<li class="toctree-l2"><a class="reference internal" href="in_one_minute.html#id3">1.1.2. 更新</a></li>
-<li class="toctree-l2"><a class="reference internal" href="in_one_minute.html#id4">1.1.3. 使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="in_one_minute.html">3.1. 一分钟起步</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="in_one_minute.html#id2">3.1.1. 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in_one_minute.html#id3">3.1.2. 更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in_one_minute.html#id4">3.1.3. 使用</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="project_dir.html">1.2. 项目目录结构</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="project_dir.html#zh">1.2.1. 目录说明zh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_dir.html">3.2. 项目目录结构</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="project_dir.html#zh">3.2.1. 目录说明zh</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="request_flow.html">1.3. 请求处理流程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exception.html">1.4. 异常处理</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#zanhttp">1.4.1. ZanHttp异常处理流程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#debug">1.4.2. Debug模式下</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request_flow.html">3.3. 请求处理流程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">3.4. 异常处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#zanhttp">3.4.1. ZanHttp异常处理流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#debug">3.4.2. Debug模式下</a></li>
 </ul>
 </li>
 </ul>
@@ -196,10 +201,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="in_one_minute.html" class="btn btn-neutral float-right" title="1.1. 一分钟起步" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="in_one_minute.html" class="btn btn-neutral float-right" title="3.1. 一分钟起步" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="Welcome to zanphp-doc’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../install.html" class="btn btn-neutral" title="2. Zan PHP 依赖以下包" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

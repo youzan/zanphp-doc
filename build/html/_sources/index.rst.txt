@@ -9,6 +9,11 @@ Welcome to zanphp-doc's documentation!
 .. toctree::
     :maxdepth: 3
     :numbered: 3
-
+    
+    README
+    install
     web/index
     tcp/index
+    config/index
+    libs/index
+    MVC/index

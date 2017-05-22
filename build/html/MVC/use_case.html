@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.5. 使用示例 &mdash; zanphp-doc 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="zanphp-doc 1.0 documentation" href="../index.html"/>
+        <link rel="up" title="7. View" href="index.html"/>
+        <link rel="prev" title="7.4. 请求处理" href="request_handle.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> zanphp-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">1. Zan PHP Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">2. Zan PHP 依赖以下包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">3. 创建Web服务器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tcp/index.html">4. 创建TCP服务器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">5. 创建Web服务器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libs/index.html">6. Libs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">7. View</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="directory.html">7.1. 目录结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="directory.html#id2">7.2. 命名规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route.html">7.3. 路由</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request_handle.html">7.4. 请求处理</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7.5. 使用示例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">7.5.1. 文件目录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#indexcontroller-php">7.5.2. IndexController.php</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exceptioncontroller">7.5.3. ExceptionController</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#httpcall-php">7.5.4. HttpCall.php</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-html">7.5.5. Test.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getalldemodata-php">7.5.6. GetAllDemoData.php</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">zanphp-doc</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">7. View</a> &raquo;</li>
+        
+      <li>7.5. 使用示例</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/MVC/use_case.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>7.5. 使用示例<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>7.5.1. 文件目录<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>├── Controller
+│   ├── Index
+│   │   └── IndexController.php
+│   └── Test
+│       └── ExceptionController.php
+├── Demo
+│   ├── Service
+│   │   └── HttpCall.php
+│   └── View
+│       └── test
+│           └── test.html
+└── Model
+    └── Index
+        └── GetAllDemoData.php
+</pre></div>
+</div>
+</div>
+<div class="section" id="indexcontroller-php">
+<h2>7.5.2. IndexController.php<a class="headerlink" href="#indexcontroller-php" title="Permalink to this headline">¶</a></h2>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+
+namespace Com\Youzan\ZanHttpDemo\Controller\Index;
+
+use Com\Youzan\ZanHttpDemo\Demo\Service\HttpCall;
+use Zan\Framework\Foundation\Domain\HttpController as Controller;
+use Com\Youzan\ZanHttpDemo\Model\Index\GetAllDemoData;
+
+class IndexController extends Controller {
+
+    //字符串输出示例
+    public function index()
+    {
+        $response =  $this-&gt;output(&#39;success&#39;);
+        //设置响应信息头部
+        $response-&gt;withHeaders([&#39;Content-Type&#39; =&gt; &#39;text/javascript&#39;]);
+        yield $response;
+    }
+
+    //json输出示例
+    public function json()
+    {
+        yield $this-&gt;r(0, &#39;json string&#39;, [&quot;Hello&quot; =&gt; &quot;World&quot;]);
+    }
+
+    //模板输出示例
+    public function showTpl()
+    {
+        //给模板中的变量赋值
+        $this-&gt;assign(&quot;str&quot;, &quot;Zan Framework&quot;);
+        //输出模板页面
+        yield $this-&gt;display(&quot;Demo/test/test&quot;);
+    }
+
+    //操作数据库示例
+    public function dbOperation()
+    {
+        $demo = new GetAllDemoData();
+        //执行sql语句
+        yield $demo-&gt;doSql();
+    }
+
+    //Http服务调用示例
+    public function rpcRemoteService()
+    {
+        $http = new HttpCall();
+        yield $http-&gt;visit();
+    }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="exceptioncontroller">
+<h2>7.5.3. ExceptionController<a class="headerlink" href="#exceptioncontroller" title="Permalink to this headline">¶</a></h2>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+
+namespace Com\Youzan\ZanHttpDemo\Controller\Test;
+
+use Zan\Framework\Foundation\Domain\HttpController as Controller;
+use Zan\Framework\Network\Http\Exception\InvalidRouteException;
+use Zan\Framework\Network\Http\Exception\PageNotFoundException;
+use Zan\Framework\Network\Http\Exception\RedirectException;
+
+class ExceptionController extends Controller
+{
+    public function testInvalidRoute()
+    {
+        throw new InvalidRouteException();
+    }
+
+    public function testPageNotFound()
+    {
+        throw new PageNotFoundException(&#39;This Page is not Found&#39;);
+    }
+
+    public function testRedirect()
+    {
+        throw new RedirectException(&#39;https://youzan.com&#39;, &#39;Test Redirect&#39;);
+    }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="httpcall-php">
+<h2>7.5.4. HttpCall.php<a class="headerlink" href="#httpcall-php" title="Permalink to this headline">¶</a></h2>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+
+namespace Com\Youzan\ZanHttpDemo\Demo\Service;
+
+use Zan\Framework\Network\Common\Client;
+
+class HttpCall {
+
+    public function visit()
+    {
+        $option = [
+            &#39;order_no&#39;     =&gt; 1,
+            &#39;kdt_id&#39;       =&gt; 1,
+            &#39;format_order&#39; =&gt; false,
+            &#39;with_items&#39;   =&gt; false,
+            &#39;with_peerpay&#39; =&gt; false,
+            &#39;with_source&#39;  =&gt; false
+        ];
+
+        //trade.order.detail.byOrderNo对应包zan-config/zan/Apiconfig.php中的配置,新增url时需要修改配置
+        yield Client::call(&#39;trade.order.detail.byOrderNo&#39;, $option);
+    }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="test-html">
+<h2>7.5.5. Test.html<a class="headerlink" href="#test-html" title="Permalink to this headline">¶</a></h2>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+    echo &quot;Hello World $str&quot;; //$str在调用时使用assgin方法赋值
+?&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="getalldemodata-php">
+<h2>7.5.6. GetAllDemoData.php<a class="headerlink" href="#getalldemodata-php" title="Permalink to this headline">¶</a></h2>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
+
+namespace Com\Youzan\ZanHttpDemo\Model\Index;
+
+use Zan\Framework\Store\Facade\Db;
+
+class GetAllDemoData {
+    public function doSql()
+    {
+        $data = [
+            &#39;limit&#39; =&gt; 2
+        ];
+        //demo.demo_sql_id1_1对应resource/sql/demo.php中的配置
+        $result = (yield Db::execute(&quot;demo.demo_sql_id1_1&quot;, $data));
+        var_dump($result);
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="request_handle.html" class="btn btn-neutral" title="7.4. 请求处理" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, youzan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

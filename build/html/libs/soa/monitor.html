@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.7.5. Monitor &mdash; zanphp-doc 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="zanphp-doc 1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="6.7. SOA" href="index.html"/>
+        <link rel="next" title="6.8. 测试" href="../testing/index.html"/>
+        <link rel="prev" title="6.7.4. Load balance" href="lb.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> zanphp-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">1. Zan PHP Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">2. Zan PHP 依赖以下包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../web/index.html">3. 创建Web服务器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tcp/index.html">4. 创建TCP服务器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../config/index.html">5. 创建Web服务器</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. Libs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../middleware/index.html">6.1. 中间件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pool/index.html">6.2. 连接池</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../db/index.html">6.3. 数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nosql/index.html">6.4. Nosql</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">6.5. Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdks/index.html">6.6. SDKs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">6.7. SOA</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="trace.html">6.7.1. Trace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service_discovery.html">6.7.2. 服务注册&amp;发现&amp;下线</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html">6.7.3. Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lb.html">6.7.4. Load balance</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">6.7.5. Monitor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">接口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">使用示例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/index.html">6.8. 测试</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../MVC/index.html">7. View</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">zanphp-doc</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">6. Libs</a> &raquo;</li>
+        
+          <li><a href="index.html">6.7. SOA</a> &raquo;</li>
+        
+      <li>6.7.5. Monitor</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/libs/soa/monitor.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="monitor">
+<h1>6.7.5. Monitor<a class="headerlink" href="#monitor" title="Permalink to this headline">¶</a></h1>
+<p>zan框架内置了统一的监控上报接口（hawk），上报信息至ZCloud应用管理平台。</p>
+<div class="section" id="id1">
+<h2>配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>监控的配置参见<a class="reference external" href="../config/hawk.md">hawk.php</a></p>
+</div>
+<div class="section" id="id2">
+<h2>接口<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>class Hawk {
+    //请求成功耗时
+    public function addTotalSuccessTime($side, $service, $method, $ip, $diffSec);
+    //请求失败耗时
+    public function addTotalFailureTime($side, $service, $method, $ip, $diffSec);
+    //增加成功请求个数
+    public function addTotalSuccessCount($side, $service, $method, $ip);
+    //增加失败请求个数
+    public function addTotalFailureCount($side, $service, $method, $ip);
+    /**
+     * array(
+     *  &#39;biz&#39; =&gt; &#39;worker_memory&#39;,
+     *  &#39;metrics&#39; =&gt; [
+     *      &#39;used&#39; =&gt; 234234234,
+     *  ],
+     *  &#39;tags&#39; =&gt; [
+     *      &#39;application&#39; =&gt; &#39;pf-web&#39;,
+     *      &#39;work_id&#39; =&gt; &#39;2&#39;,
+     *      &#39;host&#39; =&gt; &#39;bc_sdfs&#39;,
+     *  ],
+     * ),
+     * @param $biz
+     * @param array $metrics
+     * @param array $tags
+     */
+    public function add($biz, array $metrics, array $tags = [])
+}
+</pre></div>
+</div>
+<p>入参的含义分别为</p>
+<ul class="simple">
+<li>side：标识server还是client上报，取值为Hawk::SERVER或Hawk::CLIENT</li>
+<li>service：服务名称</li>
+<li>method：方法名称</li>
+<li>ip：请求源ip地址</li>
+<li>diffSec：耗时长度，单位为秒</li>
+<li>biz：业务属性</li>
+<li>metric：业务数据</li>
+<li>tags：存放额外信息的标签</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>使用示例<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$hawk = Hawk::getInstance();
+$hawk-&gt;addTotalSuccessTime(Hawk::SERVER,
+    $request-&gt;getServiceName(),
+    $request-&gt;getMethodName(),
+    $request-&gt;getRemoteIp(),
+    microtime(true) - $request-&gt;getStartTime()
+);
+$hawk-&gt;addTotalSuccessCount(Hawk::SERVER,
+    $request-&gt;getServiceName(),
+    $request-&gt;getMethodName(),
+    $request-&gt;getRemoteIp()
+);
+
+$hawk-&gt;add(&#39;youzan.soa&#39;, $metrics, $tags);
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../testing/index.html" class="btn btn-neutral float-right" title="6.8. 测试" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lb.html" class="btn btn-neutral" title="6.7.4. Load balance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, youzan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
