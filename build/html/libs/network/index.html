@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.5. Network &mdash; zanphp-doc 1.0 documentation</title>
+  <title>Network &mdash; zanphp-doc 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="zanphp-doc 1.0 documentation" href="../../index.html"/>
-        <link rel="up" title="6. Libs" href="../index.html"/>
-        <link rel="next" title="1. Http" href="http.html"/>
-        <link rel="prev" title="2. 使用" href="../nosql/use_case.html"/> 
+        <link rel="up" title="Libs" href="../index.html"/>
+        <link rel="next" title="Http" href="http.html"/>
+        <link rel="prev" title="使用" href="../nosql/use_case.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -92,27 +92,27 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. 简介</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../install.html">2. 安装</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../web/index.html">3. 创建Web服务器</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tcp/index.html">4. 创建TCP服务器</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../config/index.html">5. 创建Web服务器</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. Libs</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../middleware/index.html">6.1. 中间件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pool/index.html">6.2. 连接池</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../db/index.html">6.3. 数据库</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../nosql/index.html">6.4. Nosql</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">6.5. Network</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="http.html">1. Http</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tcp.html">2. Tcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../web/index.html">创建Web服务器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tcp/index.html">创建TCP服务器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../config/index.html">创建Web服务器</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Libs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../middleware/index.html">中间件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pool/index.html">连接池</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../db/index.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nosql/index.html">Nosql</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http.html">Http</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tcp.html">Tcp</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../sdks/index.html">6.6. SDKs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../soa/index.html">6.7. SOA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../testing/index.html">6.8. 测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdks/index.html">SDKs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../soa/index.html">SOA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/index.html">测试</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../MVC/index.html">7. MVC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../MVC/index.html">MVC</a></li>
 </ul>
 
             
@@ -157,9 +157,9 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../index.html">6. Libs</a> &raquo;</li>
+          <li><a href="../index.html">Libs</a> &raquo;</li>
         
-      <li>6.5. Network</li>
+      <li>Network</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -179,16 +179,12 @@
            <div itemprop="articleBody">
             
   <div class="section" id="network">
-<h1>6.5. Network<a class="headerlink" href="#network" title="Permalink to this headline">¶</a></h1>
+<h1>Network<a class="headerlink" href="#network" title="Permalink to this headline">¶</a></h1>
 <p>应用程序开发过程中，经常需要与其他模块进行网络通信，主要方式为Http和Tcp。zan框架提供了http client和tcp client，支持http协议和tcp协议数据传输。</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="http.html">1. Http</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="http.html#httpclient">1.1. 原生HttpClient</a></li>
-<li class="toctree-l2"><a class="reference internal" href="http.html#client-call">1.2. Client::call</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tcp.html">2. Tcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http.html">Http</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tcp.html">Tcp</a></li>
 </ul>
 </div>
 </div>
@@ -203,10 +199,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="http.html" class="btn btn-neutral float-right" title="1. Http" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="http.html" class="btn btn-neutral float-right" title="Http" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../nosql/use_case.html" class="btn btn-neutral" title="2. 使用" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../nosql/use_case.html" class="btn btn-neutral" title="使用" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

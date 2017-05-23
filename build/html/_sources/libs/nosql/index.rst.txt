@@ -3,8 +3,8 @@ Nosql
 
 
 .. toctree::
-    :maxdepth: 3
-    :numbered: 3
+    :maxdepth: 2
+    :titlesonly:
 
     redis
     use_case

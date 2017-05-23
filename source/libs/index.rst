@@ -3,8 +3,8 @@ Libs
 
 
 .. toctree::
-    :maxdepth: 3
-    :numbered: 3
+    :maxdepth: 2
+    :titlesonly:
 
     middleware/index
     pool/index

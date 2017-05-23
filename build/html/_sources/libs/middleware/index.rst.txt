@@ -3,10 +3,9 @@
 
 
 .. toctree::
-    :maxdepth: 3
-    :numbered: 3
+    :maxdepth: 2
+    :titlesonly:
 
-    middleware
     filters
     exceptionhandler
     terminators

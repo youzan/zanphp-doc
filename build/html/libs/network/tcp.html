@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. Tcp &mdash; zanphp-doc 1.0 documentation</title>
+  <title>Tcp &mdash; zanphp-doc 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="zanphp-doc 1.0 documentation" href="../../index.html"/>
-        <link rel="up" title="6.5. Network" href="index.html"/>
-        <link rel="next" title="6.6. SDKs" href="../sdks/index.html"/>
-        <link rel="prev" title="1. Http" href="http.html"/> 
+        <link rel="up" title="Network" href="index.html"/>
+        <link rel="next" title="SDKs" href="../sdks/index.html"/>
+        <link rel="prev" title="Http" href="http.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -92,27 +92,27 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. 简介</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../install.html">2. 安装</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../web/index.html">3. 创建Web服务器</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tcp/index.html">4. 创建TCP服务器</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../config/index.html">5. 创建Web服务器</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. Libs</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../middleware/index.html">6.1. 中间件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pool/index.html">6.2. 连接池</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../db/index.html">6.3. 数据库</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../nosql/index.html">6.4. Nosql</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">6.5. Network</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="http.html">1. Http</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">2. Tcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../web/index.html">创建Web服务器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tcp/index.html">创建TCP服务器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../config/index.html">创建Web服务器</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Libs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../middleware/index.html">中间件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pool/index.html">连接池</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../db/index.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nosql/index.html">Nosql</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Network</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="http.html">Http</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Tcp</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../sdks/index.html">6.6. SDKs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../soa/index.html">6.7. SOA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../testing/index.html">6.8. 测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdks/index.html">SDKs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../soa/index.html">SOA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/index.html">测试</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../MVC/index.html">7. MVC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../MVC/index.html">MVC</a></li>
 </ul>
 
             
@@ -157,11 +157,11 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../index.html">6. Libs</a> &raquo;</li>
+          <li><a href="../index.html">Libs</a> &raquo;</li>
         
-          <li><a href="index.html">6.5. Network</a> &raquo;</li>
+          <li><a href="index.html">Network</a> &raquo;</li>
         
-      <li>2. Tcp</li>
+      <li>Tcp</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -181,7 +181,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="tcp">
-<h1>2. Tcp<a class="headerlink" href="#tcp" title="Permalink to this headline">¶</a></h1>
+<h1>Tcp<a class="headerlink" href="#tcp" title="Permalink to this headline">¶</a></h1>
 <p>Tcp
 Client的使用示例如下，创建TcpClient实例之后yield调用send方法异步发送数据，接收响应。返回结果为字符串数据。</p>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
@@ -203,10 +203,10 @@ $result = (yield $tcpClient-&gt;send($data));
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../sdks/index.html" class="btn btn-neutral float-right" title="6.6. SDKs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../sdks/index.html" class="btn btn-neutral float-right" title="SDKs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="http.html" class="btn btn-neutral" title="1. Http" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="http.html" class="btn btn-neutral" title="Http" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

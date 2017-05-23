@@ -3,8 +3,8 @@
 
 
 .. toctree::
-    :maxdepth: 3
-    :numbered: 3
+    :maxdepth: 2
+    :titlesonly:
 
     project_dir
     request_flow

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5.8. server.php &mdash; zanphp-doc 1.0 documentation</title>
+  <title>server.php &mdash; zanphp-doc 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="zanphp-doc 1.0 documentation" href="../index.html"/>
-        <link rel="up" title="5. 创建Web服务器" href="index.html"/>
-        <link rel="next" title="5.9. log.php" href="log.html"/>
-        <link rel="prev" title="5.7. nova.php" href="nova.html"/> 
+        <link rel="up" title="创建Web服务器" href="index.html"/>
+        <link rel="next" title="log.php" href="log.html"/>
+        <link rel="prev" title="nova.php" href="nova.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -92,29 +92,24 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. 简介</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html">2. 安装</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../web/index.html">3. 创建Web服务器</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tcp/index.html">4. 创建TCP服务器</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">5. 创建Web服务器</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="config.html">5.1. 项目配置</a></li>
-<li class="toctree-l2"><a class="reference internal" href="phpini.html">5.2. php.ini配置</a></li>
-<li class="toctree-l2"><a class="reference internal" href="haunt.html">5.3. haunt配置</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hawk.html">5.4. hawk.php</a></li>
-<li class="toctree-l2"><a class="reference internal" href="trace.html">5.5. trace.php</a></li>
-<li class="toctree-l2"><a class="reference internal" href="debug.html">5.6. debug.php</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nova.html">5.7. nova.php</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">5.8. server.php</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">文件位置</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">配置作用</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">配置文件内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">创建Web服务器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tcp/index.html">创建TCP服务器</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">创建Web服务器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="config.html">项目配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="phpini.html">php.ini配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="haunt.html">haunt配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hawk.html">hawk.php</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trace.html">trace.php</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug.html">debug.php</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nova.html">nova.php</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">server.php</a></li>
+<li class="toctree-l2"><a class="reference internal" href="log.html">log.php</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="log.html">5.9. log.php</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../libs/index.html">6. Libs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MVC/index.html">7. MVC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libs/index.html">Libs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MVC/index.html">MVC</a></li>
 </ul>
 
             
@@ -159,9 +154,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">5. 创建Web服务器</a> &raquo;</li>
+          <li><a href="index.html">创建Web服务器</a> &raquo;</li>
         
-      <li>5.8. server.php</li>
+      <li>server.php</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -181,7 +176,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="server-php">
-<h1>5.8. server.php<a class="headerlink" href="#server-php" title="Permalink to this headline">¶</a></h1>
+<h1>server.php<a class="headerlink" href="#server-php" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
 <h2>文件位置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default"><div class="highlight"><pre><span></span>resource/config/$ENV/server.php
@@ -259,10 +254,10 @@ return [
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="log.html" class="btn btn-neutral float-right" title="5.9. log.php" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="log.html" class="btn btn-neutral float-right" title="log.php" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="nova.html" class="btn btn-neutral" title="5.7. nova.php" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="nova.html" class="btn btn-neutral" title="nova.php" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -18,7 +18,7 @@
    `Redis官方文档 <http://redis.io/commands>`__\ 。
 
 示例
-~~~~
+----
 
 .. code:: php
 

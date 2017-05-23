@@ -3,8 +3,8 @@
 
 
 .. toctree::
-    :maxdepth: 3
-    :numbered: 3
+    :maxdepth: 2
+    :titlesonly:
 
     in_one_minute
     project_dir

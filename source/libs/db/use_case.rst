@@ -197,7 +197,7 @@ raw
     $record = (yield Db::execute('dir_name.file_name.raw_by_market_id_goods_ids', $data));
 
 SqlMap 其他标签使用方法
------------------------
+~~~~~~~~~~~~~~~~~~~~~~~
 
 order by
 ~~~~~~~~

@@ -3,8 +3,8 @@ SDKs
 
 
 .. toctree::
-    :maxdepth: 3
-    :numbered: 3
+    :maxdepth: 2
+    :titlesonly:
 
     mq
     sms
