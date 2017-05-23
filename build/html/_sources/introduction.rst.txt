@@ -4,7 +4,7 @@
 Zan是基于PHP协程的网络服务框架，提供最简单的方式开发面向C10K+的高并发HTTP服务或SOA服务。
 
 核心特性
---------
+^^^^^^^^
 
 1.  基于 ``yield`` 实现了独立堆栈的协程
 2.  类似于 Golang 的并发编程模型实现
@@ -19,7 +19,7 @@ Zan是基于PHP协程的网络服务框架，提供最简单的方式开发面�
 10. 良好的服务化对接支持
 
 框架定位
---------
+^^^^^^^^
 
 Zan 的定位是高并发 Web 服务或业务中间件。
 
@@ -37,7 +37,7 @@ Zan 和 Golang 的边界是：Zan做业务系统；Golang
 当然对于致力于终身coding的码农来说：Java依然很难跨过去的坎。
 
 官方文档
---------
+^^^^^^^^
 
 ZanPHP的文档仓库地址：\ `zan-doc <https://github.com/youzan/zan-doc/blob/master/zh/SUMMARY.md>`__\ 。目前只有中文的文档，欢迎英语大牛翻译成英文的。
 
@@ -45,7 +45,7 @@ ZanPHP的文档仓库地址：\ `zan-doc <https://github.com/youzan/zan-doc/blob
 `GitBook/zan-doc <https://agalwood.gitbooks.io/zan-doc/content/zh/>`__\ 。
 
 常用链接
---------
+^^^^^^^^
 
 -  `zan-doc <https://github.com/youzan/zan-doc>`__ - Zan PHP 开发者文档
 -  `zan-installer <https://github.com/youzan/zan-installer>`__ - Zan PHP
@@ -55,12 +55,12 @@ ZanPHP的文档仓库地址：\ `zan-doc <https://github.com/youzan/zan-doc/blob
    - Zan PHP 高性能MySQL实践
 
 开发交流
---------
+^^^^^^^^
 
 QQ群：115728122
 
 License
--------
+^^^^^^^^
 
 我们\ `有赞 <https://youzan.com/>`__\ 的 `Zan
 PHP框架 <https://github.com/youzan/zan>`__\ 基于 `MIT
