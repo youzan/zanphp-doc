@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.6.4. Barcode &mdash; zanphp-doc 1.0 documentation</title>
+  <title>4. Barcode &mdash; zanphp-doc 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="zanphp-doc 1.0 documentation" href="../../index.html"/>
         <link rel="up" title="6.6. SDKs" href="index.html"/>
-        <link rel="next" title="6.6.5. ShortUrl" href="shorturl.html"/>
-        <link rel="prev" title="6.6.3. Qrcode" href="qrcode.html"/> 
+        <link rel="next" title="5. ShortUrl" href="shorturl.html"/>
+        <link rel="prev" title="3. Qrcode" href="qrcode.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -104,17 +104,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../nosql/index.html">6.4. Nosql</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../network/index.html">6.5. Network</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">6.6. SDKs</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="mq.html">6.6.1. MQ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sms.html">6.6.2. SMS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="qrcode.html">6.6.3. Qrcode</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">6.6.4. Barcode</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">配置</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">接口</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">使用示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mq.html">1. MQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sms.html">2. SMS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qrcode.html">3. Qrcode</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4. Barcode</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">4.1. 配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">4.2. 接口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">4.3. 使用示例</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="shorturl.html">6.6.5. ShortUrl</a></li>
-<li class="toctree-l3"><a class="reference internal" href="uuid.html">6.6.6. UUID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shorturl.html">5. ShortUrl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="uuid.html">6. UUID</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../soa/index.html">6.7. SOA</a></li>
@@ -170,7 +170,7 @@
         
           <li><a href="index.html">6.6. SDKs</a> &raquo;</li>
         
-      <li>6.6.4. Barcode</li>
+      <li>4. Barcode</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -190,10 +190,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="barcode">
-<h1>6.6.4. Barcode<a class="headerlink" href="#barcode" title="Permalink to this headline">¶</a></h1>
+<h1>4. Barcode<a class="headerlink" href="#barcode" title="Permalink to this headline">¶</a></h1>
 <p>zan框架屏蔽了条形码生成的细节，业务可以便捷使用接口生成条形码。</p>
 <div class="section" id="id1">
-<h2>配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>4.1. 配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>配置文件路径：resource/config/$ENV/services/barcode.php。</p>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
 
@@ -208,7 +208,7 @@ return [
 </div>
 </div>
 <div class="section" id="id2">
-<h2>接口<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>4.2. 接口<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>class Barcode {
     public static function create($text, $height = 10, $styles = [], $barcode = 20);
     public static function createDataUrl($text, $height = 10, $styles = [], $barcode = 20)
@@ -230,7 +230,7 @@ return [
 <p>create和createDataUrl方法的区别在于create返回原始数据，createDataUrl返回base64编码后数据</p>
 </div>
 <div class="section" id="id3">
-<h2>使用示例<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>4.3. 使用示例<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>$text = &quot;youzan&quot;;
 $height = 10;
 $styles = [
@@ -258,10 +258,10 @@ $result = (yield Barcode::createDataUrl($text, $height, $styles, $barcode));
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="shorturl.html" class="btn btn-neutral float-right" title="6.6.5. ShortUrl" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="shorturl.html" class="btn btn-neutral float-right" title="5. ShortUrl" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="qrcode.html" class="btn btn-neutral" title="6.6.3. Qrcode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="qrcode.html" class="btn btn-neutral" title="3. Qrcode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

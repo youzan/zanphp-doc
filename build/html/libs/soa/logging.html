@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.7.3. Logging &mdash; zanphp-doc 1.0 documentation</title>
+  <title>3. Logging &mdash; zanphp-doc 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="zanphp-doc 1.0 documentation" href="../../index.html"/>
         <link rel="up" title="6.7. SOA" href="index.html"/>
-        <link rel="next" title="6.7.4. Load balance" href="lb.html"/>
-        <link rel="prev" title="6.7.2. 服务注册&amp;发现&amp;下线" href="service_discovery.html"/> 
+        <link rel="next" title="4. Load balance" href="lb.html"/>
+        <link rel="prev" title="2. 服务注册&amp;发现&amp;下线" href="service_discovery.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -105,16 +105,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../network/index.html">6.5. Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sdks/index.html">6.6. SDKs</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">6.7. SOA</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="trace.html">6.7.1. Trace</a></li>
-<li class="toctree-l3"><a class="reference internal" href="service_discovery.html">6.7.2. 服务注册&amp;发现&amp;下线</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">6.7.3. Logging</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">配置</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#api">API</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">使用示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trace.html">1. Trace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service_discovery.html">2. 服务注册&amp;发现&amp;下线</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3. Logging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">3.1. 配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api">3.2. API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">3.3. 使用示例</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="lb.html">6.7.4. Load balance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="monitor.html">6.7.5. Monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lb.html">4. Load balance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitor.html">5. Monitor</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../testing/index.html">6.8. 测试</a></li>
@@ -169,7 +169,7 @@
         
           <li><a href="index.html">6.7. SOA</a> &raquo;</li>
         
-      <li>6.7.3. Logging</li>
+      <li>3. Logging</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -189,7 +189,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="logging">
-<h1>6.7.3. Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h1>
+<h1>3. Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h1>
 <div class="line-block">
 <div class="line">目前支持的日志类型有：<code class="docutils literal"><span class="pre">file</span></code>（绝对路径）、<code class="docutils literal"><span class="pre">log</span></code>（项目相对路径，会写到项目的resource/log目录下）、<code class="docutils literal"><span class="pre">syslog</span></code>（flume
 log系统，内部系统，暂无开源计划，如需使用需自行开发）、<code class="docutils literal"><span class="pre">blackhole</span></code>（黑洞）。</div>
@@ -199,11 +199,11 @@ log系统，内部系统，暂无开源计划，如需使用需自行开发）�
 </div>
 <p><strong>useBuffer 对于性能有较大提升，如果业务允许，请尽量启用。</strong></p>
 <div class="section" id="id1">
-<h2>配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>3.1. 配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>日志的配置文件为<a class="reference external" href="/zh/config/log.md">resource/config/$ENV/log.php。</a></p>
 </div>
 <div class="section" id="api">
-<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<h2>3.2. API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Log是一个工厂类，获取到的日志实例类实现了</dt>
 <dd>PsrLogLoggerInterface接口，有以下方法：emergency,
@@ -304,7 +304,7 @@ public function log($level, $message, array $context = array());
 </div>
 </div>
 <div class="section" id="id2">
-<h2>使用示例<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>3.3. 使用示例<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">普通日志参数</span>
 <span class="k">yield</span> \<span class="n">Log</span><span class="p">::</span><span class="n">make</span><span class="p">(</span><span class="s1">&#39;debug&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Hello Log!&#39;</span><span class="p">);</span>
 
@@ -329,10 +329,10 @@ public function log($level, $message, array $context = array());
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="lb.html" class="btn btn-neutral float-right" title="6.7.4. Load balance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="lb.html" class="btn btn-neutral float-right" title="4. Load balance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="service_discovery.html" class="btn btn-neutral" title="6.7.2. 服务注册&amp;发现&amp;下线" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="service_discovery.html" class="btn btn-neutral" title="2. 服务注册&amp;发现&amp;下线" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

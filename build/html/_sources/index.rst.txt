@@ -7,8 +7,8 @@ Welcome to zanphp-doc's documentation!
 ======================================
 
 .. toctree::
-    :maxdepth: 3
-    :numbered: 3
+    :maxdepth: 2
+    :numbered: 2
     
     introduction
     install

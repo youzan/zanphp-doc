@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.2.1. 连接池 &mdash; zanphp-doc 1.0 documentation</title>
+  <title>1. 连接池 &mdash; zanphp-doc 1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="zanphp-doc 1.0 documentation" href="../../index.html"/>
         <link rel="up" title="6.2. 连接池" href="index.html"/>
-        <link rel="next" title="6.2.2. Mysql" href="mysql.html"/>
+        <link rel="next" title="2. Mysql" href="mysql.html"/>
         <link rel="prev" title="6.2. 连接池" href="index.html"/> 
 
   
@@ -100,16 +100,16 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. Libs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../middleware/index.html">6.1. 中间件</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">6.2. 连接池</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">6.2.1. 连接池</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">配置目录</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">使用</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1. 连接池</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">1.1. 配置目录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">1.2. 使用</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="mysql.html">6.2.2. Mysql</a></li>
-<li class="toctree-l3"><a class="reference internal" href="redis.html">6.2.3. Redis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="log.html">6.2.4. Log</a></li>
-<li class="toctree-l3"><a class="reference internal" href="nova.html">6.2.5. Nova</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tcp.html">6.2.6. Tcp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql.html">2. Mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="redis.html">3. Redis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log.html">4. Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nova.html">5. Nova</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tcp.html">6. Tcp</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../db/index.html">6.3. 数据库</a></li>
@@ -169,7 +169,7 @@
         
           <li><a href="index.html">6.2. 连接池</a> &raquo;</li>
         
-      <li>6.2.1. 连接池</li>
+      <li>1. 连接池</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -189,20 +189,20 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>6.2.1. 连接池<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>1. 连接池<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <blockquote>
 <div>管理项目中需要使用连接池的模块，提升服务性能。</div></blockquote>
 <div class="section" id="id2">
-<h2>配置目录<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>1.1. 配置目录<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>配置文件放在项目resource/config/connection
 目录下，目前已支持的engine类型有mysqli、redis、syslog、novaClient、kVStore。</p>
 </div>
 <div class="section" id="id3">
-<h2>使用<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>1.2. 使用<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>连接池在服务启动时进行初始化，初始化成功后，通过
 ConnectionManager类获取连接。</p>
 <div class="section" id="id4">
-<h3>获取连接<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3>1.2.1. 获取连接<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>$connection = (yield ConnectionManager::getInstance()-&gt;get($database));
 </pre></div>
 </div>
@@ -255,7 +255,7 @@ return [
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="mysql.html" class="btn btn-neutral float-right" title="6.2.2. Mysql" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="mysql.html" class="btn btn-neutral float-right" title="2. Mysql" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="6.2. 连接池" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

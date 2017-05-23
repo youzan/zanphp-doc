@@ -106,9 +106,9 @@
 <li class="toctree-l2"><a class="reference internal" href="nova.html">5.7. nova.php</a></li>
 <li class="toctree-l2"><a class="reference internal" href="server.html">5.8. server.php</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">5.9. log.php</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">5.9.1. 文件位置</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">5.9.2. 配置作用</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">5.9.3. 配置文件内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">文件位置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">配置作用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">配置文件内容</a></li>
 </ul>
 </li>
 </ul>
@@ -183,17 +183,17 @@
   <div class="section" id="log-php">
 <h1>5.9. log.php<a class="headerlink" href="#log-php" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>5.9.1. 文件位置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>文件位置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default"><div class="highlight"><pre><span></span>resource/config/$ENV/log.php
 </pre></div>
 </div>
 </div>
 <div class="section" id="id2">
-<h2>5.9.2. 配置作用<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>配置作用<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>日志输出方式和目的地址配置</p>
 </div>
 <div class="section" id="id3">
-<h2>5.9.3. 配置文件内容<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>配置文件内容<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>return [
     // 日志查看 http://log.qima-inc.com
     &#39;default&#39; =&gt; &#39;syslog://info/syslog_default?module=default&#39;,

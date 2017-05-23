@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.6.5. ShortUrl &mdash; zanphp-doc 1.0 documentation</title>
+  <title>5. ShortUrl &mdash; zanphp-doc 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="zanphp-doc 1.0 documentation" href="../../index.html"/>
         <link rel="up" title="6.6. SDKs" href="index.html"/>
-        <link rel="next" title="6.6.6. UUID" href="uuid.html"/>
-        <link rel="prev" title="6.6.4. Barcode" href="barcode.html"/> 
+        <link rel="next" title="6. UUID" href="uuid.html"/>
+        <link rel="prev" title="4. Barcode" href="barcode.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -104,17 +104,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../nosql/index.html">6.4. Nosql</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../network/index.html">6.5. Network</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">6.6. SDKs</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="mq.html">6.6.1. MQ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sms.html">6.6.2. SMS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="qrcode.html">6.6.3. Qrcode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="barcode.html">6.6.4. Barcode</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">6.6.5. ShortUrl</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">配置</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">接口</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">使用示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mq.html">1. MQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sms.html">2. SMS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qrcode.html">3. Qrcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode.html">4. Barcode</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5. ShortUrl</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">5.1. 配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">5.2. 接口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">5.3. 使用示例</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="uuid.html">6.6.6. UUID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="uuid.html">6. UUID</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../soa/index.html">6.7. SOA</a></li>
@@ -170,7 +170,7 @@
         
           <li><a href="index.html">6.6. SDKs</a> &raquo;</li>
         
-      <li>6.6.5. ShortUrl</li>
+      <li>5. ShortUrl</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -190,11 +190,11 @@
            <div itemprop="articleBody">
             
   <div class="section" id="shorturl">
-<h1>6.6.5. ShortUrl<a class="headerlink" href="#shorturl" title="Permalink to this headline">¶</a></h1>
+<h1>5. ShortUrl<a class="headerlink" href="#shorturl" title="Permalink to this headline">¶</a></h1>
 <p>zan框架封装了短地址接入的api，业务开发可以直接通过long
 url查询对应的short url。</p>
 <div class="section" id="id1">
-<h2>配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>5.1. 配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Shorturl配置在项目resource/config/$ENV/shorturl.php下。</p>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span><span class="k">return</span>  <span class="p">[</span>
     <span class="o">//</span><span class="n">短地址接入的server地址</span>
@@ -206,7 +206,7 @@ url查询对应的short url。</p>
 <p>各环境下的server配置参见<a class="reference external" href="http://doc.qima-inc.com/pages/viewpage.action?pageId=10036541">http://doc.qima-inc.com/pages/viewpage.action?pageId=10036541</a>。</p>
 </div>
 <div class="section" id="id2">
-<h2>接口<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>5.2. 接口<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>class ShortUrl {
     public static function get($url);
 }
@@ -215,7 +215,7 @@ url查询对应的short url。</p>
 <p>get方法入参为long url，返回的是short url。</p>
 </div>
 <div class="section" id="id3">
-<h2>使用示例<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>5.3. 使用示例<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <div class="code php highlight-default"><div class="highlight"><pre><span></span>$shortUrl = (yield ShortUrl::get(&quot;http://koudaitong.com&quot;));
 </pre></div>
 </div>
@@ -232,10 +232,10 @@ url查询对应的short url。</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="uuid.html" class="btn btn-neutral float-right" title="6.6.6. UUID" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="uuid.html" class="btn btn-neutral float-right" title="6. UUID" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="barcode.html" class="btn btn-neutral" title="6.6.4. Barcode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="barcode.html" class="btn btn-neutral" title="4. Barcode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
