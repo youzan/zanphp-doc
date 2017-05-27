@@ -8,4 +8,3 @@
 
     project_dir
     request_flow
-    thrift
