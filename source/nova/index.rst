@@ -6,10 +6,9 @@ Nova是基于thrift协议而制定的有赞RPC协议。通过这个协议， 我
 
 .. toctree::
     :maxdepth: 2
-    :titlesonly:
 
     protocol
-	zan_thrift
+    zan_thrift
     IDL_spec
     IDL_syntax
     tools

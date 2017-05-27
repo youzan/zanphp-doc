@@ -1,6 +1,6 @@
-====
+========================
 zan thrift 代码生成工具
-====
+========================
 
 
 背景
@@ -20,7 +20,7 @@ zan-thrift 仓库 http://gitlab.qima-inc.com/paas/thrift-binary
 
 或者直接使用编译好的二进制文件：
 
-约定:
+约定
 -----
 
 我们在原生thrift命令的基础上做了以下约定：
@@ -28,9 +28,9 @@ zan-thrift 仓库 http://gitlab.qima-inc.com/paas/thrift-binary
    1. yz-thrifts执行目录必须在thrifts目录下面。
 
       说明:这样做的目的是为了可以方便的查找所有的thrift文件，这样我们的工具就可以一次扫描所有的thrift文件，并进行代码的生成。
-           如果不是在thrifts目录下执行yz-thrift命令，会报一条错误信息:
-               `[WARNING] parent path name mast be "thrifts".`
-           并终止代码的生成。
+      如果不是在thrifts目录下执行yz-thrift命令，会报一条错误信息:
+      ``[WARNING] parent path name mast be "thrifts"``.
+      并终止代码的生成。
 
    2. 所有的thrift文件必须放在thrifts目录下。
 
@@ -54,7 +54,7 @@ zan-thrift 仓库 http://gitlab.qima-inc.com/paas/thrift-binary
 
 	  说明:yz-thrift在生成的过程中会查找相关的thrift文件。
 
-   7、定义namespace的语言必须为nova，即: `namespace nova com.youzan.modulename.xxx` 这种形式
+   7、定义namespace的语言必须为nova，即: `namespace nova com.youzan.modulename.xxx` 这种形式。
 
       说明:无
 
