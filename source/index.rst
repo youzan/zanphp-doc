@@ -13,7 +13,7 @@ Welcome to zanphp-doc's documentation!
     install
     web/index
     tcp/index
-    nova/index
+    Nova/index
     config/index
     libs/index
     MVC/index
