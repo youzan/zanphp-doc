@@ -1,4 +1,5 @@
-nova
+NOVA框架
+
 ======================================
 
 Nova是基于thrift协议而制定的有赞RPC协议。通过这个协议， 我们解决公司跨语言交互的问题,从而形成公司的Nova框架。
@@ -6,6 +7,7 @@ Nova是基于thrift协议而制定的有赞RPC协议。通过这个协议， 我
 
 .. toctree::
     :maxdepth: 2
+    :titlesonly:
 
     protocol
     IDL_syntax

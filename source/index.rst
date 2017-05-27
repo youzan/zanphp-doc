@@ -8,12 +8,13 @@ Welcome to zanphp-doc's documentation!
 
 .. toctree::
     :maxdepth: 2
+    :titlesonly:
 
     introduction
     install
     web/index
     tcp/index
-    Nova/index
+    nova/index
     config/index
     libs/index
     MVC/index
