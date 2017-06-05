@@ -93,4 +93,4 @@ withHeader和withHeaders设置响应中的头部信息，withCookie和withCookie
     $request->getClientIp()
 
 在通过反向代理（如nginx）访问server时，此方法需要在resource/config/$ENV/server.php中配置trust
-proxy ip，
+proxy ip，配置示例见\ `server.php <../config/server.html>`__\ 中的proxy字段。
