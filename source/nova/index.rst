@@ -9,6 +9,7 @@ Nova是基于thrift协议而制定的有赞RPC协议。通过这个协议， 我
     :maxdepth: 2
     :titlesonly:
 
+    nova_service
     protocol
     IDL_syntax
     IDL_spec

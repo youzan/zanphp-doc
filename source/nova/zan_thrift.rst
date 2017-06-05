@@ -11,7 +11,7 @@ zan thrift 代码生成工具
 仓库
 ----
 
-zan-thrift 仓库 http://gitlab.qima-inc.com/paas/thrift-binary
+zan-thrift 仓库 https://github.com/youzan/zan-thrift
 
 ::
 
@@ -19,6 +19,13 @@ zan-thrift 仓库 http://gitlab.qima-inc.com/paas/thrift-binary
     sudo sh install.sh
 
 或者直接使用编译好的二进制文件：
+
+地址：
+
+::
+
+    Linux
+    Mac
 
 约定
 -----
@@ -36,7 +43,7 @@ zan-thrift 仓库 http://gitlab.qima-inc.com/paas/thrift-binary
 
       说明:原因同第一条。
 
-   3. thrift文件的namespace必须以com.${company}打头，后面跟模块名，然后是你的命名空间。
+   3. thrift文件的namespace必须以com.${company}.${module_name}打头，后面跟模块名，然后是你的命名空间。
       比如：\ ``com.youzan.module_name.xxx.xxx`` 这种形式。
 
    4. thrift文件所在目录必须与namespace相对应(去除namespace中的com.${company}.模块名)。
@@ -52,7 +59,7 @@ zan-thrift 仓库 http://gitlab.qima-inc.com/paas/thrift-binary
 
    6、所有的thrift必须以".thrift"作为后缀名。
 
-	  说明:yz-thrift在生成的过程中会查找相关的thrift文件。
+      说明:yz-thrift在生成的过程中会查找相关的thrift文件。
 
    7、定义namespace的语言必须为nova，即: `namespace nova com.youzan.modulename.xxx` 这种形式。
 
