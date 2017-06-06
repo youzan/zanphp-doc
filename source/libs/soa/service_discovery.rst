@@ -6,12 +6,12 @@
 
 服务注册，是指nova服务启动后，注册到服务中心，告诉服务中心该服务可用。
 
-流程：swoole\_server在master进程启动后，获取api提供的services与method，发送post请求注册到注册中心。目前所有的服务注册都是通过本地代理haunt连接etcd，注册成功的服务可以从etcd拉取注册信息，具体方法参见\ http://doc.qima-inc.com/display/engineer/Etcd\ 。
+流程：swoole\_server在master进程启动后，获取api提供的services与method，发送post请求注册到注册中心。目前所有的服务注册都是通过本地代理haunt连接etcd，注册成功的服务可以从etcd拉取注册信息 。
 
 1.1.配置
 ~~~~~~~~
 
-需要注册的服务位于\ `resource/config/$ENV/nova.php </zh/config/nova.md>`__\ ，目前所有的服务通过haunt注册，haunt的地址配置见\ `resource/config/$ENV/haunt.php </zh/config/haunt.md>`__\ 。
+需要注册的服务位于\ `resource/config/$ENV/nova.php <../../config/nova.html>`__\ ，目前所有的服务通过haunt注册，haunt的地址配置见\ `resource/config/$ENV/haunt.php <../../config/haunt.html>`__\ 。
 
 2.服务发现
 ----------
@@ -21,7 +21,7 @@
 2.1.配置
 ~~~~~~~~
 
-服务发现直接从etcd拉取服务信息，具体配置为\ `resource/config/$ENV/haunt.php </zh/config/haunt.md>`__\ ，需要发现的服务会在程序启动时自动拉取服务信息。
+服务发现直接从etcd拉取服务信息，具体配置为\ `resource/config/$ENV/haunt.php <../../config/haunt.html>`__\ ，需要发现的服务会在程序启动时自动拉取服务信息。
 
 2.2.本地开发配置
 ~~~~~~~~~~~~~~~~
@@ -60,6 +60,7 @@
 3.服务下线
 ----------
 
+服务下线的工具目前尚未对外开源，开发者可自行参考实现。
 3.1.配置
 ~~~~~~~~
 
@@ -96,13 +97,13 @@ Tcp
      /home/www/%(appName)/bin/publish/offline.sh %(appName)
      /home/www/%(appName)/bin/publish/online.sh %(appName)
 
-执行脚本完成后，重新拉取ectd信息即可确认服务是否已经下线。etcd各环境的域名参见\ http://doc.qima-inc.com/display/engineer/Etcd\ ，拉取信息的url组成规则为
+执行脚本完成后，重新拉取ectd信息即可确认服务是否已经下线。拉取信息的url组成规则为
 
 ::
 
     curl "http://{host}:{port}/v2/keys/{protocol}:{domain}/{appName}"
 
-protocol、domain和appName为Nova服务发布时的配置项，具体见应用配置\ `nova.php </zh/config/nova.md>`__.
+protocol、domain和appName为Nova服务发布时的配置项，具体见应用配置\ `nova.php <../../config/nova.html>`__.
 
 protocol默认值为nova，domain默认值为com.youzan.service，如
 
@@ -116,5 +117,3 @@ Http
 
     /home/www/%(appName)/bin/publish/offline.sh
     /home/www/%(appName)/bin/publish/online.sh
-
-http的服务上下线在nginx侧处理，具体参考文档\ http://doc.qima-inc.com/pages/viewpage.action?pageId=11855950

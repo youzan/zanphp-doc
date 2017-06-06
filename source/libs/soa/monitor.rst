@@ -6,7 +6,7 @@ zan框架内置了统一的监控上报接口（hawk），上报信息至ZCloud�
 配置
 ~~~~
 
-监控的配置参见\ `hawk.php <../config/hawk.md>`__
+监控的配置参见\ `hawk.php <../../config/hawk.html>`__
 
 接口
 ~~~~

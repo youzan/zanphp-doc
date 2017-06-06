@@ -60,7 +60,7 @@ Server相关配置
         //监控上报参数
         'hawk_collection' => [
             'enable_hawk' => 0, //是否开启监控采集 1开启，0不开启
-            'hawk_url' => 'http://api.hawk.qima-inc.com/report',
+            'hawk_url' => 'http://www.example.com',
         ],
         //信任的server反向代理ip，只有从受信任的代理ip转发至server的包纳入真实客户端ip地址统计
         'proxy' => [

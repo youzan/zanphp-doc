@@ -14,11 +14,10 @@ zan框架屏蔽了二维码生成的细节，业务可以便捷使用接口生�
 
     return [
         //二维码生成的server端host和port
-        'host' => 'qrcode-qa.s.qima-inc.com',
+        'host' => 'www.example.com',
         'port' => 8888,
     ];
 
-二维码生成的server端各环境host和ip参考\ http://doc.qima-inc.com/pages/viewpage.action?pageId=4326255\ 。
 
 接口
 ~~~~
@@ -34,7 +33,7 @@ zan框架屏蔽了二维码生成的细节，业务可以便捷使用接口生�
 -  txt: 二维码内容
 -  size: 二维码大小
 -  base64: 是否进行base64编码
--  styles：其他参数设定，具体参考\ http://doc.qima-inc.com/pages/viewpage.action?pageId=4326255\ 。
+-  styles：其他参数设定.
 
 返回值：
 

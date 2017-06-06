@@ -42,9 +42,9 @@ $recipientsp配置短信接收人和发送人信息。
     $param = array(
         'goodsName' => '饮料',
         'realPay' => '1.5',
-        'link' => "http://www.youzan.com"
+        'link' => "http://www.example.com"
     );
     yield SmsService::getInstance()->send(
-        new MessageContext('virtualPaySuc', $param),
+        new MessageContext('example', $param),
         [new Recipient(Channel::SMS, 123456789)]   //接收人电话号码为123456789
     );

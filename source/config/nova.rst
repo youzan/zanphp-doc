@@ -27,7 +27,7 @@ nova.php
             //nova-service的vendor目录，直到gen-php
             'path'  => 'vendor/zanphp/novatcpdemo/gen-php',
             //gen-php文件夹对应的namespace
-            'namespace' => 'Com\\Youzan\\NovaTcpDemo\\',
+            'namespace' => 'Com\\Yourcompany\\NovaTcpDemo\\',
         ],
     ];
 
@@ -41,15 +41,15 @@ nova.php
         'novaApi' => [
             [
                 'path'  => 'vendor/nova-service/scrm-base/gen-php',
-                'namespace' => 'Com\\Youzan\\Scrm\\',
-                'domain' => 'com.youzan.service', // 可选, 默认 com.youzan.service, 配置服务发布到 具体的域
+                'namespace' => 'Com\\Yourcompany\\Scrm\\',
+                'domain' => 'com.example.service', // 可选, 默认 com.example.service, 配置服务发布到 具体的域
                 'appName'   => 'scrm', // 可选, 默认Application::getName(), 配置服务发布的 应用名
                 'protocol'   => 'nova', // 可选, 目前恒等于 nova
             ],
             [
                 'path'  => 'vendor/nova-service/scrm-core/gen-php',
-                'namespace' => 'Com\\Youzan\\Scrm\\',
-                'domain' => 'com.youzan.service', // 可选, 默认 com.youzan.service, 配置服务发布到 具体的域
+                'namespace' => 'Com\\Yourcompany\\Scrm\\',
+                'domain' => 'com.example.service', // 可选, 默认 com.example.service, 配置服务发布到 具体的域
                 'appName'   => 'scrm', // 可选, 默认Application::getName(), 配置服务发布的 应用名
                 'protocol'   => 'nova', // 可选, 目前恒等于 nova
             ],
@@ -60,4 +60,4 @@ nova.php
 ''''
 
 -  同一protocol和appName的 namespace需要相同
--  haunt agent 对同一个ip+port发布多个虚拟应用做了限制, 目前不可用
+

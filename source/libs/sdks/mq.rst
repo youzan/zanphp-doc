@@ -19,7 +19,7 @@ MQ连接配置在项目 resource/config/$ENV/nsq.php下。
     return [
         // ["必填"]lookup 节点地址
         "lookup" => [
-            "http://sqs-qa.s.qima-inc.com:4161"
+            "http://www.example.com"
         ]
     ];
 

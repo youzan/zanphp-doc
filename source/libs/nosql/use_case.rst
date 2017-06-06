@@ -25,4 +25,4 @@
     yield Cache::get("aa.bb.cc", ["zan", "test"])
 
 resource/cache/aa/bb文件内容如上，则此语句等价于redis->get("test\_\_abc\_zan\_\_test")。redis
-server的配置见\ `Redis </zh/libs/pool/redis.md>`__\ 。
+server的配置见\ `Redis <../../libs/pool/redis.html>`__\ 。
