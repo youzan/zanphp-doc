@@ -1,8 +1,7 @@
 Log
 ===
 
-Log连接池仅供 `Log <../../lib/log.md>`__
-的syslog类型使用，长连接连的是我们内部的flume日志系统（未开源）。运维同事在每台生产机器上部署了
+Log连接池仅供syslog类型使用，长连接连的是我们内部的flume日志系统（未开源）。运维同事在每台生产机器上部署了
 flume 的
 client端，所以长连接连接本地就可以了。开发环境的话可以考虑部署到一台公用的开发机器上。
 
@@ -50,11 +49,8 @@ url配置有关。采用syslog的日志文件输出，其url配置的path字段�
 .. code:: php
 
     return [
-        // 日志查看 http://log.qima-inc.com
         'default' => 'syslog://info/syslog_default?module=default',
     ]
 
 在日志输出时就会对应发送到上述连接池中的连接了。
 
-注：syslog url配置使用之前，需要在\ http://log.qima-inc.com/
-上新增LogIndex，便于日志平台的统计

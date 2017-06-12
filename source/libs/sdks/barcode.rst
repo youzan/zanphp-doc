@@ -14,7 +14,7 @@ zan框架屏蔽了条形码生成的细节，业务可以便捷使用接口生�
 
     return [
         //条形码生成的server端host和port
-        'host' => 'barcode-qa.s.qima-inc.com',
+        'host' => 'www.example.com',
         'port' => 8888,
         //请求超时时间
         'timeout' => 3000,

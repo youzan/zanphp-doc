@@ -2,6 +2,12 @@
 简介
 ====
 
+.. image:: https://github.com/youzan/zanphp.io/blob/master/src/img/zan-logo-small@2x.png?raw=true
+  :height: 210 px
+  :width: 210 px
+  :alt: zanphp logo
+  :align: center
+
 Zan是基于PHP协程的网络服务框架，提供最简单的方式开发面向C10K+的高并发HTTP服务或SOA服务。
 
 核心特性
@@ -31,29 +37,25 @@ PHP 在业务系统开发上的优势明显，而 Golang 相信会是将来系�
 Zan 和 Golang 的边界是：Zan做业务系统；Golang
 做系统（中间件或基础服务组件）。
 
-| 而 Zan 和 Golang 编程模型的驱近，是希望能给PHP程序员一个更好的桥梁到
-  Golang。
-| 理想的技术栈是：Zan + Go + 少量的C/C++。
+而 Zan 和 Golang 编程模型的驱近，是希望能给PHP程序员一个更好的桥梁到Golang。
+
+理想的技术栈是：Zan + Go + 少量的C/C++。
 
 当然对于致力于终身coding的码农来说：Java依然很难跨过去的坎。
 
 官方文档
 ========
 
-ZanPHP的文档仓库地址：\ `zan-doc <https://github.com/youzan/zan-doc/blob/master/zh/SUMMARY.md>`__\ 。目前只有中文的文档，欢迎英语大牛翻译成英文的。
-
-你也可以在GitBook上查看Zan PHP 的文档
-`GitBook/zan-doc <https://agalwood.gitbooks.io/zan-doc/content/zh/>`__\ 。
+ZanPHP的文档仓库地址：\ `zanphp-doc <https://github.com/youzan/zanphp-doc>`__\ 。目前只有中文的文档，欢迎英语大牛翻译成英文的。
 
 常用链接
 ========
 
--  `zan-doc <https://github.com/youzan/zan-doc>`__ - Zan PHP 开发者文档
+-  `zan-doc <https://github.com/youzan/zanphp-doc>`__ - Zan PHP 开发者文档
 -  `zan-installer <https://github.com/youzan/zan-installer>`__ - Zan PHP
    脚手架工具
--  `zanhttp <https://github.com/youzan/zanhttp>`__ - Zan PHP HTTP demo
--  `zan-hign-performance-mysql <https://github.com/youzan/zan_high_performance_mysql>`__
-   - Zan PHP 高性能MySQL实践
+-  `zanhttpdemo <https://github.com/youzan/zanhttpdemo>`__ - Zan PHP HTTP demo
+-  `zantcpdemo <https://github.com/youzan/zantcpdemo>`__ - Zan PHP TCP demo
 
 开发交流
 ========
@@ -64,5 +66,5 @@ License
 =======
 
 我们\ `有赞 <https://youzan.com/>`__\ 的 `Zan
-PHP框架 <https://github.com/youzan/zan>`__\ 基于 `MIT
+PHP框架 <https://github.com/youzan/zanphp>`__\ 基于 `MIT
 license <https://opensource.org/licenses/MIT>`__ 进行开源。

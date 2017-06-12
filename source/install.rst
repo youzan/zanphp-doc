@@ -3,9 +3,9 @@
 
 Zan PHP 依赖以下包
 
-`yz-swoole <https://github.com/youzan/yz_swoole>`__
+`zan <https://github.com/youzan/zan>`__
 
-https://github.com/youzan/yz_swoole.git
+https://github.com/youzan/zan.git
 
 `php-lz4扩展 <https://github.com/kjdev/php-ext-lz4>`__
 

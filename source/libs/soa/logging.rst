@@ -1,25 +1,23 @@
 Logging
 =======
 
-| 目前支持的日志类型有：\ ``file``\ （绝对路径）、\ ``log``\ （项目相对路径，会写到项目的resource/log目录下）、\ ``syslog``\ （flume
-  log系统，内部系统，暂无开源计划，如需使用需自行开发）、\ ``blackhole``\ （黑洞）。
-| file、log、syslog类型都支持buffer，可以在 log.php 配置 useBuffer=true
-  启用。
-| bufferSize默认值为 4096。
+目前支持的日志类型有：\ ``file``\ （绝对路径）、\ ``log``\ （项目相对路径，会写到项目的resource/log目录下）、\ ``syslog``\ （flume 
+log系统，内部系统，暂无开源计划，如需使用需自行开发）、\ ``blackhole``\ （黑洞）。
+file、log、syslog类型都支持buffer，可以在 log.php 配置 useBuffer=true
+启用。
+bufferSize默认值为 4096。
 
 **useBuffer 对于性能有较大提升，如果业务允许，请尽量启用。**
 
 配置
 ----
 
-日志的配置文件为\ `resource/config/$ENV/log.php。 </zh/config/log.md>`__
+日志的配置文件为\ `resource/config/$ENV/log.php。 <../../config/log.html>`__
 
 API
 ---
 
-Log是一个工厂类，获取到的日志实例类实现了
-  Psr\Log\LoggerInterface接口，有以下方法：emergency,
-  alert, critical, error, warning, notice, info, debug, log。
+Log是一个工厂类，获取到的日志实例类实现了Psr\Log\LoggerInterface接口，有以下方法：emergency, alert, critical, error, warning, notice, info, debug, log。
 
 其中log方法是通过传入level的形式调用error, warning, notice等方法。
 

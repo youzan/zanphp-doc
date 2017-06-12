@@ -13,11 +13,9 @@ Shorturl配置在项目resource/config/$ENV/shorturl.php下。
 
     return  [
         //短地址接入的server地址
-        'host' => 'api.kdt.im',
+        'host' => 'www.example.com',
         'port' => 80
     ];
-
-各环境下的server配置参见\ http://doc.qima-inc.com/pages/viewpage.action?pageId=10036541\ 。
 
 接口
 ~~~~
@@ -35,4 +33,4 @@ get方法入参为long url，返回的是short url。
 
 .. code:: php
 
-    $shortUrl = (yield ShortUrl::get("http://koudaitong.com"));
+    $shortUrl = (yield ShortUrl::get("http://www.example.com"));
