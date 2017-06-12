@@ -26,4 +26,4 @@ trace.php
         "run" => false,
     ];
 
-如果开启调用链，则需要在resource/config/$ENV/connection下配置tcp.trace连接池，具体参考\ `Tcp连接池配置 <../libs/pool/tcp.md>`__\ 。
+如果开启调用链，则需要在resource/config/$ENV/connection下配置tcp.trace连接池，具体参考\ `Tcp连接池配置 <../libs/pool/tcp.html>`__\ 。

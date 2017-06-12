@@ -16,7 +16,7 @@ zan框架封装了redis uuid生成器的调用接口，业务可以直接调用�
         'uuid' => [
             'engine'=> 'redis',
             //uuid生成器server地址
-            'host' => 'idgen-qa.s.qima-inc.com',
+            'host' => 'www.example.com',
             'port' => 6000,
             'pool'  => [
                 'maximum-connection-count' => '50',
