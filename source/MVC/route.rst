@@ -43,7 +43,7 @@ default\_format指定返回页面的content-type字段，default\_format与conte
 
 自定义路由
 ----------
-为满足不同业务开发的路由需求，zanphp框架支持自定义路由，只需要实现Zan\Framework\Network\Http\Routing\IRouter接口即可快速实现。
+为满足不同业务开发的路由需求，zanphp框架支持自定义路由，只需要实现Zan\\Framework\\Network\\Http\\\Routing\\IRouter接口即可快速实现。
 
 .. code:: php
 
