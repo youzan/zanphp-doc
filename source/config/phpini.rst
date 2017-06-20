@@ -18,5 +18,6 @@ php.ini
 -  date.timezone：设置时间时区
 
 -  zanphp.RUN\_MODE：程序运行模式，对应resource/config下的子目录，如zanphp.RUN\_MODE
-   = test对应配置resource/config/test生效，默认值为online
+   = test对应配置resource/config/test生效，默认值为online,可选的环境配置包括dev,test,
+   pre,readonly,online,unittest,qatest,pubtest,ci,perf,daily。
 -  zanphp.DEBUG：是否开启调试模式，默认值为false

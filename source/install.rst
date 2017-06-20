@@ -14,3 +14,5 @@ https://github.com/kjdev/php-ext-lz4.git
 `php-apcu扩展 <https://github.com/krakjoe/apcu>`__
 
 https://pecl.php.net/package/APCu
+
+扩展安装完成之后，利用脚手架`zan—installer <http://zanphp.io/guide/cli>`__安装zanhttpdemo和zantcpdemo即可。
