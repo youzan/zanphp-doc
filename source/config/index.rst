@@ -8,10 +8,9 @@
 
     config
     phpini
-    haunt
     hawk
     trace
     debug
-    nova
+    registry
     server
     log
