@@ -11,8 +11,6 @@ resource/config/$ENV/registry.php
 
 服务注册中心配置：服务注册，服务发现，服务订阅
 
-注意：原本 nova.php haunt.php 配置全部合并到 registry.php, 兼容旧配置
-
 配置内容
 --------
 
@@ -120,5 +118,7 @@ resource/config/$ENV/registry.php
 
 注意
 ~~~~
+
+原本 nova.php haunt.php 配置全部合并到 registry.php, 兼容旧配置
 
 注册的服务发现列表需要确保已经成功注册至etcd
