@@ -49,7 +49,7 @@ resource/config/$ENV/registry.php
 
         // 配置从注册中心拉取的服务名称
         "app_names" => [
-            "tcp-demo"
+        //    "tcp-demo"
         ],
 
         // 配置从注册中心拉取服务的协议(暂时只能是nova)与命名空间(域)
