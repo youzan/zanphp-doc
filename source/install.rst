@@ -15,4 +15,6 @@ https://github.com/kjdev/php-ext-lz4.git
 
 https://pecl.php.net/package/APCu
 
+注：zan扩展与swoole扩展不兼容，且opcache扩展在php7下不稳定，建议使用zan框架时关闭swoole扩展和opcache扩展配置。
+
 扩展安装完成之后，利用脚手架`zan—installer <http://zanphp.io/guide/cli>`__安装zanhttpdemo和zantcpdemo即可。
