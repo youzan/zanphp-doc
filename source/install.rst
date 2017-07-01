@@ -17,4 +17,36 @@ https://pecl.php.net/package/APCu
 
 注：zan扩展与swoole扩展不兼容，且opcache扩展在php7下不稳定，建议使用zan框架时关闭swoole扩展和opcache扩展配置。
 
-扩展安装完成之后，利用脚手架`zan—installer <http://zanphp.io/guide/cli>`__安装zanhttpdemo和zantcpdemo即可。
+扩展安装完成之后，利用脚手架`zan—installer <http://zanphp.io/guide/cli>`__安装zanhttpdemo和zantcpdemo。
+
+
+脚手架工具 zan-installer
+------------------------------
+
+ZanPHP 提供一个官方命令行工具 zan-installer，可用于快速初始化项目目录。zan-installer提供了交互式的初始化方式，方便你快速设置应用名、项目路径、命名空间等配置。
+
+- git clone https://github.com/youzan/zan-installer.git
+
+- cd zan-installer
+
+- composer install
+
+- php ./zan
+
+.. figure:: zan-installer-1.png
+
+.. figure:: zan-installer-2.png
+
+- TCP SERVER: # php bin/nova
+
+- HTTP SERVER: # php bin/httpd
+
+立即打开浏览器访问HTTP SERVER吧！
+
+.. figure:: zan-welcome.png
+
+- NOVA RPC服务调用
+
+(默认情形下没有开启服务拉取,需要开启resource/config/{ENV}/registry.php配置中的app_names选项)
+
+.. figure:: zan-nova.png
