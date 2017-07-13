@@ -10,6 +10,7 @@
     phpini
     hawk
     trace
+    cookie
     debug
     registry
     server
