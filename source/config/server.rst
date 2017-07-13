@@ -25,6 +25,7 @@ Server相关配置
         'host'          => '0.0.0.0',
         //监听ip
         'port'          => '8020',
+
         'config' => [
             //worker数量，推荐设置和cpu核数相等
             'worker_num' => 2,
@@ -38,6 +39,7 @@ Server相关配置
             'open_nova_protocol' => 1,
             'package_max_length' => 2000000,
         ],
+
         //worker进程监控重启参数
         'monitor' =>[
             //进程请求多少次后重启
@@ -55,16 +57,19 @@ Server相关配置
             //单个worker进程最大并发数(流控)
             'max_concurrency' => 2000,
         ],
+
         //请求超时时间, 单位ms
         'request_timeout' => 30000,
+
         //监控上报参数
         'hawk_collection' => [
             'enable_hawk' => 0, //是否开启监控采集 1开启，0不开启
             'hawk_url' => 'http://www.example.com',
         ],
-        //信任的server反向代理ip，只有从受信任的代理ip转发至server的包纳入真实客户端ip地址统计
-        'proxy' => [
-            'a.a.a.a',
-            'b.b.b.b',
-        ],
+
+        //信任的server反向代理ip，只有从受信任的代理ip转发至server的包纳入真实客户端ip地址统计(可选)
+        //'proxy' => [
+        //    'a.a.a.a',
+        //    'b.b.b.b',
+        //],
     ];
