@@ -32,3 +32,16 @@ Nova连接配置在项目 resource/config/$ENV/connection下。
     ];
 
 不同于其他连接池，Nova连接池的连接数目、连接目的地址无法配置。主要原因是Nova连接池的目标地址为服务提供方的地址，服务提供方的信息来源于注册中心。另外，每一个外部服务在zan框架中对应一个Nova连接池，Nova连接池中的连接数目等于提供外部服务的server数目。
+
+
+除了全局超时配置之外，ZanPHP还提供了针对每次接口调用的发送超时配置，超时接口为:
+
+.. code:: php
+
+    final public function setCurrentInvokeTimeout($ms)  //参数为时间，单位为ms
+
+使用示例为:
+
+.. code:: php
+
+    $result = (yield $myService->setCurrentInvokeTimeout(10)->myMethod());
