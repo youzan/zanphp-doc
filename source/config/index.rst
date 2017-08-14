@@ -13,5 +13,7 @@
     cookie
     debug
     registry
+    haunt
+    nova
     server
     log
