@@ -30,6 +30,8 @@ Mysql连接配置在项目 resource/config/$ENV/connection下。
                 //连接池初始连接数目
                 'init-connection'=> 1,
             ],
+            'connect_timeout' => 1000, //redis连接超时时间，单位为ms，默认值1000ms
+            'timeout' => 1000, //redis请求超时时间，单位为ms，默认值2000ms
         ],
 
     ];
