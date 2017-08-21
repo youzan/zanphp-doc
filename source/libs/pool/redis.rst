@@ -23,6 +23,8 @@ redis连接配置在项目 resource/config/$ENV/connection下。
             ],
             'connect_timeout' => 1000, //redis连接超时时间，单位为ms，默认值1000ms
             'timeout' => 1000, //redis请求超时时间，单位为ms，默认值2000ms
+            'password' => 'xxxx', //redis密码，可选
+            'selectDB => 0,   //redis连接成功后执行的select DB index
         ],
     ];
 
