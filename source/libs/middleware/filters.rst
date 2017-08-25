@@ -116,3 +116,6 @@ http配置内容与tcp类似，不同点在于tcp以服务名和方法名为key�
     ];
 
 TraceFilter位于src/Network/Server/Middleware/TraceFilter.php文件。
+
+
+自定义filter在框架filter之后执行
