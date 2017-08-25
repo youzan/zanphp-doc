@@ -26,6 +26,7 @@ Terminators
 配置请求与terminate对应关系的规则与Filter相同，类似为：
 
 .. code:: php
+
     <?php
     return [
         'match' => [
