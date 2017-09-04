@@ -23,7 +23,35 @@ Terminators
 
 -  terminate方法的实现可以为协程或者纯函数。
 
-目前Terminator的自定义实现可以通过在InitializeMiddleware类中的$zanTerminators成员添加。Http和Tcp的InitializeMiddleware类文件位置分别为src/Network/Http/ServerStart/InitializeMiddleware.php和src/Network/Tcp/ServerStart/InitializeMiddleware.php。
+配置请求与terminate对应关系的规则与Filter相同，类似为：
+
+.. code:: php
+
+    <?php
+    return [
+        'match' => [
+            // 可以单独针对 所有泛化调用 设置过滤器
+            [
+                "/com/Yourcompany/nova/framework/generic/service/GenericService/invoke", "genericServiceFilterGroup",
+            ],
+            // 也可以直接 针对特定服务配置, 在过滤器内检测是否是泛化调用
+            [
+                "/Com/Yourcompany/Nova/Framework/Generic/Php/Service/GenericTestService/ThrowException", "genericServiceFilterGroup",
+            ],
+            [
+                ".*", "all"
+            ]
+        ],
+        'group' => [
+            "genericServiceFilterGroup" => [
+                TraceTerminator::class
+            ],
+            "all" => [
+                TraceTerminator::class
+            ],
+        ]
+    ];
+
 
 示例
 ----
@@ -52,3 +80,6 @@ Terminators
     }
 
 以TraceTerminator为例，其通过context获取trace实例之后，将监控信息进行上报。
+
+自定义terminator会在框架terminator执行之前执行
+
