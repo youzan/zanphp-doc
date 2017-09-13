@@ -17,7 +17,7 @@ https://pecl.php.net/package/APCu
 
 注：zan扩展与swoole扩展不兼容，且zan是常驻进程的运行模式，不再需要opcache来提供性能提升，建议使用zan框架时关闭swoole扩展和opcache扩展配置。
 
-扩展安装完成之后，利用脚手架`zan—installer <http://zanphp.io/guide/cli>`__安装zanhttpdemo和zantcpdemo。
+扩展安装完成之后，利用脚手架`zan-installer <http://zanphp.io/guide/cli>`__ 安装zanhttpdemo和zantcpdemo。
 
 
 脚手架工具 zan-installer
