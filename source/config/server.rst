@@ -72,4 +72,10 @@ Server相关配置
         //    'a.a.a.a',
         //    'b.b.b.b',
         //],
+
+        //ZanPHP本地缓存开启配置，enable为开关，ttl为本地缓存key的超时时间
+        //'local_cache' => [
+        //    'enabled' => true,
+        //    'ttl' => 30
+        //],
     ];
