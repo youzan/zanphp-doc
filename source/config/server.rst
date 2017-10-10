@@ -73,7 +73,7 @@ Server相关配置
         //    'b.b.b.b',
         //],
 
-        //ZanPHP本地缓存开启配置，enable为开关，ttl为本地缓存key的超时时间,单位为s
+        //ZanPHP本地缓存开启配置，enable为开关，ttl为本地缓存key的超时时间,单位为s,默认ttl为3s
         //'local_cache' => [
         //    'enabled' => true,
         //    'ttl' => 30
