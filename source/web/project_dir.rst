@@ -13,7 +13,6 @@
     ├── resource
     │   ├── cache
     │   ├── kvstore
-    │   ├── routing
     │   ├── config
     │   │   ├── qatest
     │   │   │   ├── connection

@@ -20,9 +20,6 @@
     │   └── test.php
     ├── middleware
     │   └── middleware.php
-    ├── routing
-    │   ├── route1.php
-    │   └── route2.php
     └── sql
         └── demo.php
 
