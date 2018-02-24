@@ -32,6 +32,10 @@ tcp
             [
                 "/Com/Yourcompany/Nova/Framework/Generic/Php/Service/GenericTestService/ThrowException", "genericServiceFilterGroup",
             ],
+            // 支持设置多个过滤器
+            [
+                "/com/Yourcompany/nova/framework/generic/service/GenericService/invoke", ["genericServiceFilterGroup", "another"],
+            ],
             [
                 ".*", "all"
             ]
@@ -39,6 +43,9 @@ tcp
         'group' => [
             "genericServiceFilterGroup" => [
                 genericServiceFilter::class
+            ],
+            "another" => [
+                anotherFilter::class
             ],
             "all" => [
                 genericServiceFilter::class
